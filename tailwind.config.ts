@@ -56,6 +56,7 @@ const config: Config = {
       spacing: {
         _30: "30px",
         _75: "75px",
+        _1000: "1000px",
       },
     },
   },
