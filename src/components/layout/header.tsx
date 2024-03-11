@@ -1,8 +1,12 @@
+"use client";
 import Image from "next/image";
 import Link from "next/link";
 import { Heart, Search, ShoppingCart, User } from "lucide-react";
 
 import { Layout } from ".";
+import { Menu } from "../svg";
+import MenuMobile from "../ui/menu-mobile/menu-mobile";
+import { useState } from "react";
 
 const links = [
   { name: "Home", path: "/" },
@@ -12,24 +16,35 @@ const links = [
 ];
 
 const iconLinks = [
-  { Icon: User, path: "" },
+  { Icon: User, path: "/account" },
   { Icon: Search, path: "/search" },
   { Icon: Heart, path: "/favoris" },
   { Icon: ShoppingCart, path: "/cart" },
 ];
 
 function Header() {
-  return (
-    <nav>
-      <Layout className="py-_30 flex items-center justify-between px-4 lg:px-14 ">
-        <Link href="/" className="flex items-center">
-          <Image src="/images/logo.png" width={50} height={30} alt="logo" />
-          <h2 className="lg:text-_34 font-montserrat gap-1 text-xl font-bold md:text-2xl">
-            Furniro
-          </h2>
-        </Link>
+  const [isOpen, setIsOpen] = useState(false);
 
-        <div className="lg:gap-_75 hidden transition duration-500 ease-in md:flex md:gap-10">
+  const toggleMenu = () => {
+    console.log("clicked");
+    setIsOpen((prevIsOpen) => !prevIsOpen);
+  };
+  return (
+    <nav className="relative">
+      <Layout className="flex items-center justify-between px-4 py-_30 lg:px-14 ">
+        <div className="flex items-center gap-2">
+          <div className="md:hidden" onClick={toggleMenu}>
+            <Menu />
+          </div>
+          <Link href="/" className="flex items-center">
+            <Image src="/images/logo.png" width={50} height={30} alt="logo" />
+            <h2 className="gap-1 font-montserrat text-xl font-bold md:text-2xl lg:text-_34">
+              Furniro
+            </h2>
+          </Link>
+        </div>
+
+        <div className="hidden transition duration-500 ease-in md:flex md:gap-10 lg:gap-_75">
           {links.map((link, key) => (
             <Link
               href={link.path}
@@ -53,6 +68,7 @@ function Header() {
           ))}
         </div>
       </Layout>
+      <MenuMobile isOpen={isOpen} setIsOpen={setIsOpen} />
     </nav>
   );
 }
