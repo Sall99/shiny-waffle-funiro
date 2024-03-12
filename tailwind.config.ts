@@ -41,6 +41,14 @@ const config: Config = {
         DEFAULT: "hsl(var(--card))",
         foreground: "hsl(var(--card-foreground))",
       },
+
+      orange: {
+        100: "var(--color-orange-100)",
+        500: "var(--color-orange-500)",
+      },
+    },
+    backgroundImage: {
+      "home-hero-pattern": "url('/images/hero.jpg')",
     },
     extend: {
       fontFamily: {
@@ -56,6 +64,9 @@ const config: Config = {
       spacing: {
         _30: "30px",
         _75: "75px",
+        _443: "443px",
+        _643: "543px",
+        _716: "716px",
         _1000: "1000px",
       },
     },

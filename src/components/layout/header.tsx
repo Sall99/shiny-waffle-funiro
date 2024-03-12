@@ -1,4 +1,6 @@
 "use client";
+import { useState } from "react";
+import clsx from "clsx";
 import Image from "next/image";
 import Link from "next/link";
 import { Heart, Search, ShoppingCart, User } from "lucide-react";
@@ -6,7 +8,6 @@ import { Heart, Search, ShoppingCart, User } from "lucide-react";
 import { Layout } from ".";
 import { Menu } from "../svg";
 import MenuMobile from "../ui/menu-mobile/menu-mobile";
-import { useState } from "react";
 
 const links = [
   { name: "Home", path: "/" },
@@ -16,10 +17,10 @@ const links = [
 ];
 
 const iconLinks = [
-  { Icon: User, path: "/account" },
-  { Icon: Search, path: "/search" },
-  { Icon: Heart, path: "/favoris" },
-  { Icon: ShoppingCart, path: "/cart" },
+  { Icon: User, path: "/account", hidde: false },
+  { Icon: Search, path: "/search", hidde: false },
+  { Icon: Heart, path: "/favoris", hidde: true },
+  { Icon: ShoppingCart, path: "/cart", hidde: false },
 ];
 
 function Header() {
@@ -49,7 +50,7 @@ function Header() {
             <Link
               href={link.path}
               key={key}
-              className="font-poppins hover:text-muted-foreground"
+              className="font-poppins text-base font-medium hover:text-muted-foreground"
             >
               {link.name}
             </Link>
@@ -61,9 +62,12 @@ function Header() {
             <Link
               href={link.path}
               key={key}
-              className="font-poppins hover:text-muted-foreground"
+              className={clsx(
+                "font-poppins hover:text-muted-foreground",
+                link.hidde ? "hidden md:block" : "",
+              )}
             >
-              <link.Icon width={22} height={22} />
+              <link.Icon width={20} height={20} />
             </Link>
           ))}
         </div>

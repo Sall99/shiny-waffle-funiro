@@ -1,10 +1,11 @@
+import { HomeHeroSection } from "@/components";
 import Layout from "@/components/layout/layout";
-import Image from "next/image";
 
 export default function Home() {
   return (
-    <Layout className="">
-      <h2></h2>
+    <Layout>
+      <HomeHeroSection />
+      <div className="mt-60"></div>
     </Layout>
   );
 }
