@@ -27,8 +27,8 @@ export default function MenuMobile({ isOpen, setIsOpen }: MenuMobileProps) {
   return (
     <div
       className={clsx(
-        "absolute inset-0 transition-transform duration-500 ease-in-out",
-        isOpen ? "translate-x-0" : "-translate-x-96",
+        "absolute inset-0 transition-transform duration-500 ease-in-out md:hidden",
+        isOpen ? "translate-x-0" : "-translate-x-_1000",
       )}
     >
       <div className="relative">
