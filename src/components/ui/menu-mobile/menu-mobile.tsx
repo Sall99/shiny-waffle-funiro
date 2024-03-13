@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useEffect } from "react";
 import { ChevronRight, X } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -24,6 +24,18 @@ const linksUser = [
 ];
 
 export default function MenuMobile({ isOpen, setIsOpen }: MenuMobileProps) {
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+
+    return () => {
+      document.body.style.overflow = "auto";
+    };
+  }, [isOpen]);
+
   return (
     <div
       className={clsx(
