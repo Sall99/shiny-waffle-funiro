@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@react-hook/media-query": "^1.1.1",
+    "@vercel/analytics": "^1.2.2",
     "clsx": "^2.1.0",
     "lucide-react": "^0.344.0",
     "next": "14.1.1",

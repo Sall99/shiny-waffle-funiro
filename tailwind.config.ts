@@ -63,6 +63,7 @@ const config: Config = {
       },
       spacing: {
         _30: "30px",
+        _50: "50px",
         _75: "75px",
         _443: "443px",
         _643: "543px",
