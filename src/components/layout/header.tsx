@@ -38,14 +38,21 @@ function Header() {
             <Menu />
           </div>
           <Link href="/" className="flex items-center">
-            <Image src="/images/logo.png" width={50} height={30} alt="logo" />
+            <div className="w-_50 relative h-_30">
+              <Image
+                src="/images/logo.png"
+                alt="logo"
+                fill
+                sizes="(max-width: 768px) 50px, (max-width: 1200px) 50px, 50px"
+              />
+            </div>
             <h2 className="gap-1 font-montserrat text-xl font-bold md:text-2xl lg:text-_34">
               Furniro
             </h2>
           </Link>
         </div>
 
-        <div className="hidden transition duration-500 ease-in md:flex md:gap-10 lg:gap-_75">
+        <div className="hidden transition duration-500 ease-in md:flex md:gap-10 lg:gap-12">
           {links.map((link, key) => (
             <Link
               href={link.path}
@@ -57,7 +64,7 @@ function Header() {
           ))}
         </div>
 
-        <div className="flex gap-6 md:gap-11">
+        <div className="flex gap-6 md:gap-8">
           {iconLinks.map((link, key) => (
             <Link
               href={link.path}

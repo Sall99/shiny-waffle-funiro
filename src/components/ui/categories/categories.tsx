@@ -5,9 +5,24 @@ import Link from "next/link";
 import { useMediaQuery } from "@react-hook/media-query";
 
 const categories = [
-  { title: "Dinning", imageUrl: "dinning.png", path: "/dinning" },
-  { title: "Living", imageUrl: "living.png", path: "/living" },
-  { title: "Bedroom", imageUrl: "bedroom.png", path: "/bedroom" },
+  {
+    title: "Dinning",
+    imageUrl:
+      "https://res.cloudinary.com/dx6jhjxpt/image/upload/v1710347652/shiny-waffle-funiro/dinning_dmrmw0.png",
+    path: "/dinning",
+  },
+  {
+    title: "Living",
+    imageUrl:
+      "https://res.cloudinary.com/dx6jhjxpt/image/upload/v1710347652/shiny-waffle-funiro/living_ccm3p2.png",
+    path: "/living",
+  },
+  {
+    title: "Bedroom",
+    imageUrl:
+      "https://res.cloudinary.com/dx6jhjxpt/image/upload/v1710347653/shiny-waffle-funiro/bedroom_iartde.png",
+    path: "/bedroom",
+  },
 ];
 
 export function Categories() {
@@ -15,7 +30,7 @@ export function Categories() {
   const imageWidth = isMobile ? 250 : 381;
   const imageHeight = isMobile ? 315 : 480;
   return (
-    <section className="px-4">
+    <section className="px-4 md:px-32">
       <div className="my-14 text-center">
         <h2 className="text-lg font-bold capitalize">Browse the range</h2>
         <p>Discover an exquisite selection tailored just for you.</p>
@@ -25,7 +40,7 @@ export function Categories() {
           <Link href={path} key={index}>
             <div className="relative">
               <Image
-                src={`/images/${imageUrl}`}
+                src={imageUrl}
                 alt={title}
                 width={imageWidth}
                 height={imageHeight}
