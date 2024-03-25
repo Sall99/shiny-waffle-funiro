@@ -27,8 +27,8 @@ const categories = [
 
 export function Categories() {
   const isMobile = useMediaQuery("(max-width: 768px)");
-  const imageWidth = isMobile ? 250 : 381;
-  const imageHeight = isMobile ? 315 : 480;
+  const imageWidth = isMobile ? 250 : 280;
+  const imageHeight = isMobile ? 315 : 380;
   return (
     <section className="px-4 md:px-32">
       <div className="my-14 text-center">
