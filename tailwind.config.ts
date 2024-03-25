@@ -46,14 +46,18 @@ const config: Config = {
         100: "var(--color-orange-100)",
         500: "var(--color-orange-500)",
       },
+
+      white: {
+        100: "var(--color-white-100)",
+      },
     },
     backgroundImage: {
       "home-hero-pattern": "url('/images/hero.jpg')",
     },
     extend: {
       fontFamily: {
-        montserrat: ["Montserrat", "sans-serif"],
-        poppins: ["Poppins", "sans-serif"],
+        montserrat: ["var(--font-montserrat)"],
+        poppins: ["var(--font-poppins)"],
       },
       fontSize: {
         _34: "34px",
