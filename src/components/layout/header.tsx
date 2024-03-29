@@ -4,6 +4,7 @@ import clsx from "clsx";
 import Image from "next/image";
 import Link from "next/link";
 import { Heart, Search, ShoppingCart, User } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 import { Layout } from ".";
 import { Menu } from "../svg";
@@ -26,7 +27,7 @@ const iconLinks = [
 function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-
+  const t = useTranslations("Header");
   const toggleMenu = () => {
     console.log("clicked");
     setIsOpen((prevIsOpen) => !prevIsOpen);
@@ -53,7 +54,7 @@ function Header() {
       className={clsx(
         "transition-all duration-500 ease-in-out",
         isScrolled
-          ? "bg-white bg-white-100 fixed left-0 right-0 top-0 z-50 shadow"
+          ? "bg-white fixed left-0 right-0 top-0 z-50 bg-white-100 shadow"
           : "relative",
       )}
     >
@@ -84,7 +85,7 @@ function Header() {
               key={key}
               className="font-poppins text-base font-semibold hover:text-muted-foreground"
             >
-              {link.name}
+              {/* {t(link.name)} */}
             </Link>
           ))}
         </div>
