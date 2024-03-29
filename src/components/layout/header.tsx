@@ -1,9 +1,10 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import clsx from "clsx";
 import Image from "next/image";
 import Link from "next/link";
 import { Heart, Search, ShoppingCart, User } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 import { Layout } from ".";
 import { Menu } from "../svg";
@@ -25,20 +26,45 @@ const iconLinks = [
 
 function Header() {
   const [isOpen, setIsOpen] = useState(false);
-
+  const [isScrolled, setIsScrolled] = useState(false);
+  const t = useTranslations("Header");
   const toggleMenu = () => {
     console.log("clicked");
     setIsOpen((prevIsOpen) => !prevIsOpen);
   };
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 0) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  console.log(isScrolled);
   return (
-    <nav className="relative">
+    <nav
+      className={clsx(
+        "transition-all duration-500 ease-in-out",
+        isScrolled
+          ? "bg-white fixed left-0 right-0 top-0 z-50 bg-white-100 shadow"
+          : "relative",
+      )}
+    >
       <Layout className="flex items-center justify-between px-4 py-_30 lg:px-14 ">
         <div className="flex items-center gap-2">
           <div className="md:hidden" onClick={toggleMenu}>
             <Menu />
           </div>
           <Link href="/" className="flex items-center">
-            <div className="w-_50 relative h-_30">
+            <div className="relative h-_30 w-_50">
               <Image
                 src="/images/logo.png"
                 alt="logo"
@@ -57,9 +83,9 @@ function Header() {
             <Link
               href={link.path}
               key={key}
-              className="font-poppins text-base font-medium hover:text-muted-foreground"
+              className="font-poppins text-base font-semibold hover:text-muted-foreground"
             >
-              {link.name}
+              {/* {t(link.name)} */}
             </Link>
           ))}
         </div>

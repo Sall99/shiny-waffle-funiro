@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import { Poppins, Montserrat } from "next/font/google";
 import { Analytics } from "@vercel/analytics/react";
+
 import "./globals.css";
 import { Header } from "@/components";
+import { NextIntlClientProvider, useMessages } from "next-intl";
 
 const poppins = Poppins({
   subsets: ["latin-ext"],
@@ -22,14 +24,20 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
+  params: { locale },
 }: Readonly<{
   children: React.ReactNode;
+  params: { locale: string };
 }>) {
+  const messages = useMessages();
+
   return (
-    <html lang="en">
+    <html lang={locale}>
       <body className={`${poppins.className} ${montserrat.className}`}>
-        <Header />
-        {children}
+        <NextIntlClientProvider locale={locale} messages={messages}>
+          <Header />
+          <div>{children}</div>
+        </NextIntlClientProvider>
         <Analytics />
       </body>
     </html>
