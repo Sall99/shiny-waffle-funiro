@@ -9,6 +9,7 @@ import { useTranslations } from "next-intl";
 import { Layout } from ".";
 import { Menu } from "../svg";
 import MenuMobile from "../ui/menu-mobile/menu-mobile";
+import { LocalSwitcher } from "@/components";
 
 const links = [
   { name: "Home", path: "/" },
@@ -27,9 +28,8 @@ const iconLinks = [
 function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const t = useTranslations("Header");
+
   const toggleMenu = () => {
-    console.log("clicked");
     setIsOpen((prevIsOpen) => !prevIsOpen);
   };
 
@@ -48,7 +48,6 @@ function Header() {
     };
   }, []);
 
-  console.log(isScrolled);
   return (
     <nav
       className={clsx(
@@ -72,7 +71,7 @@ function Header() {
                 sizes="(max-width: 768px) 50px, (max-width: 1200px) 50px, 50px"
               />
             </div>
-            <h2 className="gap-1 font-montserrat text-xl font-bold md:text-2xl lg:text-_34">
+            <h2 className="gap-1 font-montserrat text-xl font-bold md:text-2xl lg:text-2xl">
               Furniro
             </h2>
           </Link>
@@ -90,19 +89,22 @@ function Header() {
           ))}
         </div>
 
-        <div className="flex gap-6 md:gap-8">
-          {iconLinks.map((link, key) => (
-            <Link
-              href={link.path}
-              key={key}
-              className={clsx(
-                "font-poppins hover:text-muted-foreground",
-                link.hidde ? "hidden md:block" : "",
-              )}
-            >
-              <link.Icon width={20} height={20} />
-            </Link>
-          ))}
+        <div className="flex items-center gap-6 md:gap-8">
+          <LocalSwitcher />
+          <div className="flex gap-6 md:gap-8">
+            {iconLinks.map((link, key) => (
+              <Link
+                href={link.path}
+                key={key}
+                className={clsx(
+                  "font-poppins hover:text-muted-foreground",
+                  link.hidde ? "hidden md:block" : "",
+                )}
+              >
+                <link.Icon width={18} height={18} />
+              </Link>
+            ))}
+          </div>
         </div>
       </Layout>
       <MenuMobile isOpen={isOpen} setIsOpen={setIsOpen} />

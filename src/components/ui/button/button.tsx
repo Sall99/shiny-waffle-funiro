@@ -21,7 +21,7 @@ export const Button: FC<ButtonProps> = ({
     <button
       type={type}
       className={clsx(
-        "text-white bg-orange-500 hover:bg-orange-100 rounded-xs border-0 text-xs hover:cursor-pointer focus:outline-none",
+        "text-white rounded-xs border-0 bg-orange-500 text-xs hover:cursor-pointer hover:border hover:border-orange-500 hover:bg-orange-100 hover:text-orange-500 focus:outline-none",
         className,
       )}
       onClick={onClick}
