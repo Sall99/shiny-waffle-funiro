@@ -17,7 +17,7 @@ export function HomeHeroSection() {
             {t("HerroSection.discover")}
             <br /> {t("HerroSection.newCollection")}
           </p>
-          <p className="mt-2 text-base font-medium">
+          <p className="mt-2 text-sm font-medium">
             {t("HerroSection.indulge")}
           </p>
           <Button

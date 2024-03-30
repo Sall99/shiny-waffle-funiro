@@ -1,1 +1,18 @@
-{}
+{
+  "HerroSection": {
+    "newArrival": "Nouvelle arrivée",
+    "discover": "Découvrez notre",
+    "newCollection": "Nouvelle collection",
+    "indulge": "Laissez-vous séduire par le luxe et le style avec notre sélection de produits. Explorez un monde d'élégance et de fonctionnalité."
+  },
+  "Common": {
+    "buyNow": "Acheter maintenant"
+  },
+  "categoriesSection": {
+    "browse": "Parcourir la gamme",
+    "discover": "Découvrez une sélection exquise conçue spécialement pour vous.",
+    "dinning": "Salle à manger",
+    "living": "Salon",
+    "bedroom": "Chambre à coucher"
+  }
+}

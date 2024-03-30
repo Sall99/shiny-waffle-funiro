@@ -7,5 +7,12 @@
   },
   "Common": {
     "buyNow": "Buy Now"
+  },
+  "categoriesSection": {
+    "browse": "Browse the range",
+    "discover": "Discover an exquisite selection tailored just for you.",
+    "dinning": "Dinning room",
+    "living": "Living room",
+    "bedroom": "Bedroom"
   }
 }
