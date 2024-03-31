@@ -52,6 +52,7 @@ const config: Config = {
       },
 
       gray: {
+        100: "var(--color-gray-100)",
         200: "var(--color-gray-200)",
         400: "var(--color-gray-400)",
       },

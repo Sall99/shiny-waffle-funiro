@@ -13,7 +13,7 @@ export function ProductsSection() {
 
   return (
     <div className="md:px-_102 mt-14">
-      <h2 className="text-center text-lg font-bold capitalize">
+      <h2 className="mb-8 text-center text-lg font-bold capitalize">
         {t("ourProducts")}
       </h2>
       <div className="grid grid-cols-1 content-center gap-8 md:grid-cols-2 lg:grid-cols-3">

@@ -33,10 +33,9 @@ export function Product({
   };
 
   return (
-    <div className="w-_285 m-auto h-_443">
+    <div className="w-_285 bg-gray-100 m-auto h-_443">
       <div style={imageStyle}></div>
-
-      <div>
+      <div className="px-5 py-4">
         <h2 className="mt-4 text-sm font-semibold">{name}</h2>
         <p className="text-gray-400 mt-2 truncate text-xs ">{title}</p>
         <p className="mt-2 text-sm">
