@@ -1,8 +1,18 @@
+import axios from "axios";
 import { Pathnames } from "next-intl/navigation";
 
 export const locales = ["en", "fr"] as const;
 
-export const pathnames = {
+const instance = axios.create({
+  baseURL: "http://localhost:3000/api",
+  timeout: 30000,
+  withCredentials: true,
+  headers: {
+    "Content-Type": "application/json",
+  },
+});
+
+const pathnames = {
   "/": "/",
   "/pathnames": {
     en: "/pathnames",
@@ -11,6 +21,9 @@ export const pathnames = {
 } satisfies Pathnames<typeof locales>;
 
 // Use the default: `always`
-export const localePrefix = undefined;
+const localePrefix = undefined;
 
-export type AppPathnames = keyof typeof pathnames;
+type AppPathnames = keyof typeof pathnames;
+
+export { instance, localePrefix, pathnames };
+export type { AppPathnames };

@@ -1,11 +1,16 @@
-import { Categories, HomeHeroSection } from "@/components";
-import Layout from "@/components/layout/layout";
+import {
+  CategoriesSection,
+  HomeHeroSection,
+  ProductsSection,
+  Layout,
+} from "@/components";
 
 export default function Home() {
   return (
     <Layout>
       <HomeHeroSection />
-      <Categories />
+      <CategoriesSection />
+      <ProductsSection />
     </Layout>
   );
 }
