@@ -56,6 +56,10 @@ const config: Config = {
         200: "var(--color-gray-200)",
         400: "var(--color-gray-400)",
       },
+
+      black: {
+        500: "var(--color-black-500)",
+      },
     },
     backgroundImage: {
       "home-hero-pattern": "url('/images/hero.jpg')",
@@ -76,6 +80,7 @@ const config: Config = {
         _50: "50px",
         _75: "75px",
         _102: "102px",
+        _208: "208px",
         _285: "285px",
         _305: "305px",
         _443: "443px",
