@@ -4,7 +4,6 @@ import clsx from "clsx";
 import Image from "next/image";
 import Link from "next/link";
 import { Heart, Search, ShoppingCart, User } from "lucide-react";
-import { useTranslations } from "next-intl";
 
 import { Layout } from ".";
 import { Menu } from "../svg";

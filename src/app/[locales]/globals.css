@@ -24,9 +24,15 @@
     --input: 214.3 31.8% 91.4%;
     --ring: 221.2 83.2% 53.3%;
     --radius: 0.5rem;
+
     --color-orange-100: rgba(255, 243, 227, 1);
     --color-orange-500: rgba(184, 142, 47, 1);
+
     --color-white-100: rgb(255, 255, 255);
+
+    --color-gray-100: rgba(244, 245, 247, 1);
+    --color-gray-200: rgba(176, 176, 176, 1);
+    --color-gray-400: rgba(137, 137, 137, 1);
   }
 
   .dark {

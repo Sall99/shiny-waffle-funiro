@@ -50,6 +50,12 @@ const config: Config = {
       white: {
         100: "var(--color-white-100)",
       },
+
+      gray: {
+        100: "var(--color-gray-100)",
+        200: "var(--color-gray-200)",
+        400: "var(--color-gray-400)",
+      },
     },
     backgroundImage: {
       "home-hero-pattern": "url('/images/hero.jpg')",
@@ -69,6 +75,9 @@ const config: Config = {
         _30: "30px",
         _50: "50px",
         _75: "75px",
+        _102: "102px",
+        _285: "285px",
+        _305: "305px",
         _443: "443px",
         _643: "543px",
         _716: "716px",
@@ -76,6 +85,7 @@ const config: Config = {
       },
     },
   },
+
   plugins: [],
 };
 export default config;

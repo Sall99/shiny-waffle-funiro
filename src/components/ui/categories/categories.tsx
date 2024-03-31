@@ -26,7 +26,7 @@ const categories = [
   },
 ];
 
-export function Categories() {
+export function CategoriesSection() {
   const t = useTranslations("categoriesSection");
   const isMobile = useMediaQuery("(max-width: 768px)");
   const imageWidth = isMobile ? 250 : 280;
@@ -46,7 +46,6 @@ export function Categories() {
                 alt={title}
                 width={imageWidth}
                 height={imageHeight}
-                layout="fixed"
               />
             </div>
             <p className="mt-8 text-center font-semibold">{t(title)}</p>

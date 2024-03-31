@@ -14,5 +14,8 @@
     "dinning": "Salle à manger",
     "living": "Salon",
     "bedroom": "Chambre à coucher"
+  },
+  "Products": {
+    "ourProducts": "Nos produits"
   }
 }
