@@ -70,8 +70,14 @@ function Header() {
                 sizes="(max-width: 768px) 50px, (max-width: 1200px) 50px, 50px"
               />
             </div>
-            <h2 className="gap-1 font-montserrat text-xl font-bold md:text-2xl lg:text-2xl">
-              Furniro
+
+            <h2 className="group/link relative block gap-1 overflow-hidden font-montserrat font-bold delay-75 md:text-2xl lg:text-2xl">
+              <span className="block text-lg tracking-[0.01em] transition-transform duration-500 group-hover/link:translate-y-[-100%]">
+                Furniro
+              </span>
+              <span className="absolute left-0 block text-lg tracking-[0.01em] transition-transform duration-500 group-hover/link:translate-y-[-100%]">
+                Furniro
+              </span>
             </h2>
           </Link>
         </div>
