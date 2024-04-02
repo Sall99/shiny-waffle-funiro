@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { useMediaQuery } from "@react-hook/media-query";
 import { useFormatter } from "next-intl";
 import { ArrowLeftRight, Heart, Share2 } from "lucide-react";
-import { Button } from "..";
+import { Button } from "@/components";
 
 interface ProductProps {
   name: string;
@@ -36,7 +36,7 @@ export function Product({
 
   return (
     <div
-      className="relative m-auto h-_443 w-_285 bg-gray-100"
+      className="sm:h-_450 relative m-auto w-_285 bg-gray-100 pb-4 sm:pb-0 "
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >
