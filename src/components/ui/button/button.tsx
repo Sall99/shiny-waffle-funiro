@@ -24,7 +24,8 @@ export const Button: FC<ButtonProps> = ({
       type={type}
       className={clsx(
         "text-white rounded-xs border-0 text-xs hover:cursor-pointer hover:border hover:border-orange-500 hover:text-orange-500 focus:outline-none",
-        variant === "primary" && "bg-orange-500 hover:bg-orange-100",
+        variant === "primary" &&
+          "bg-orange-500 text-accent hover:bg-orange-100",
         variant === "secondary" && "bg-white-100 text-orange-500",
         className,
       )}

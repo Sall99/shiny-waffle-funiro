@@ -22,7 +22,7 @@ export function HomeHeroSection() {
           </p>
           <Button
             label={t("Common.buyNow")}
-            className="mt-11 px-16 py-6 font-bold uppercase text-accent"
+            className="mt-11 px-16 py-6 font-bold uppercase"
           />
         </div>
       </div>
