@@ -61,7 +61,7 @@ export function ProductsSection() {
 
       <div className="mt-8 flex w-full items-center justify-center">
         <Button
-          label="Handle more"
+          label="Show More"
           onClick={handleLoadMore}
           className="w-_245 h-_48 m-auto text-base font-bold uppercase hover:bg-white-100"
           variant="primary"

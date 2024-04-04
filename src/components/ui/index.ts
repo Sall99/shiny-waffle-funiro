@@ -6,3 +6,4 @@ export * from "./locale-switcher";
 export * from "./products";
 export * from "./product";
 export * from "./skeletons";
+export * from "./inspiration";

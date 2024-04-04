@@ -6,6 +6,9 @@ import "./globals.css";
 import { Header } from "@/components";
 import { NextIntlClientProvider, useMessages } from "next-intl";
 
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+
 const poppins = Poppins({
   subsets: ["latin-ext"],
   weight: ["100", "200", "300", "400", "500", "600", "800", "900"],

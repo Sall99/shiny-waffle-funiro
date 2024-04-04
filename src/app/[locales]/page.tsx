@@ -3,6 +3,7 @@ import {
   HomeHeroSection,
   ProductsSection,
   Layout,
+  Inspiration,
 } from "@/components";
 
 export default function Home() {
@@ -11,6 +12,7 @@ export default function Home() {
       <HomeHeroSection />
       <CategoriesSection />
       <ProductsSection />
+      <Inspiration />
     </Layout>
   );
 }

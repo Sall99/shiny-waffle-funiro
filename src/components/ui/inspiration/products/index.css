@@ -1,0 +1,13 @@
+.slick-slide {
+  width: 372px !important;
+}
+
+.home-slider-container {
+  height: 400px;
+}
+
+.home-slider-image {
+  background-size: cover;
+  background-position: center;
+  width: 372px;
+}
