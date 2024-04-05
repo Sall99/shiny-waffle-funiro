@@ -8,7 +8,7 @@ export interface ButtonProps {
   onClick?: () => void;
   type?: "button" | "submit" | "reset";
   disabled?: boolean;
-  variant?: "primary" | "secondary";
+  variant?: "primary" | "secondary" | "black";
 }
 
 export const Button: FC<ButtonProps> = ({
@@ -23,10 +23,12 @@ export const Button: FC<ButtonProps> = ({
     <button
       type={type}
       className={clsx(
-        "text-white rounded-xs border-0 text-xs hover:cursor-pointer hover:border hover:border-orange-500 hover:text-orange-500 focus:outline-none",
+        variant !== "black" &&
+          "text-white rounded-xs border-0 text-xs hover:cursor-pointer hover:border hover:border-orange-500 hover:text-orange-500 focus:outline-none",
         variant === "primary" &&
           "bg-orange-500 text-accent hover:bg-orange-100",
         variant === "secondary" && "bg-white-100 text-orange-500",
+        variant === "black" && "border-b-2 border-black-500",
         className,
       )}
       onClick={onClick}

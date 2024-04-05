@@ -3,7 +3,7 @@ import { Poppins, Montserrat } from "next/font/google";
 import { Analytics } from "@vercel/analytics/react";
 
 import "./globals.css";
-import { Header } from "@/components";
+import { Footer, Header } from "@/components";
 import { NextIntlClientProvider, useMessages } from "next-intl";
 
 import "slick-carousel/slick/slick.css";
@@ -40,6 +40,7 @@ export default function RootLayout({
         <NextIntlClientProvider locale={locale} messages={messages}>
           <Header />
           <div>{children}</div>
+          <Footer />
         </NextIntlClientProvider>
         <Analytics />
       </body>
