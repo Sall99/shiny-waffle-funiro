@@ -7,3 +7,4 @@ export * from "./products";
 export * from "./product";
 export * from "./skeletons";
 export * from "./inspiration";
+export * from "./input";

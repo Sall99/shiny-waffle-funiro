@@ -12,7 +12,7 @@ export default function Home() {
       <HomeHeroSection />
       <CategoriesSection />
       <ProductsSection />
-      <Inspiration />
+      {/* <Inspiration /> */}
     </Layout>
   );
 }
