@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import clsx from "clsx";
 import Image from "next/image";
 import Link from "next/link";
-import { Heart, Search, ShoppingCart, User } from "lucide-react";
+import { Heart, LogIn, Search, ShoppingCart, User } from "lucide-react";
 
 import { Layout } from ".";
 import { Menu } from "../svg";
@@ -18,15 +18,17 @@ const links = [
 ];
 
 const iconLinks = [
-  { Icon: User, path: "/account", hidde: false },
-  { Icon: Search, path: "/search", hidde: false },
-  { Icon: Heart, path: "/favoris", hidde: true },
-  { Icon: ShoppingCart, path: "/cart", hidde: false },
+  { Icon: User, path: "/account", hidden: false, auth: true },
+  { Icon: LogIn, path: "/auth/login", hidden: false, auth: false },
+  { Icon: Search, path: "/search", hidden: false, auth: false },
+  { Icon: Heart, path: "/favoris", hidden: true, auth: false },
+  { Icon: ShoppingCart, path: "/cart", hidden: false, auth: false },
 ];
 
 function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const user = null;
 
   const toggleMenu = () => {
     setIsOpen((prevIsOpen) => !prevIsOpen);
@@ -88,27 +90,27 @@ function Header() {
               href={link.path}
               key={key}
               className="font-poppins text-base font-semibold hover:text-muted-foreground"
-            >
-              {/* {t(link.name)} */}
-            </Link>
+            ></Link>
           ))}
         </div>
 
         <div className="flex items-center gap-6 md:gap-8">
           <LocalSwitcher />
           <div className="flex gap-6 md:gap-8">
-            {iconLinks.map((link, key) => (
-              <Link
-                href={link.path}
-                key={key}
-                className={clsx(
-                  "font-poppins hover:text-muted-foreground",
-                  link.hidde ? "hidden md:block" : "",
-                )}
-              >
-                <link.Icon width={18} height={18} />
-              </Link>
-            ))}
+            {iconLinks.map((link, key) =>
+              (link.auth && user) || !link.auth ? (
+                <Link
+                  href={link.path}
+                  key={key}
+                  className={clsx(
+                    "font-poppins hover:text-muted-foreground",
+                    link.hidden ? "hidden md:block" : "",
+                  )}
+                >
+                  <link.Icon width={18} height={18} />
+                </Link>
+              ) : null,
+            )}
           </div>
         </div>
       </Layout>

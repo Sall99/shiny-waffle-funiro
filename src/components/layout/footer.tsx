@@ -5,6 +5,7 @@ import Link from "next/link";
 import { FaGithub, FaLinkedinIn } from "react-icons/fa";
 
 import { Button, Input } from "@/components";
+import { useTranslations } from "next-intl";
 
 const links = [
   { name: "Home", path: "/" },
@@ -14,15 +15,16 @@ const links = [
 ];
 
 const helpLinks = [
-  { name: "Payment Options", path: "/payment-options" },
+  { name: "PaymentOptions", path: "/payment-options" },
   { name: "Returns", path: "/returns" },
-  { name: "Privacy Policies", path: "/privacy-policies" },
+  { name: "PrivacyPolicies", path: "/privacy-policies" },
 ];
 
 const myGithub = "https://github.com/Sall99";
 const myLinkedin = "https://www.linkedin.com/in/sall99/";
 
 export function Footer() {
+  const t = useTranslations("Footer");
   const currentYear = dayjs().year();
 
   return (
@@ -49,7 +51,7 @@ export function Footer() {
         </div>
         <div className="lg:mt0 mt-12 flex justify-between md:gap-36 xl:gap-36">
           <div>
-            <p className="text-gray-500 text-sm">Links</p>
+            <p className="text-gray-500 text-sm">{t("Links")}</p>
             <ul className="mt-14">
               {links.map(({ name, path }, id) => (
                 <li key={id} className="mb-11 text-xs font-medium">
@@ -58,10 +60,10 @@ export function Footer() {
                     className="group/link relative block gap-1 overflow-hidden  delay-75"
                   >
                     <span className="block tracking-[0.01em] transition-transform duration-500 group-hover/link:translate-y-[-100%]">
-                      {name}
+                      {t(name)}
                     </span>
                     <span className="absolute left-0 block tracking-[0.01em] transition-transform duration-500 group-hover/link:translate-y-[-100%]">
-                      {name}
+                      {t(name)}
                     </span>
                   </Link>
                 </li>
@@ -69,7 +71,7 @@ export function Footer() {
             </ul>
           </div>
           <div>
-            <p className="text-gray-500 text-sm">Help</p>
+            <p className="text-gray-500 text-sm">{t("Help")}</p>
             <ul className="mt-14">
               {helpLinks.map(({ name, path }, id) => (
                 <li key={id} className="mb-11 text-xs font-medium">
@@ -78,10 +80,10 @@ export function Footer() {
                     className="group/link relative block gap-1 overflow-hidden  delay-75"
                   >
                     <span className="block tracking-[0.01em] transition-transform duration-500 group-hover/link:translate-y-[-100%]">
-                      {name}
+                      {t(name)}
                     </span>
                     <span className="absolute left-0 block tracking-[0.01em] transition-transform duration-500 group-hover/link:translate-y-[-100%]">
-                      {name}
+                      {t(name)}
                     </span>
                   </Link>
                 </li>
@@ -90,18 +92,20 @@ export function Footer() {
           </div>
         </div>
         <div>
-          <p className="text-gray-500 text-sm">Newstler</p>
+          <p className="text-gray-500 text-sm">{t("Newstler")}</p>
           <div className="mt-14 flex items-center gap-4">
-            <Input
-              name={"email"}
-              type={"email"}
-              placeholder={"Enter Your Email Address"}
-              classname="text-xs w-52 h-10"
-            />
+            <div className="w-52">
+              <Input
+                name={"email"}
+                type={"email"}
+                placeholder={t("newslterEmailPlaceholder")}
+                classname="text-xs w-52 h-10"
+              />
+            </div>
             <Button
               variant="black"
-              label="SUBSCRIBE"
-              className="h-10 text-xs"
+              label={t("Subscribe")}
+              className="h-10 text-xs font-medium uppercase"
             />
           </div>
         </div>
@@ -109,8 +113,8 @@ export function Footer() {
       <div className="flex items-center gap-4 pt-9 text-sm">
         <p>
           {" "}
-          <span className="underline">{currentYear}</span> &copy; furino. All
-          rights reverved
+          <span className="underline">{currentYear}</span> &copy;{" "}
+          {t("Copyright")}
         </p>
         <div className="flex gap-3">
           <Link href={myGithub} target="blank">

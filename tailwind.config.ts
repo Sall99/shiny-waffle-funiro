@@ -62,6 +62,7 @@ const config: Config = {
 
       black: {
         500: "var(--color-black-500)",
+        800: "var(--color-black-800)",
       },
     },
     backgroundImage: {
@@ -79,6 +80,7 @@ const config: Config = {
         _1440: "1440px",
       },
       spacing: {
+        _1: "1px",
         _30: "30px",
         _48: "48px",
         _50: "50px",
