@@ -29,12 +29,12 @@ export default function Login() {
   };
 
   return (
-    <div className="mb-56 mt-28 flex flex-col items-center justify-center font-poppins">
+    <div className="mb-56 mt-28 flex flex-col items-center justify-center px-6 font-poppins">
       <h2 className="mb-10 text-left font-bold uppercase">{t("Login")}</h2>
-      <div className="w-_500">
+      <div className="w-full sm:w-_500">
         <form
           onSubmit={handleSubmit(onSubmit)}
-          className="flex w-_500 flex-col gap-8"
+          className="flex w-full flex-col gap-8 sm:w-_500"
         >
           <Input
             name="email"
