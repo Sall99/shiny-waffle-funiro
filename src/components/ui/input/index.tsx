@@ -39,7 +39,7 @@ export const Input: FC<InputProps> = ({
   defaultValue,
 }) => {
   const t = useTranslations("Validation");
-  console.log(errors);
+
   return (
     <div>
       <div>
