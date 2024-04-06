@@ -17,5 +17,33 @@
   },
   "Products": {
     "ourProducts": "Nos produits"
+  },
+  "Footer": {
+    "Home": "Accueil",
+    "Shop": "Boutique",
+    "About": "À Propos",
+    "Contact": "Contact",
+    "PaymentOptions": "Options de Paiement",
+    "Returns": "Retours",
+    "PrivacyPolicies": "Politiques de Confidentialité",
+    "Links": "Liens",
+    "Newstler": "Newstler",
+    "newslterEmailPlaceholder": "Entrez Votre Adresse Email",
+    "Subscribe": "S'Abonner",
+    "Copyright": "furino. Tous droits réservés",
+    "Help": "Aide"
+  },
+  "Login": {
+    "Login": "Connexion",
+    "emailAddresse": "Adresse e-mail",
+    "Password": "Mot de passe",
+    "loginGoogle": "Se connecter avec Google",
+    "loginApple": "Se connecter avec Apple"
+  },
+  "Validation": {
+    "required": "est requis",
+    "emailInvalid": "Format d'email invalide",
+    "passwordMinLength": "Le mot de passe doit contenir au moins 8 caractères",
+    "passwordMaxLength": "Le mot de passe doit contenir au plus 32 caractères"
   }
 }

@@ -11,6 +11,13 @@ export interface ButtonProps {
   variant?: "primary" | "secondary" | "black";
 }
 
+export interface LoginButtonProps {
+  label: string;
+  className?: string;
+  onClick?: () => void;
+  icon: React.ReactNode;
+}
+
 export const Button: FC<ButtonProps> = ({
   label,
   className = "",
@@ -28,13 +35,22 @@ export const Button: FC<ButtonProps> = ({
         variant === "primary" &&
           "bg-orange-500 text-accent hover:bg-orange-100",
         variant === "secondary" && "bg-white-100 text-orange-500",
-        variant === "black" && "border-b-2 border-black-500",
+        variant === "black" && "border-b-2 border-black-800",
         className,
       )}
       onClick={onClick}
       disabled={disabled}
     >
       {label}
+    </button>
+  );
+};
+
+export const LoginButton: FC<LoginButtonProps> = ({ icon, label, onClick }) => {
+  return (
+    <button className="log-with-btn" onClick={onClick}>
+      {icon}
+      <span>{label}</span>
     </button>
   );
 };

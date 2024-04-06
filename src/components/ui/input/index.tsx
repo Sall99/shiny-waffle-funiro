@@ -1,6 +1,7 @@
 "use client";
 import { FC } from "react";
 import clsx from "clsx";
+import { useTranslations } from "next-intl";
 
 export interface InputProps {
   classname?: string;
@@ -37,6 +38,8 @@ export const Input: FC<InputProps> = ({
   value,
   defaultValue,
 }) => {
+  const t = useTranslations("Validation");
+  console.log(errors);
   return (
     <div>
       <div>
@@ -44,7 +47,7 @@ export const Input: FC<InputProps> = ({
           type={type}
           {...(register && register(name))}
           className={clsx(
-            "w-full border-b-2 border-black-500 pb-2 outline-none focus:outline-none",
+            "w-full border-b-2 border-black-500 pb-2 pt-2 text-sm outline-none focus:outline-none",
             [classname],
             errors && errors[type] ? "border-red-400 border-opacity-90" : "",
           )}
@@ -55,8 +58,8 @@ export const Input: FC<InputProps> = ({
         />
       </div>{" "}
       {errors && errors[name] && (
-        <span className=" text-red-400 text-xs opacity-90">
-          {errors[name].message}
+        <span className="text-xs text-orange-500 opacity-90">
+          {t(errors[name].message)}
         </span>
       )}
     </div>
