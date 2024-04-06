@@ -28,7 +28,7 @@ export function ProductsSection() {
   };
 
   return (
-    <div className="mb-20 mt-14 md:px-_102">
+    <section className="mb-20 mt-14 md:px-_102">
       <h2 className="mb-8 text-center text-lg font-bold capitalize">
         {t("ourProducts")}
       </h2>
@@ -63,10 +63,10 @@ export function ProductsSection() {
         <Button
           label="Show More"
           onClick={handleLoadMore}
-          className="w-_245 h-_48 m-auto text-base font-bold uppercase hover:bg-white-100"
+          className="m-auto h-_48 w-_245 text-base font-bold uppercase hover:bg-white-100"
           variant="primary"
         />
       </div>
-    </div>
+    </section>
   );
 }

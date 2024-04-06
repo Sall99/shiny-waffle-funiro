@@ -38,7 +38,23 @@
     "emailAddresse": "Adresse e-mail",
     "Password": "Mot de passe",
     "loginGoogle": "Se connecter avec Google",
-    "loginApple": "Se connecter avec Apple"
+    "loginApple": "Se connecter avec Apple",
+    "doNotHaveAnAccount": "Vous n'avez pas de compte ?",
+    "createIt": "Créez-le",
+    "OR": "Ou"
+  },
+  "createAccount": {
+    "createAccount": "Créer un compte",
+    "name": "Prénom",
+    "lName": "Nom de famille",
+    "emailAddresse": "Adresse e-mail",
+    "Password": "Mot de passe",
+    "confirmPassword": "Confirmez le mot de passe",
+    "loginGoogle": "Se connecter avec Google",
+    "loginApple": "Se connecter avec Apple",
+    "haveAnAccount": "Vous avez un compte ?",
+    "login": "Connectez-vous",
+    "OR": "Ou"
   },
   "Validation": {
     "required": "est requis",

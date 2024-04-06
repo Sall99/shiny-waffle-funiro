@@ -38,7 +38,23 @@
     "emailAddresse": "Email Address",
     "Password": "Password",
     "loginGoogle": "Login with Google",
-    "loginApple": "Login with Apple"
+    "loginApple": "Login with Apple",
+    "doNotHaveAnAccount": "do not have an account ?",
+    "craeteIt": "create it",
+    "OR": "OR"
+  },
+  "createAccount": {
+    "createAccount": "Create Account",
+    "name": "name",
+    "lName": "last name",
+    "emailAddresse": "Email Address",
+    "Password": "Password",
+    "confirmPassword": "Confirm Password",
+    "loginGoogle": "Login with Google",
+    "loginApple": "Login with Apple",
+    "haveAnAccount": "already have an account ?",
+    "login": "login",
+    "OR": "OR"
   },
   "Validation": {
     "required": "is required",
