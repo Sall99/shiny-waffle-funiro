@@ -78,6 +78,7 @@ const config: Config = {
       },
       maxWidth: {
         _1440: "1440px",
+        _1171: "1171px",
       },
       spacing: {
         _1: "1px",

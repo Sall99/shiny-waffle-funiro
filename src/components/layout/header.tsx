@@ -3,12 +3,16 @@ import { useEffect, useState } from "react";
 import clsx from "clsx";
 import Image from "next/image";
 import Link from "next/link";
-import { Heart, LogIn, Search, ShoppingCart, User } from "lucide-react";
+import {
+  Heart,
+  LogIn,
+  Search as SearchIcon,
+  ShoppingCart,
+  User,
+} from "lucide-react";
 
-import { Layout } from ".";
 import { Menu } from "../svg";
-import MenuMobile from "../ui/menu-mobile/menu-mobile";
-import { LocalSwitcher } from "@/components";
+import { LocalSwitcher, Search, Layout, MenuMobile } from "@/components";
 
 const links = [
   { name: "Home", path: "/" },
@@ -18,16 +22,29 @@ const links = [
 ];
 
 const iconLinks = [
-  { Icon: User, path: "/account", hidden: false, auth: true },
-  { Icon: LogIn, path: "/auth/login", hidden: false, auth: false },
-  { Icon: Search, path: "/search", hidden: false, auth: false },
-  { Icon: Heart, path: "/favoris", hidden: true, auth: false },
-  { Icon: ShoppingCart, path: "/cart", hidden: false, auth: false },
+  { Icon: User, path: "/account", hidden: false, auth: true, name: "Account" },
+  {
+    Icon: LogIn,
+    path: "/auth/login",
+    hidden: false,
+    auth: false,
+    name: "Login",
+  },
+  { Icon: SearchIcon, path: "", hidden: false, auth: false, name: "Search" },
+  { Icon: Heart, path: "/favoris", hidden: true, auth: false, name: "Favoris" },
+  {
+    Icon: ShoppingCart,
+    path: "/cart",
+    hidden: false,
+    auth: false,
+    name: "Cart",
+  },
 ];
 
 function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [openSearch, setOpenSearch] = useState(false);
   const user = null;
 
   const toggleMenu = () => {
@@ -58,7 +75,7 @@ function Header() {
           : "relative",
       )}
     >
-      <Layout className="flex items-center justify-between px-4 py-_30 lg:px-14 ">
+      <Layout className="flex items-center justify-between px-4 py-_30 lg:px-14">
         <div className="flex items-center gap-2">
           <div className="md:hidden" onClick={toggleMenu}>
             <Menu />
@@ -106,6 +123,9 @@ function Header() {
                     "font-poppins hover:text-muted-foreground",
                     link.hidden ? "hidden md:block" : "",
                   )}
+                  onClick={() => {
+                    if (link.name === "Search") setOpenSearch(true);
+                  }}
                 >
                   <link.Icon width={18} height={18} />
                 </Link>
@@ -115,6 +135,7 @@ function Header() {
         </div>
       </Layout>
       <MenuMobile isOpen={isOpen} setIsOpen={setIsOpen} />
+      <Search isOpen={openSearch} setIsOpen={setOpenSearch} />
     </nav>
   );
 }

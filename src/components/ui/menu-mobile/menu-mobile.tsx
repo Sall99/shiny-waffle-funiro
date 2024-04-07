@@ -23,7 +23,7 @@ const linksUser = [
   { title: "Newsletter", imageSrc: "Newsletter.png", path: "/newsletter" },
 ];
 
-export default function MenuMobile({ isOpen, setIsOpen }: MenuMobileProps) {
+export function MenuMobile({ isOpen, setIsOpen }: MenuMobileProps) {
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = "hidden";
