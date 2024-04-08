@@ -5,7 +5,7 @@ import { useFormatter } from "next-intl";
 import { ArrowLeftRight, Heart, Share2 } from "lucide-react";
 import { Button } from "@/components";
 
-interface ProductProps {
+export interface ProductProps {
   name: string;
   defaultImage: string;
   title: string;
@@ -36,7 +36,7 @@ export function Product({
 
   return (
     <div
-      className="sm:h-_450 relative m-auto w-_285 bg-gray-100 pb-4 sm:pb-0 "
+      className="relative m-auto w-_285 bg-gray-100 pb-4 sm:h-_450 sm:pb-0 "
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >

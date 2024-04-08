@@ -1,9 +1,10 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import { SearchModal } from "./modal";
 import { Button } from "../button";
 import { Recent } from "./recent";
 import { QuickAccess } from "./quick-access";
+import { Result } from "./result";
 
 interface SearchProps {
   isOpen: boolean;
@@ -11,6 +12,8 @@ interface SearchProps {
 }
 
 export function Search({ isOpen, setIsOpen }: SearchProps) {
+  const [search, setSearched] = useState("");
+
   return (
     <SearchModal isOpen={isOpen} setIsOpen={setIsOpen}>
       <form>
@@ -19,6 +22,7 @@ export function Search({ isOpen, setIsOpen }: SearchProps) {
             type="search"
             className="w-full border-2 border-orange-500 py-2 pl-5 placeholder:text-sm focus:outline-none"
             placeholder="Search products, categories..."
+            onChange={(e) => setSearched(e.target.value)}
           />
           <Button
             label="Search"
@@ -27,8 +31,19 @@ export function Search({ isOpen, setIsOpen }: SearchProps) {
         </div>
       </form>
       <div className="mt-4 flex gap-4 pt-8">
-        <Recent />
-        <QuickAccess />
+        {search.length === 0 ? (
+          <>
+            {" "}
+            <Recent />
+            <QuickAccess />
+          </>
+        ) : (
+          <>
+            {" "}
+            <Recent />
+            <Result />
+          </>
+        )}
       </div>
     </SearchModal>
   );
