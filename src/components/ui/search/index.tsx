@@ -5,6 +5,7 @@ import { Button } from "../button";
 import { Recent } from "./recent";
 import { QuickAccess } from "./quick-access";
 import { Result } from "./result";
+import { NoResult } from "./no-result";
 
 interface SearchProps {
   isOpen: boolean;
@@ -13,6 +14,7 @@ interface SearchProps {
 
 export function Search({ isOpen, setIsOpen }: SearchProps) {
   const [search, setSearched] = useState("");
+  const result = false;
 
   return (
     <SearchModal isOpen={isOpen} setIsOpen={setIsOpen}>
@@ -40,8 +42,15 @@ export function Search({ isOpen, setIsOpen }: SearchProps) {
         ) : (
           <>
             {" "}
-            <Recent />
-            <Result />
+            {result ? (
+              <>
+                {" "}
+                <Recent />
+                <Result />
+              </>
+            ) : (
+              <NoResult />
+            )}
           </>
         )}
       </div>
