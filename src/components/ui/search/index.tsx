@@ -42,15 +42,15 @@ export function Search({ isOpen, setIsOpen }: SearchProps) {
         ) : (
           <>
             {" "}
-            {result ? (
-              <>
-                {" "}
-                <Recent />
-                <Result />
-              </>
-            ) : (
+            {/* {result ? ( */}
+            <>
+              {" "}
+              <Recent />
+              <Result />
+            </>
+            {/* ) : (
               <NoResult />
-            )}
+            )} */}
           </>
         )}
       </div>
