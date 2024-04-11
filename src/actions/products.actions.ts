@@ -5,3 +5,9 @@ export const getAllProducts = async (count: number) => {
 
   return data;
 };
+
+export const getSearch = async (category: string) => {
+  const { data } = await instance.get(`/search?category=${category}`);
+
+  return data;
+};

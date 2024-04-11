@@ -1,11 +1,14 @@
 "use client";
 import React, { useState } from "react";
+import useSWR from "swr";
+
 import { SearchModal } from "./modal";
 import { Button } from "../button";
 import { Recent } from "./recent";
 import { QuickAccess } from "./quick-access";
 import { Result } from "./result";
 import { NoResult } from "./no-result";
+import { getSearch } from "@/actions";
 
 interface SearchProps {
   isOpen: boolean;
@@ -15,6 +18,11 @@ interface SearchProps {
 export function Search({ isOpen, setIsOpen }: SearchProps) {
   const [search, setSearched] = useState("");
   const result = false;
+
+  const { error, data, isLoading } = useSWR(
+    search ? ["search", search] : null,
+    () => getSearch(search),
+  );
 
   return (
     <SearchModal isOpen={isOpen} setIsOpen={setIsOpen}>
@@ -46,7 +54,7 @@ export function Search({ isOpen, setIsOpen }: SearchProps) {
             <>
               {" "}
               <Recent />
-              <Result />
+              <Result data={data} isLoading={isLoading} />
             </>
             {/* ) : (
               <NoResult />

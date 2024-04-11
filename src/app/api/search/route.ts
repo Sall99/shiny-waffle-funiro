@@ -12,7 +12,7 @@ export async function GET(req: NextRequest, res: NextResponse) {
       );
     }
     const categoryQuery = categoryParam.toLowerCase().replace(/[\s-]/g, "");
-    console.log(categoryQuery);
+
     const products = await prisma.products.findMany({
       where: {
         category: {
@@ -22,11 +22,21 @@ export async function GET(req: NextRequest, res: NextResponse) {
       },
     });
 
+    const limitedProducts = await prisma.products.findMany({
+      where: {
+        category: {
+          equals: categoryQuery,
+          mode: "insensitive",
+        },
+      },
+      take: 4,
+    });
+
     return NextResponse.json(
       {
         message: "success",
         length: products.length,
-        products,
+        products: limitedProducts,
       },
       { status: 200 },
     );

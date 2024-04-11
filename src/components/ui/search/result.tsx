@@ -1,40 +1,86 @@
 "use client";
+import React from "react";
 import { useMediaQuery } from "@react-hook/media-query";
 import { Star } from "lucide-react";
-import React from "react";
+import { useFormatter } from "next-intl";
 
-import { Button } from "@/components";
+import { Button, Rating } from "@/components";
+import { IProduct, IReview } from "@/types";
 
 export interface ProductProps {
   name: string;
   defaultImage: string;
   title: string;
+  promoPrice?: number;
+  price: number;
+  reviews: IReview[];
 }
 
-export function Result() {
+interface ResultProps {
+  isLoading: boolean;
+  data: {
+    length: number;
+    products: IProduct[];
+  };
+}
+
+export function Result({ data, isLoading }: ResultProps) {
   return (
     <div>
-      <div className="grid grid-cols-4 gap-4">
-        <Product name={""} defaultImage={""} title={""} />
-        <Product name={""} defaultImage={""} title={""} />
-        <Product name={""} defaultImage={""} title={""} />
-        <Product name={""} defaultImage={""} title={""} />
-      </div>
-      <Button className="mt-8 px-4 py-2" label="See results in Dinning (98)" />
+      {data && (
+        <>
+          <div className="grid grid-cols-4 gap-4">
+            {data.products?.map(
+              ({
+                id,
+                name,
+                defaultImage,
+                title,
+                price,
+                promoPrice,
+                reviews,
+              }) => (
+                <Product
+                  key={id}
+                  name={name}
+                  defaultImage={defaultImage}
+                  title={title}
+                  promoPrice={promoPrice}
+                  price={price}
+                  reviews={reviews}
+                />
+              ),
+            )}
+          </div>
+          {data.length > 0 && (
+            <Button
+              className="mt-8 px-4 py-2"
+              label={`See results in Dinning (${data.length})`}
+            />
+          )}
+        </>
+      )}
     </div>
   );
 }
 
-const Product = ({ defaultImage }: ProductProps) => {
+const Product = ({
+  defaultImage,
+  name,
+  title,
+  reviews,
+  promoPrice,
+  price,
+}: ProductProps) => {
   const isMobile = useMediaQuery("(max-width: 768px)");
+  const priceFormat = useFormatter();
   const imageWidth = 186;
   const imageHeight = isMobile ? 315 : 230;
 
   const imageStyle = {
     width: `${imageWidth}px`,
     height: `${imageHeight}px`,
-    // backgroundImage: `url(${defaultImage})`,
-    backgroundImage: `url(https://res.cloudinary.com/dx6jhjxpt/image/upload/v1711320643/shiny-waffle-funiro/91xlt73qmhL._AC_SL1500__ayelj8.jpg)`,
+    backgroundImage: `url(${defaultImage})`,
     backgroundSize: "cover",
     backgroundPosition: "center",
   };
@@ -42,31 +88,23 @@ const Product = ({ defaultImage }: ProductProps) => {
     <div>
       <div style={imageStyle}></div>
       <div className="pt-1">
-        <h2 className="mt-3 text-xs font-semibold">this is a name</h2>
-        <p className="mt-2 truncate text-xs text-gray-400 ">this is a title</p>
+        <h2 className="mt-3 text-xs font-semibold">{name}</h2>
+        <p className="mt-2 truncate text-xs text-gray-400 ">{title}</p>
         <p className="mt-2 text-xs">
           <span className="text-xs font-semibold">
-            {/* {priceFormat.number(promoPrice || 0, {
+            {priceFormat.number(promoPrice || 0, {
               style: "currency",
               currency: "EUR",
-            })} */}
-            99.00 E
+            })}
           </span>
           <span className="ml-4 text-xs text-gray-200 line-through">
-            {" "}
-            {/* {priceFormat.number(price || 0, {
+            {priceFormat.number(price || 0, {
               style: "currency",
               currency: "EUR",
-            })} */}
-            99.00 E
+            })}
           </span>
         </p>
-        <p className="mt-2 flex gap-1">
-          <Star size={14} />
-          <Star size={14} />
-          <Star size={14} />
-          <Star size={14} />
-        </p>
+        <Rating reviews={reviews} />
       </div>
     </div>
   );

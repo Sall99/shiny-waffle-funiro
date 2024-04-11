@@ -10,3 +10,4 @@ export * from "./inspiration";
 export * from "./input";
 export * from "./search";
 export * from "./menu-mobile";
+export * from "./rating";
