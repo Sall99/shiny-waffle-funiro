@@ -53,6 +53,7 @@ export function ProductsSection() {
                 title={title}
                 promoPrice={promoPrice}
                 price={price}
+                id={id}
               />
             ),
           )}

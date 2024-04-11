@@ -4,8 +4,10 @@ import { useMediaQuery } from "@react-hook/media-query";
 import { useFormatter } from "next-intl";
 import { ArrowLeftRight, Heart, Share2 } from "lucide-react";
 import { Button } from "@/components";
+import Link from "next/link";
 
 export interface ProductProps {
+  id: string;
   name: string;
   defaultImage: string;
   title: string;
@@ -19,6 +21,7 @@ export function Product({
   title,
   price,
   promoPrice,
+  id,
 }: ProductProps) {
   const [hovered, setHovered] = useState(false);
   const priceFormat = useFormatter();
@@ -74,6 +77,7 @@ export function Product({
           <div className="mt-6 flex w-full items-center justify-between">
             <p className="flex items-center font-semibold hover:cursor-pointer">
               <Share2 color="#fff" size={18} />
+
               <span className="font-semibold text-white-100 ">
                 <span className="group/link relative block overflow-hidden delay-75">
                   <span className="block text-base tracking-[0.01em] transition-transform duration-500 group-hover/link:translate-y-[-100%]">
@@ -87,14 +91,16 @@ export function Product({
             </p>
             <p className="flex items-center font-semibold text-white-100 hover:cursor-pointer">
               <ArrowLeftRight color="#fff" size={18} />
-              <span className="group/link relative block overflow-hidden delay-75">
-                <span className="block text-base tracking-[0.01em] transition-transform duration-500 group-hover/link:translate-y-[-100%]">
-                  Compare
+              <Link href={`/shop/product/${id}`}>
+                <span className="group/link relative block overflow-hidden delay-75">
+                  <span className="block text-base tracking-[0.01em] transition-transform duration-500 group-hover/link:translate-y-[-100%]">
+                    Details
+                  </span>
+                  <span className="absolute left-0 block text-base tracking-[0.01em] transition-transform duration-500 group-hover/link:translate-y-[-100%]">
+                    Details
+                  </span>
                 </span>
-                <span className="absolute left-0 block text-base tracking-[0.01em] transition-transform duration-500 group-hover/link:translate-y-[-100%]">
-                  Compare
-                </span>
-              </span>
+              </Link>
             </p>
             <p className="flex items-center font-semibold text-white-100 hover:cursor-pointer">
               <Heart color="#fff" size={18} />
