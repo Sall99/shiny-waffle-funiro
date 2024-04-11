@@ -6,7 +6,7 @@ export function Recent() {
   return (
     <div className="search w-80">
       <div>
-        <h2 className="text-sm font-medium">Recent searches</h2>
+        <h2 className="w-80 text-sm font-medium">Recent searches</h2>
         <ul className="mt-4">
           <li className="mb-6 flex justify-between">
             <span className="flex items-center gap-4 text-xs">

@@ -50,15 +50,15 @@ export function Search({ isOpen, setIsOpen }: SearchProps) {
         ) : (
           <>
             {" "}
-            {/* {result ? ( */}
-            <>
-              {" "}
-              <Recent />
-              <Result data={data} isLoading={isLoading} />
-            </>
-            {/* ) : (
+            {data && data.length > 0 ? (
+              <>
+                {" "}
+                <Recent />
+                <Result data={data} isLoading={isLoading} />
+              </>
+            ) : (
               <NoResult />
-            )} */}
+            )}
           </>
         )}
       </div>
