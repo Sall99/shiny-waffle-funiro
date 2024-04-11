@@ -9,10 +9,10 @@ export interface IProduct {
   defaultImage: string;
   imageUrl: string[];
   additionalInformation: string[];
-  reviews: Review[];
+  reviews: IReview[];
 }
 
-interface Review {
+export interface IReview {
   author: string;
   rating: number;
   comment: string;
