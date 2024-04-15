@@ -15,3 +15,4 @@ export * from "./product-details";
 export * from "./modal";
 export * from "./tabs";
 export * from "./avatar";
+export * from "./related-products";
