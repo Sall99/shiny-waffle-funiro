@@ -17,3 +17,11 @@ export const getSearch = async (category: string) => {
 
   return data;
 };
+
+export const getRelatedProducts = async (count: number, category: string) => {
+  const { data } = await instance.get(
+    `/get-related-products?count=${count}&category=${category}`,
+  );
+
+  return data;
+};
