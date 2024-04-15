@@ -37,7 +37,7 @@ export function ProductsSection() {
         <ProductSkeleton number={9} />
       ) : (
         <div className="grid grid-cols-1 content-center gap-8 md:grid-cols-2 lg:grid-cols-3">
-          {data.products.map(
+          {data.products?.map(
             ({
               id,
               name,

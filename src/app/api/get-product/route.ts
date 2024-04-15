@@ -11,7 +11,7 @@ export async function GET(req: NextRequest, res: NextResponse) {
     );
   }
   try {
-    const products = await prisma.products.findMany({
+    const product = await prisma.products.findUnique({
       where: {
         id,
       },
@@ -20,8 +20,7 @@ export async function GET(req: NextRequest, res: NextResponse) {
     return NextResponse.json(
       {
         message: "success",
-        length: products.length,
-        products,
+        product,
       },
       { status: 200 },
     );
