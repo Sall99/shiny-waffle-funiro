@@ -1,13 +1,17 @@
+"use client";
 import { Dialog, Transition } from "@headlessui/react";
+import clsx from "clsx";
 import { Fragment, ReactNode } from "react";
 
-interface SearchModalProps {
+interface ModalProps {
   isOpen: boolean;
   setIsOpen: (isOpen: boolean) => void;
   children: ReactNode;
+  className?: string;
+  variant: "primary" | "secondary";
 }
 
-export function SearchModal({ isOpen, setIsOpen, children }: SearchModalProps) {
+export function Modal({ isOpen, setIsOpen, children, variant }: ModalProps) {
   function closeModal() {
     setIsOpen(false);
   }
@@ -28,8 +32,20 @@ export function SearchModal({ isOpen, setIsOpen, children }: SearchModalProps) {
             <div className="fixed inset-0 bg-black-500" />
           </Transition.Child>
 
-          <div className="fixed inset-0 mt-20 overflow-y-auto">
-            <div className="flex justify-center p-4 text-center">
+          <div
+            className={clsx(
+              "fixed inset-0 overflow-y-auto",
+              variant === "primary" &&
+                "bg-white w-full transform overflow-hidden rounded-2xl p-6 text-left align-middle shadow-xl transition-all",
+              variant === "secondary" && "mt-20",
+            )}
+          >
+            <div
+              className={clsx(
+                "flex justify-center p-4 text-center",
+                variant === "primary" && "h-full",
+              )}
+            >
               <Transition.Child
                 as={Fragment}
                 enter="ease-out duration-300"
@@ -39,7 +55,7 @@ export function SearchModal({ isOpen, setIsOpen, children }: SearchModalProps) {
                 leaveFrom="opacity-100 scale-100"
                 leaveTo="opacity-0 scale-95"
               >
-                <Dialog.Panel className="max-w-_1171 w-full transform overflow-hidden bg-white-100 p-6 text-left align-middle shadow-xl transition-all">
+                <Dialog.Panel className="w-full max-w-_1171 transform overflow-hidden bg-white-100 p-6 text-left align-middle shadow-xl transition-all">
                   {children}
                 </Dialog.Panel>
               </Transition.Child>

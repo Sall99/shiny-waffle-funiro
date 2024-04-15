@@ -6,6 +6,12 @@ export const getAllProducts = async (count: number) => {
   return data;
 };
 
+export const getProduct = async (id: string) => {
+  const { data } = await instance.get(`/get-product?id=${id}`);
+
+  return data;
+};
+
 export const getSearch = async (category: string) => {
   const { data } = await instance.get(`/search?category=${category}`);
 

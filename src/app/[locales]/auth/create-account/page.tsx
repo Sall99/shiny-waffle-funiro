@@ -3,7 +3,7 @@ import React from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { createAccountSchema, loginSchema } from "@/constants/validation";
-import { Button, Input, LoginButton } from "@/components";
+import { Button, Input, SocialLoginButton } from "@/components";
 import Image from "next/image";
 import { FaApple } from "react-icons/fa";
 import { useTranslations } from "next-intl";
@@ -90,7 +90,7 @@ export default function Login() {
 
         <div className="flex flex-col">
           <div className="flex flex-col justify-between gap-4 md:flex-row md:gap-9">
-            <LoginButton
+            <SocialLoginButton
               icon={
                 <Image
                   src="/svg/googleIcon.svg"
@@ -103,7 +103,7 @@ export default function Login() {
               label={t("loginGoogle")}
             />
 
-            <LoginButton
+            <SocialLoginButton
               icon={<FaApple className="text-xl" />}
               label={t("loginApple")}
             />

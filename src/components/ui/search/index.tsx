@@ -2,13 +2,13 @@
 import React, { useState } from "react";
 import useSWR from "swr";
 
-import { SearchModal } from "./modal";
 import { Button } from "../button";
 import { Recent } from "./recent";
 import { QuickAccess } from "./quick-access";
 import { Result } from "./result";
 import { NoResult } from "./no-result";
 import { getSearch } from "@/actions";
+import { Modal } from "@/components";
 
 interface SearchProps {
   isOpen: boolean;
@@ -25,7 +25,7 @@ export function Search({ isOpen, setIsOpen }: SearchProps) {
   );
 
   return (
-    <SearchModal isOpen={isOpen} setIsOpen={setIsOpen}>
+    <Modal isOpen={isOpen} setIsOpen={setIsOpen} variant="secondary">
       <form>
         <div className="relative">
           <input
@@ -43,16 +43,13 @@ export function Search({ isOpen, setIsOpen }: SearchProps) {
       <div className="mt-4 flex gap-4 pt-8">
         {search.length === 0 ? (
           <>
-            {" "}
             <Recent />
             <QuickAccess />
           </>
         ) : (
           <>
-            {" "}
             {data && data.length > 0 ? (
               <>
-                {" "}
                 <Recent />
                 <Result data={data} isLoading={isLoading} />
               </>
@@ -62,6 +59,6 @@ export function Search({ isOpen, setIsOpen }: SearchProps) {
           </>
         )}
       </div>
-    </SearchModal>
+    </Modal>
   );
 }

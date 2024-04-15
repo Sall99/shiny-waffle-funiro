@@ -1,10 +1,12 @@
 import React from "react";
-import { Star, StarHalf } from "lucide-react";
+import { Star } from "lucide-react";
 
 import { IReview } from "@/types";
 
 export interface RatingProps {
-  reviews: IReview[];
+  reviews?: IReview[];
+  count?: boolean;
+  number?: number;
 }
 
 function calculateAverageRating(reviews: IReview[]) {
@@ -25,14 +27,25 @@ function renderStars(rating: number) {
     if (i < Math.floor(rating)) {
       stars.push(<Star key={i} size={14} color="#B88E2F" fill="#B88E2F" />);
     } else {
-      stars.push(<StarHalf key={i} size={14} color="#B88E2F" />);
+      stars.push(<Star key={i} size={14} color="#B88E2F" />);
     }
   }
 
   return stars;
 }
 
-export const Rating = ({ reviews }: RatingProps) => {
-  const averageRating = calculateAverageRating(reviews);
-  return <p className="mt-2 flex gap-1">{renderStars(averageRating)}</p>;
+export const Rating = ({ reviews, count, number }: RatingProps) => {
+  let averageRating = 0;
+
+  if (reviews && reviews.length > 0) {
+    averageRating = calculateAverageRating(reviews);
+  } else if (number) {
+    averageRating = number;
+  }
+  return (
+    <p className="mt-2 flex items-center gap-1">
+      <> {renderStars(averageRating)}</>
+      {count && <p className="text-sm">{reviews?.length} Customer Review</p>}
+    </p>
+  );
 };

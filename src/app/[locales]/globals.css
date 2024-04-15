@@ -27,6 +27,7 @@
 
     --color-orange-100: rgba(255, 243, 227, 1);
     --color-orange-200: rgba(252, 248, 243, 1);
+    --color-orange-300: rgba(249, 241, 231, 1);
     --color-orange-500: rgba(184, 142, 47, 1);
 
     --color-white-100: rgb(255, 255, 255);
@@ -39,6 +40,8 @@
 
     --color-black-500: rgba(58, 58, 58, 0.5);
     --color-black-800: rgb(0, 0, 0);
+
+    --color-green-500: rgba(79, 173, 123, 0.872);
   }
 
   .dark {
