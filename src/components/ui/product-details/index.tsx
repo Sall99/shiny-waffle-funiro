@@ -57,8 +57,8 @@ export function ProductDetails({ product }: ProductDetailsProps) {
 
   return (
     <div className="product-details mt-8 pb-14">
-      <Layout className="px-_102">
-        <div className="flex justify-between">
+      <Layout className="px-4 lg:px-_102">
+        <div className="flex flex-col items-center justify-center gap-8 lg:flex-row lg:justify-between">
           <Images
             defaultImage={defaultImage}
             images={imageUrl}
@@ -78,8 +78,8 @@ export function ProductDetails({ product }: ProductDetailsProps) {
         </div>
       </Layout>
 
-      <div className="mt-28 border-t border-gray-300 pt-12">
-        <Layout className="px-_102">
+      <div className="mt-7 border-t border-gray-300 pt-12 md:mt-28">
+        <Layout className="px-4 lg:px-_102">
           <div>
             <Tabs tabs={tabs} />
           </div>
@@ -92,13 +92,13 @@ export function ProductDetails({ product }: ProductDetailsProps) {
 function RenderDescription({ description, images }: RenderDescriptionProps) {
   return (
     <div>
-      <div className="px-52">{description}</div>
-      <div className="mt-14 flex gap-4">
+      <div className="lg:px-52">{description}</div>
+      <div className="mt-14 flex justify-between gap-4">
         <div className="description-product-image-container">
           <div
             className="description-product-image"
             style={{
-              backgroundImage: `url(${images[1]})`,
+              backgroundImage: `url(${images[0]})`,
             }}
           />
         </div>
@@ -106,7 +106,7 @@ function RenderDescription({ description, images }: RenderDescriptionProps) {
           <div
             className="description-product-image"
             style={{
-              backgroundImage: `url(${images[2]})`,
+              backgroundImage: `url(${images[1]})`,
             }}
           />
         </div>
@@ -121,13 +121,13 @@ function RenderAdditionalInformation({
 }: RenderAdditionalInformationProps) {
   return (
     <div>
-      <div className="px-52">
+      <div className="lg:px-52">
         {additionalInformation.map((text, key) => (
           <p key={key}>{text}</p>
         ))}
       </div>
 
-      <div className="mt-14 flex gap-4">
+      <div className="mt-14 flex justify-between gap-4">
         <div className="description-product-image-container">
           <div
             className="description-product-image"
@@ -152,7 +152,7 @@ function RenderAdditionalInformation({
 function RenderReviews({ reviews }: RenderReviewsProps) {
   return (
     <div>
-      <div className="px-52">
+      <div className="lg:px-52">
         {reviews.map(({ author, rating, comment }, key) => (
           <div key={key}>
             <div className="my-4 flex items-center gap-2">
@@ -166,7 +166,7 @@ function RenderReviews({ reviews }: RenderReviewsProps) {
             </div>
             <Rating count={false} number={rating} />
             <p className="mt-2 text-xs">Reviewed in May 12, 2021</p>
-            <p className="text-green-500 mt-4 text-xs font-bold uppercase">
+            <p className="mt-4 text-xs font-bold uppercase text-green-500">
               Verified purchase
             </p>
             <p className="mt-4 text-sm">{comment}</p>

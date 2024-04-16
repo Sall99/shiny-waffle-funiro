@@ -1,6 +1,5 @@
 "use client";
 import React, { useState } from "react";
-import { useMediaQuery } from "@react-hook/media-query";
 
 import "./index.css";
 import { Modal } from "@/components";
@@ -20,26 +19,18 @@ export default function Images({
   const [clickedImage, setClickedImage] = useState<string | null>(null);
   const [isOpen, setIsOpen] = useState(false);
 
-  const isMobile = useMediaQuery("(max-width: 768px)");
-  const imageWidth = 443;
-  const imageHeight = isMobile ? 315 : 500;
-
   const imageStyle = {
-    width: `${imageWidth}px`,
-    height: `${imageHeight}px`,
     backgroundImage: `url(${hoveredImage || defaultImage})`,
   };
 
   const imageStyleModal = {
-    width: `${imageWidth}px`,
-    height: `${imageHeight}px`,
     backgroundImage: `url(${clickedImage || defaultImage})`,
   };
 
   return (
-    <div>
-      <div className="w-_553 flex gap-8">
-        <div className="flex flex-col gap-2">
+    <div className="w-full">
+      <div className="flex flex-col-reverse items-center gap-8 md:flex-row xl:w-_553">
+        <div className="flex gap-2 md:flex-col">
           {images?.map((url, key) => (
             <div key={key} className="small-image-container">
               <div
@@ -60,11 +51,11 @@ export default function Images({
         ></div>
       </div>
       <Modal isOpen={isOpen} setIsOpen={setIsOpen} variant="primary">
-        <div className="flex h-full items-center justify-between px-20">
+        <div className="flex h-full flex-col  items-center gap-8 lg:flex-row lg:justify-between lg:gap-0 lg:px-20">
           <div className="flex w-full justify-center">
             <div style={imageStyleModal} className="modal-product-image"></div>
           </div>
-          <div className="w-96">
+          <div className="md:w-96">
             <div className="mb-8 flex flex-col text-sm">
               {additionalInformation?.map((text, key) => (
                 <p key={key}>{text}</p>

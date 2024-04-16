@@ -3,11 +3,11 @@
   border-radius: 6px;
   padding: 5px;
   background-color: rgba(184, 142, 47, 0.1);
-  width: 606px;
-  height: 348px;
   display: flex;
   align-items: center;
   justify-content: center;
+  max-width: 50%;
+  max-height: auto;
 }
 
 .description-product-image {
@@ -16,4 +16,11 @@
   border-radius: 6px;
   width: 550px;
   height: 300px;
+}
+
+@media screen and (min-width: 1364px) {
+  .description-product-image-container {
+    max-width: 606px;
+    max-height: 348px;
+  }
 }

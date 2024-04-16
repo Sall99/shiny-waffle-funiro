@@ -12,7 +12,7 @@ function classNames(...classes: string[]) {
 
 export function Tabs({ tabs }: TabsProps) {
   return (
-    <div className="w-full px-2 py-16 sm:px-0">
+    <div className="w-full px-2 sm:px-0 md:py-16">
       <Tab.Group>
         <Tab.List className="bg-blue-900/20 flex justify-center space-x-1 rounded-xl p-1">
           {Object.keys(tabs).map((tab) => (

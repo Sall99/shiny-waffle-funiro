@@ -19,12 +19,16 @@
   background-size: cover;
   background-position: center;
   border-radius: 6px;
+  width: 357px;
+  height: 410px;
 }
 
 .modal-product-image {
   background-size: cover;
   background-position: center;
   border-radius: 6px;
+  width: 300px;
+  height: 250px;
 }
 
 .modal-product-small-image {
@@ -37,4 +41,18 @@
 
 .modal-product-small-image:hover {
   cursor: pointer;
+}
+
+@media screen and (min-width: 768px) {
+  .product-details .image {
+    width: 443px;
+    height: 500px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .modal-product-image {
+    width: 443px;
+    height: 500px;
+  }
 }
