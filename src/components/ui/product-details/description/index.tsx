@@ -30,7 +30,7 @@ const Description = ({
   const [quantity, setQuantity] = useState(1);
 
   return (
-    <div className="w-_600 mt-14">
+    <div className="mt-7 w-full md:mt-14 md:w-_600">
       <div className="border-b border-gray-300 pb-10">
         <h2 className="mb-4 text-base font-medium">{title}</h2>
         <h2 className="text-sm font-medium">{name}</h2>

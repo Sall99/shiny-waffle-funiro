@@ -17,7 +17,7 @@ export default function Product() {
   return (
     <section>
       <Layout>
-        <div className="flex gap-4 bg-orange-300 px-_102 py-8 text-sm">
+        <div className="flex gap-4 bg-orange-300 px-4 py-8 text-sm lg:px-_102">
           <Link href="/" className="tex-sm flex items-center gap-2">
             <span>Home</span>
             <ChevronRight size={20} />

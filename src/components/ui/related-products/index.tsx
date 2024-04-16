@@ -31,7 +31,7 @@ export const RelatedProducts = ({ category }: RelatedProductsProps) => {
   };
 
   return (
-    <div className="mb-28 px-_102">
+    <div className="mb-28 px-4 md:px-_102">
       <h2 className="mb-14 text-center text-lg font-bold capitalize">
         Related Products
       </h2>
@@ -39,7 +39,7 @@ export const RelatedProducts = ({ category }: RelatedProductsProps) => {
       {isLoading ? (
         <ProductSkeleton number={4} />
       ) : (
-        <div className="grid grid-cols-1 content-center gap-8 md:grid-cols-2 lg:grid-cols-4">
+        <div className="grid grid-cols-1 content-center gap-8 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {data.products?.map(
             ({
               id,
