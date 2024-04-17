@@ -93,7 +93,7 @@ function RenderDescription({ description, images }: RenderDescriptionProps) {
   return (
     <div>
       <div className="lg:px-52">{description}</div>
-      <div className="mt-14 flex justify-between gap-4">
+      <div className="mt-14 flex flex-col justify-between gap-4 md:flex-row">
         <div className="description-product-image-container">
           <div
             className="description-product-image"

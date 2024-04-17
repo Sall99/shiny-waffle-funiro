@@ -14,13 +14,13 @@ export function Tabs({ tabs }: TabsProps) {
   return (
     <div className="w-full px-2 sm:px-0 md:py-16">
       <Tab.Group>
-        <Tab.List className="bg-blue-900/20 flex justify-center space-x-1 rounded-xl p-1">
+        <Tab.List className="bg-blue-900/20 flex justify-center gap-3 space-x-1 rounded-xl p-1 ">
           {Object.keys(tabs).map((tab) => (
             <Tab
               key={tab}
               className={({ selected }) =>
                 classNames(
-                  "w-48 py-2.5 text-sm font-medium leading-5",
+                  "py-2.5 text-sm font-medium leading-5 md:w-48",
                   "ring-white/60 ring-offset-blue-400 ring-offset-2 focus:outline-none",
                   selected ? "" : "text-gray-500",
                 )
