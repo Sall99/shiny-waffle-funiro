@@ -30,7 +30,7 @@ export default function Images({
   return (
     <div className="w-full">
       <div className="flex flex-col-reverse items-center gap-8 md:flex-row xl:w-_553">
-        <div className="flex gap-2 md:flex-col">
+        <div className="grid grid-cols-4  gap-2 md:flex md:flex-col">
           {images?.map((url, key) => (
             <div key={key} className="small-image-container">
               <div
@@ -51,7 +51,7 @@ export default function Images({
         ></div>
       </div>
       <Modal isOpen={isOpen} setIsOpen={setIsOpen} variant="primary">
-        <div className="flex h-full flex-col  items-center gap-8 lg:flex-row lg:justify-between lg:gap-0 lg:px-20">
+        <div className="flex h-full flex-col  items-center gap-8 overflow-y-auto lg:flex-row lg:justify-between lg:gap-0 lg:px-20">
           <div className="flex w-full justify-center">
             <div style={imageStyleModal} className="modal-product-image"></div>
           </div>
@@ -61,7 +61,7 @@ export default function Images({
                 <p key={key}>{text}</p>
               ))}
             </div>
-            <div className="flex gap-4">
+            <div className="grid grid-cols-3 gap-4 md:grid-cols-4 lg:grid-cols-3">
               {images?.map((url, key) => (
                 <div className="small-image-container" key={key}>
                   <div

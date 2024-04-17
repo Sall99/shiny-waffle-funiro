@@ -6,16 +6,21 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  max-width: 50%;
-  max-height: auto;
 }
 
 .description-product-image {
   background-size: cover;
   background-position: center;
   border-radius: 6px;
-  width: 550px;
-  height: 300px;
+  width: 357px;
+  height: 410px;
+}
+
+@media screen and (min-width: 1364px) {
+  .description-product-image {
+    width: 550px;
+    height: 300px;
+  }
 }
 
 @media screen and (min-width: 1364px) {
