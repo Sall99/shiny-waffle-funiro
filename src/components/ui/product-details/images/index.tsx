@@ -28,27 +28,30 @@ export default function Images({
   };
 
   return (
-    <div className="w-full">
-      <div className="flex flex-col-reverse items-center gap-8 md:flex-row xl:w-_553">
-        <div className="grid grid-cols-4  gap-2 md:flex md:flex-col">
-          {images?.map((url, key) => (
-            <div key={key} className="small-image-container">
-              <div
-                style={{
-                  backgroundImage: `url(${url})`,
-                }}
-                className="small-image"
-                onMouseEnter={() => setHoveredImage(url)}
-                onMouseLeave={() => setHoveredImage(null)}
-              ></div>
-            </div>
-          ))}
+    <>
+      {" "}
+      <div className="w-full">
+        <div className="flex flex-col-reverse items-center gap-8 md:flex-row xl:w-_553">
+          <div className="grid grid-cols-4  gap-2 md:flex md:flex-col">
+            {images?.map((url, key) => (
+              <div key={key} className="small-image-container">
+                <div
+                  style={{
+                    backgroundImage: `url(${url})`,
+                  }}
+                  className="small-image"
+                  onMouseEnter={() => setHoveredImage(url)}
+                  onMouseLeave={() => setHoveredImage(null)}
+                ></div>
+              </div>
+            ))}
+          </div>
+          <div
+            style={imageStyle}
+            className="image"
+            onClick={() => setIsOpen(true)}
+          ></div>
         </div>
-        <div
-          style={imageStyle}
-          className="image"
-          onClick={() => setIsOpen(true)}
-        ></div>
       </div>
       <Modal isOpen={isOpen} setIsOpen={setIsOpen} variant="primary">
         <div className="flex h-full flex-col  items-center gap-8 overflow-y-auto lg:flex-row lg:justify-between lg:gap-0 lg:px-20">
@@ -77,6 +80,6 @@ export default function Images({
           </div>
         </div>
       </Modal>
-    </div>
+    </>
   );
 }
