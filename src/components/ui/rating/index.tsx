@@ -45,7 +45,7 @@ export const Rating = ({ reviews, count, number }: RatingProps) => {
   return (
     <p className="mt-2 flex items-center gap-1">
       <> {renderStars(averageRating)}</>
-      {count && <p className="text-sm">{reviews?.length} Customer Review</p>}
+      {count && <s className="text-sm">{reviews?.length} Customer Review</s>}
     </p>
   );
 };

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Poppins, Montserrat } from "next/font/google";
 import { Analytics } from "@vercel/analytics/react";
-
+import { GoogleTagManager } from "@next/third-parties/google";
 import "./globals.css";
 import { Footer, Header } from "@/components";
 import { NextIntlClientProvider, useMessages } from "next-intl";
@@ -44,6 +44,7 @@ export default function RootLayout({
         </NextIntlClientProvider>
         <Analytics />
       </body>
+      <GoogleTagManager gtmId={`${process.env.GOOGLE_TAGMANAGER}`} />
     </html>
   );
 }

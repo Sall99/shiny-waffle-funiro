@@ -5,7 +5,12 @@ import Link from "next/link";
 import useSWR from "swr";
 import { useParams } from "next/navigation";
 
-import { Layout, ProductDetails, RelatedProducts } from "@/components";
+import {
+  Layout,
+  ProductDetails,
+  ProductDetailsSkeleton,
+  RelatedProducts,
+} from "@/components";
 
 import { getProduct } from "@/actions";
 
@@ -31,7 +36,14 @@ export default function Product() {
           </p>
         </div>
       </Layout>
-      {data?.product && <ProductDetails product={data.product} />}
+
+      {error ? (
+        <div>Error fetching product data</div>
+      ) : isLoading || !data.product ? (
+        <ProductDetailsSkeleton />
+      ) : (
+        <ProductDetails product={data.product} />
+      )}
 
       {data?.product && <RelatedProducts category={data.product.category} />}
     </section>
