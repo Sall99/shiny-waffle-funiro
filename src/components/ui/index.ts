@@ -16,3 +16,4 @@ export * from "./modal";
 export * from "./tabs";
 export * from "./avatar";
 export * from "./related-products";
+export * from "./cart";
