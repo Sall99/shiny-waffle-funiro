@@ -1,0 +1,42 @@
+.cart-product-image {
+  background-size: cover;
+  background-position: center;
+  width: 108px;
+  height: 105px;
+  border-radius: 6px;
+}
+
+table {
+  width: 100%;
+  min-width: 600px; /* Adjust based on your content */
+  overflow-x: auto;
+}
+
+thead {
+  background-color: #ffe5b4;
+}
+
+thead td,
+tbody td {
+  padding: 8px;
+}
+
+tbody tr {
+  border-bottom: 1px solid #ddd;
+}
+
+@media (max-width: 768px) {
+  .cart-product-image {
+    width: 40px;
+    height: 40px;
+  }
+
+  td p {
+    font-size: 14px;
+  }
+
+  .px-4 {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
