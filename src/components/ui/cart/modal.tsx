@@ -1,7 +1,8 @@
 "use client";
+import { Fragment, ReactNode } from "react";
+import { BsCartX } from "react-icons/bs";
 import { Dialog, Transition } from "@headlessui/react";
 import clsx from "clsx";
-import { Fragment, ReactNode } from "react";
 
 interface ModalProps {
   isOpen: boolean;
@@ -60,7 +61,19 @@ export function ModalCart({
                 leaveFrom="opacity-100 scale-100"
                 leaveTo="opacity-0 scale-95"
               >
-                <Dialog.Panel className="max-w-_417 w-full transform overflow-hidden bg-white-100 p-6 text-left align-middle shadow-xl transition-all">
+                <Dialog.Panel className="w-full max-w-_417 transform overflow-hidden bg-white-100 p-6 pr-10 text-left align-middle shadow-xl transition-all">
+                  <Dialog.Title
+                    as="h3"
+                    className="text-white flex items-center justify-between text-base/7 font-medium"
+                  >
+                    <div className="border-b border-b-gray-300 pb-4 pr-8">
+                      Shopping Cart
+                    </div>{" "}
+                    <BsCartX
+                      className="hover:cursor-pointer"
+                      onClick={closeModal}
+                    />
+                  </Dialog.Title>
                   {children}
                 </Dialog.Panel>
               </Transition.Child>

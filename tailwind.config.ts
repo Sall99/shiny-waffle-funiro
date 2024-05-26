@@ -71,7 +71,8 @@ const config: Config = {
       },
     },
     backgroundImage: {
-      "home-hero-pattern": "url('/images/hero.jpg')",
+      "home-hero-pattern": "url('/images/Hero.jpg')",
+      "hero-pattern": "url('/images/Hero-section.jpg')",
     },
     extend: {
       fontFamily: {
@@ -98,6 +99,7 @@ const config: Config = {
         _245: "245px",
         _285: "285px",
         _305: "305px",
+        _316: "316px",
         _419: "419px",
         _443: "443px",
         _450: "450px",
