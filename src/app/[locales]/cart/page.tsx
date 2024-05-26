@@ -1,11 +1,14 @@
 import React from "react";
 
-import { HeroSection, Layout } from "@/components";
+import { CartTotals, HeroSection, Layout } from "@/components";
 
 export default function page() {
   return (
     <div>
       <HeroSection title="Cart" />
+      <Layout>
+        <CartTotals />
+      </Layout>
     </div>
   );
 }
