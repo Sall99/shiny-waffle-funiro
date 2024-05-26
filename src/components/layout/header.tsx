@@ -12,7 +12,8 @@ import {
 } from "lucide-react";
 
 import { Menu } from "../svg";
-import { LocalSwitcher, Search, Layout, MenuMobile } from "@/components";
+import { LocalSwitcher, Search, Layout, MenuMobile, Cart } from "@/components";
+import { ModalCart } from "../ui/cart/modal";
 
 const links = [
   { name: "Home", path: "/" },
@@ -34,7 +35,7 @@ const iconLinks = [
   { Icon: Heart, path: "/favoris", hidden: true, auth: false, name: "Favoris" },
   {
     Icon: ShoppingCart,
-    path: "/cart",
+    path: "",
     hidden: false,
     auth: false,
     name: "Cart",
@@ -43,6 +44,7 @@ const iconLinks = [
 
 function Header() {
   const [isOpen, setIsOpen] = useState(false);
+  const [isCartOpen, setCartIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [openSearch, setOpenSearch] = useState(false);
   const user = null;
@@ -65,6 +67,10 @@ function Header() {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+
+  const handleCartClick = () => {
+    setCartIsOpen(true);
+  };
 
   return (
     <nav
@@ -127,7 +133,13 @@ function Header() {
                     if (link.name === "Search") setOpenSearch(true);
                   }}
                 >
-                  <link.Icon width={18} height={18} />
+                  {link.name === "Cart" ? (
+                    <div onClick={handleCartClick}>
+                      <link.Icon width={18} height={18} />
+                    </div>
+                  ) : (
+                    <link.Icon width={18} height={18} />
+                  )}
                 </Link>
               ) : null,
             )}
@@ -136,6 +148,13 @@ function Header() {
       </Layout>
       <MenuMobile isOpen={isOpen} setIsOpen={setIsOpen} />
       <Search isOpen={openSearch} setIsOpen={setOpenSearch} />
+      <ModalCart
+        isOpen={isCartOpen}
+        setIsOpen={setCartIsOpen}
+        variant={"primary"}
+      >
+        <Cart />
+      </ModalCart>
     </nav>
   );
 }
