@@ -18,3 +18,4 @@ export * from "./avatar";
 export * from "./related-products";
 export * from "./cart";
 export * from "./cart-totals";
+export * from "./feature";

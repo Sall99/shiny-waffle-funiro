@@ -1,6 +1,6 @@
 import React from "react";
 
-import { CartTotals, HeroSection, Layout } from "@/components";
+import { CartTotals, Feature, HeroSection, Layout } from "@/components";
 
 export default function page() {
   return (
@@ -9,6 +9,7 @@ export default function page() {
       <Layout>
         <CartTotals />
       </Layout>
+      <Feature />
     </div>
   );
 }
