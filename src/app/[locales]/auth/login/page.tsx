@@ -1,13 +1,14 @@
 "use client";
 import React from "react";
-import { SubmitHandler, useForm } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
-import { loginSchema } from "@/constants/validation";
-import { Button, Input, SocialLoginButton } from "@/components";
 import Image from "next/image";
 import { FaApple } from "react-icons/fa";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
+import { SubmitHandler, useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+
+import { loginSchema } from "@/constants/validation";
+import { Button, Input, SocialLoginButton } from "@/components";
 
 type loginFormValues = {
   email: string;
