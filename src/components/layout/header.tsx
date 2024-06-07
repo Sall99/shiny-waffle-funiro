@@ -153,7 +153,7 @@ function Header() {
         setIsOpen={setCartIsOpen}
         variant={"primary"}
       >
-        <Cart />
+        <Cart setIsOpen={setCartIsOpen} />
       </ModalCart>
     </nav>
   );
