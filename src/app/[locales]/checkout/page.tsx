@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 
-import { Button, HeroSection, Input, Layout } from "@/components";
+import { Button, Feature, HeroSection, Input, Layout } from "@/components";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { checkoutSchema } from "@/constants/validation";
@@ -37,7 +37,7 @@ export default function Checkout() {
   return (
     <section>
       <HeroSection title="Checkout" />
-      <Layout className="mt-16 flex flex-col items-center justify-center gap-4 px-5 md:px-0 lg:flex-row">
+      <Layout className="mt-16 flex flex-col items-center justify-center gap-4 px-5 md:items-start md:px-0 lg:flex-row">
         <div className="pb-_75 pt-9 md:w-_608 md:px-_75">
           <h2 className="mb-9 text-lg font-bold">Billing details</h2>
           <form className="flex flex-col gap-4">
@@ -197,6 +197,7 @@ export default function Checkout() {
           </div>
         </div>
       </Layout>
+      <Feature />
     </section>
   );
 }

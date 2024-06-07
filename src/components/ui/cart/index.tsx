@@ -3,7 +3,11 @@ import Link from "next/link";
 
 import { X } from "lucide-react";
 
-export const Cart = () => {
+interface CartProps {
+  setIsOpen: (isOpen: boolean) => void;
+}
+
+export const Cart = ({ setIsOpen }: CartProps) => {
   return (
     <div className="h-[90%]">
       <div className="mt-4 flex h-full flex-col justify-between">
@@ -39,12 +43,14 @@ export const Cart = () => {
             <Link
               href="/cart"
               className="rounded-2xl border border-black-500 px-8 py-1 text-xs font-medium"
+              onClick={() => setIsOpen(false)}
             >
               Cart
             </Link>
             <Link
               href="/checkout"
               className="rounded-2xl border border-black-500 px-8 py-1 text-xs font-medium"
+              onClick={() => setIsOpen(false)}
             >
               Checkout
             </Link>
