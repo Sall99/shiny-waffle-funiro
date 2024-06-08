@@ -13,22 +13,24 @@ import {
 } from "@/components";
 
 import { getProduct } from "@/actions";
+import { useTranslations } from "next-intl";
 
 export default function Product() {
   const { id } = useParams<{ id: string }>();
+  const t = useTranslations("ProductDetails");
 
-  const { error, data, isLoading } = useSWR("products", () => getProduct(id));
+  const { error, data, isLoading } = useSWR("product", () => getProduct(id));
 
   return (
     <section>
       <Layout>
         <div className="flex gap-4 bg-orange-300 px-4 py-8 text-sm lg:px-_102">
           <Link href="/" className="tex-sm flex items-center gap-2">
-            <span>Home</span>
+            <span>{t("Home")}</span>
             <ChevronRight size={20} />
           </Link>
           <Link href="/shop" className="flex items-center gap-2">
-            <span>Shop</span>
+            <span>{t("Shop")}</span>
             <ChevronRight size={20} />
           </Link>
           <p className="flex items-center gap-2">
@@ -38,7 +40,7 @@ export default function Product() {
       </Layout>
 
       {error ? (
-        <div>Error fetching product data</div>
+        <div>{t("errorFetching")}</div>
       ) : isLoading || !data.product ? (
         <ProductDetailsSkeleton />
       ) : (

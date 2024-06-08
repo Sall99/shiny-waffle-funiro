@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import { Tab } from "@headlessui/react";
+import { useTranslations } from "next-intl";
 
 interface TabsProps {
   tabs: { [key: string]: React.ReactNode };
@@ -11,6 +12,8 @@ function classNames(...classes: string[]) {
 }
 
 export function Tabs({ tabs }: TabsProps) {
+  console.log(tabs);
+  const t = useTranslations("Tabs");
   return (
     <div className="w-full px-2 sm:px-0 md:py-16">
       <Tab.Group>

@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import { IReview } from "@/types";
-import { useFormatter } from "next-intl";
+import { useFormatter, useTranslations } from "next-intl";
 import { Button, QuantityPicker, Rating } from "@/components";
 import { FaFacebookF, FaTwitter } from "react-icons/fa";
 
@@ -26,6 +26,7 @@ const Description = ({
   additionalInformation,
   category,
 }: DescriptionProps) => {
+  const t = useTranslations("ProductDetails");
   const priceFormat = useFormatter();
   const [quantity, setQuantity] = useState(1);
 
@@ -56,16 +57,17 @@ const Description = ({
 
         <div className="flex gap-4">
           <QuantityPicker value={quantity} onChange={setQuantity} />
-          <Button label={"Add to cart"} variant="tertiary" />
+          <Button label={t("addToCart")} variant="tertiary" />
         </div>
       </div>
 
       <div className="flex flex-col gap-4 pt-10 text-sm text-gray-500">
         <div className="flex">
-          <p className="w-28">Category</p>: <p className="ml-4">{category}</p>
+          <p className="w-28">{t("Category")}</p>:{" "}
+          <p className="ml-4">{category}</p>
         </div>
         <div className="flex">
-          <p className="w-28">Tags</p>:{" "}
+          <p className="w-28">{t("Tags")}</p>:{" "}
           <p className="ml-4 flex gap-3">
             <span>home,</span>
             <span>{category},</span>
@@ -73,7 +75,7 @@ const Description = ({
           </p>
         </div>
         <div className="flex">
-          <p className="w-28">Share</p>:{" "}
+          <p className="w-28">{t("Share")}</p>:{" "}
           <div className="ml-4 flex gap-2">
             <FaFacebookF color="#B88E2F" />
             <FaTwitter color="#B88E2F" />

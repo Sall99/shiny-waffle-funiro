@@ -2,6 +2,7 @@ import React from "react";
 import { Star } from "lucide-react";
 
 import { IReview } from "@/types";
+import { useTranslations } from "next-intl";
 
 export interface RatingProps {
   reviews?: IReview[];
@@ -35,6 +36,7 @@ function renderStars(rating: number) {
 }
 
 export const Rating = ({ reviews, count, number }: RatingProps) => {
+  const t = useTranslations("ProductDetails");
   let averageRating = 0;
 
   if (reviews && reviews.length > 0) {
@@ -45,7 +47,11 @@ export const Rating = ({ reviews, count, number }: RatingProps) => {
   return (
     <p className="mt-2 flex items-center gap-1">
       <> {renderStars(averageRating)}</>
-      {count && <s className="text-sm">{reviews?.length} Customer Review</s>}
+      {count && (
+        <span className="text-sm">
+          {reviews?.length} {t("customerReview")}
+        </span>
+      )}
     </p>
   );
 };

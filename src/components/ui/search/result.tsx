@@ -2,7 +2,7 @@
 import React from "react";
 import { useMediaQuery } from "@react-hook/media-query";
 import { Star } from "lucide-react";
-import { useFormatter } from "next-intl";
+import { useFormatter, useTranslations } from "next-intl";
 
 import { Button, Rating } from "@/components";
 import { IProduct, IReview } from "@/types";
@@ -25,6 +25,9 @@ interface ResultProps {
 }
 
 export function Result({ data, isLoading }: ResultProps) {
+  const category = data?.products[0].category;
+
+  const t = useTranslations("categoriesSection");
   return (
     <div>
       {data && (
@@ -55,7 +58,7 @@ export function Result({ data, isLoading }: ResultProps) {
           {data.length > 0 && (
             <Button
               className="mt-8 px-4 py-2"
-              label={`See results in Dinning (${data.length})`}
+              label={`${t("SeeResultsIn")} ${t(category)} (${data.length})`}
             />
           )}
         </>
