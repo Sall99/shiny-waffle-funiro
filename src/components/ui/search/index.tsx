@@ -9,6 +9,7 @@ import { Result } from "./result";
 import { NoResult } from "./no-result";
 import { getSearch } from "@/actions";
 import { Modal } from "@/components";
+import { useTranslations } from "next-intl";
 
 interface SearchProps {
   isOpen: boolean;
@@ -16,6 +17,7 @@ interface SearchProps {
 }
 
 export function Search({ isOpen, setIsOpen }: SearchProps) {
+  const t = useTranslations("Search");
   const [search, setSearched] = useState("");
   const result = false;
 
@@ -31,12 +33,12 @@ export function Search({ isOpen, setIsOpen }: SearchProps) {
           <input
             type="search"
             className="w-full border-2 border-orange-500 py-2 pl-5 placeholder:text-sm focus:outline-none"
-            placeholder="Search products, categories..."
+            placeholder={t("placeholder")}
             onChange={(e) => setSearched(e.target.value)}
           />
           <Button
-            label="Search"
-            className="absolute bottom-2 right-5 h-7 w-20"
+            label={t("search")}
+            className="absolute bottom-2 right-5 h-7 w-20 capitalize"
           />
         </div>
       </form>
@@ -54,7 +56,7 @@ export function Search({ isOpen, setIsOpen }: SearchProps) {
                 <Result data={data} isLoading={isLoading} />
               </>
             ) : (
-              <NoResult />
+              <NoResult search={search} />
             )}
           </>
         )}

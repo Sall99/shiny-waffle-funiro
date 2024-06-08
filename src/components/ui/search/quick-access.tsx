@@ -58,7 +58,7 @@ export function QuickAccess() {
             onMouseLeave={handleMouseLeave}
           >
             {hoveredTitle === title && (
-              <div className="category-title">{title}</div>
+              <div className="category-title text-center">{t(title)}</div>
             )}
           </div>
         </Link>
@@ -68,15 +68,15 @@ export function QuickAccess() {
         className="bg-orange-500 p-4 text-white-100"
       >
         <h2 className=" font-medium">
-          HOW CAN <br /> WE HELP?
+          {t("howCan")} <br /> {t("weHelp")}
         </h2>
 
         <ul className="mt-6 text-sm">
           <li className="mb-2">
-            <Link href="/my-order">Track my order</Link>
+            <Link href="/my-order">{t("trackOrder")}</Link>
           </li>
           <li className="mb-2">
-            <Link href="/develivery">Delivery & Returns</Link>
+            <Link href="/develivery">{t("deliverReturn")}</Link>
           </li>
           <li className="mb-2">
             <Link href="/faq">FAQ</Link>

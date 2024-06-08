@@ -1,7 +1,13 @@
 "use client";
+import { useTranslations } from "next-intl";
 import React from "react";
 
-export const NoResult = () => {
+interface NoResultProps {
+  search: string;
+}
+
+export const NoResult = ({ search }: NoResultProps) => {
+  const t = useTranslations("Search");
   const imageWidth = 90;
   const imageHeight = 90;
   const imageStyle = {
@@ -16,22 +22,20 @@ export const NoResult = () => {
   return (
     <div className="w-full">
       <h2 className="font-medium">
-        Sorry, we didn’t find any matches for “addydasss”
+        {t("didNotFound")} “{search}”
       </h2>
       <div className="mt-8 flex w-full gap-4">
         <div className="search w-80">
           <div>
-            <h2 className="text-sm font-medium">Try the following:</h2>
+            <h2 className="text-sm font-medium">{t("tryTheFollowing")}:</h2>
             <ul className="ml-4 mt-4 list-disc text-xs">
-              <li className="mb-2">Double check your spelling</li>
-              <li className="mb-2">Use fewer keywords</li>{" "}
-              <li className="mb-2">
-                Search fo an item that is less specific and refine results
-              </li>
+              <li className="mb-2">{t("doubleCheck")}</li>
+              <li className="mb-2">{t("fewerEord")}</li>{" "}
+              <li className="mb-2">{t("forSpecific")}</li>
             </ul>
           </div>
           <div className="mt-4">
-            <h2 className="text-sm font-medium">Search instead</h2>
+            <h2 className="text-sm font-medium">{t("searchInstead")}</h2>
             <ul className="mt-4 grid grid-cols-3 gap-4">
               <li className="bg-gray-100 px-2 py-2 text-xs">low sneakers</li>
               <li className="bg-gray-100 px-2 py-2 text-xs">low sneakers</li>
@@ -41,7 +45,7 @@ export const NoResult = () => {
           </div>
         </div>
         <div className="">
-          <h2 className="text-sm font-medium">Popular products</h2>
+          <h2 className="text-sm font-medium">{t("popularProducts")}</h2>
 
           <div className="mt-4 flex items-center gap-4">
             <div style={imageStyle}></div>

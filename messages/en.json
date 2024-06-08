@@ -13,7 +13,14 @@
     "discover": "Discover an exquisite selection tailored just for you.",
     "dinning": "Dinning room",
     "living": "Living room",
-    "bedroom": "Bedroom"
+    "bedroom": "Bedroom",
+    "howCan": "HOW CAN",
+    "weHelp": "WE HELP?",
+    "deliverReturn": "Delivery & Returns",
+    "trackOrder": "Track my order",
+    "SeeResultsIn": "See results in",
+    "livingroom": "Living room",
+    "diningroom": "Dinning room"
   },
   "Products": {
     "ourProducts": "Our Products"
@@ -61,5 +68,36 @@
     "emailInvalid": "Invalid email format",
     "passwordMinLength": "Password must be at least 8 characters long",
     "passwordMaxLength": "Password must be at most 32 characters long"
+  },
+  "Search": {
+    "search": "search",
+    "placeholder": "Search products, categories",
+    "recentSearch": "Recent searches",
+    "popularSearch": "Popular Searches",
+    "didNotFound": "Sorry, we didn’t find any matches for",
+    "forSpecific": " Search fo an item that is less specific and refine results",
+    "fewerEord": "Use fewer keywords",
+    "doubleCheck": "Double check your spelling",
+    "tryTheFollowing": "Try the following",
+    "searchInstead": "Search instead",
+    "popularProducts": "Popular products"
+  },
+
+  "ProductDetails": {
+    "errorFetching": "Error fetching product data",
+    "Shop": "Shop",
+    "Home": "Home",
+    "customerReview": "Customer Review",
+    "Share": "Share",
+    "Category": "Category",
+    "Tags": "Tags",
+    "verifiedPurchase": "Verified purchase",
+    "addToCart": "Add to cart",
+    "Reviewed": "Reviewed"
+  },
+  "Tabs": {
+    "Reviews": "Reviews",
+    "additionalInformation": "Additional Information",
+    "Description": "Descriptions"
   }
 }

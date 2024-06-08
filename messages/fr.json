@@ -13,7 +13,14 @@
     "discover": "Découvrez une sélection exquise conçue spécialement pour vous.",
     "dinning": "Salle à manger",
     "living": "Salon",
-    "bedroom": "Chambre à coucher"
+    "bedroom": "Chambre à coucher",
+    "howCan": "COMMENT",
+    "weHelp": "POUVONS-NOUS AIDER?",
+    "deliverReturn": "Livraison et retours",
+    "trackOrder": "Suivre ma commande",
+    "SeeResultsIn": "Voir les résultats en",
+    "livingroom": "Salon",
+    "diningroom": "Salle à manger"
   },
   "Products": {
     "ourProducts": "Nos produits"
@@ -61,5 +68,36 @@
     "emailInvalid": "Format d'email invalide",
     "passwordMinLength": "Le mot de passe doit contenir au moins 8 caractères",
     "passwordMaxLength": "Le mot de passe doit contenir au plus 32 caractères"
+  },
+  "Search": {
+    "search": "recherche",
+    "placeholder": "Rechercher des produits, catégories",
+    "recentSearch": "Recherches récentes",
+    "popularSearch": "Recherches populaires",
+    "didNotFound": "Désolé, nous n'avons trouvé aucune correspondance pour",
+    "forSpecific": "Recherchez un article moins spécifique et affinez les résultats",
+    "fewerEord": "Utilisez moins de mots-clés",
+    "doubleCheck": "Vérifiez l'orthographe",
+    "tryTheFollowing": "Essayez les suggestions suivantes",
+    "searchInstead": "Rechercher à la place",
+    "popularProducts": "Produits populaires"
+  },
+
+  "ProductDetails": {
+    "errorFetching": "Erreur lors de la récupération des données du produit",
+    "Shop": "Boutique",
+    "Home": "Accueil",
+    "customerReview": "Avis client",
+    "Share": "Partager",
+    "Category": "Catégorie",
+    "Tags": "Étiquettes",
+    "verifiedPurchase": "Achat vérifié",
+    "addToCart": "Ajouter au panier",
+    "Reviewed": "Revue le"
+  },
+  "Tabs": {
+    "Reviews": "Avis",
+    "Additional Information": "Informations supplémentaires",
+    "Description": "Description"
   }
 }

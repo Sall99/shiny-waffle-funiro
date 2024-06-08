@@ -6,6 +6,7 @@ import { Layout, Rating, Tabs, Avatar } from "@/components";
 import Images from "./images";
 import Description from "./description";
 import "./index.css";
+import { useTranslations } from "next-intl";
 
 export interface ProductDetailsProps {
   product: IProduct;
@@ -26,6 +27,7 @@ interface RenderReviewsProps {
 }
 
 export function ProductDetails({ product }: ProductDetailsProps) {
+  const t = useTranslations("Tabs");
   const {
     description,
     defaultImage,
@@ -44,13 +46,13 @@ export function ProductDetails({ product }: ProductDetailsProps) {
     Description: (
       <RenderDescription description={description} images={imageUrl} />
     ),
-    "Additional Information": (
+    [t("additionalInformation")]: (
       <RenderAdditionalInformation
         additionalInformation={additionalInformation}
         images={imageUrl}
       />
     ),
-    [`Reviews [${product.reviews.length}]`]: (
+    [`${t("Reviews")} [${product.reviews.length}]`]: (
       <RenderReviews reviews={reviews} />
     ),
   });
@@ -150,6 +152,7 @@ function RenderAdditionalInformation({
 }
 
 function RenderReviews({ reviews }: RenderReviewsProps) {
+  const t = useTranslations("ProductDetails");
   return (
     <div>
       <div className="lg:px-52">
@@ -165,9 +168,9 @@ function RenderReviews({ reviews }: RenderReviewsProps) {
               <h2 className="font-medium">{author}</h2>
             </div>
             <Rating count={false} number={rating} />
-            <p className="mt-2 text-xs">Reviewed in May 12, 2021</p>
+            <p className="mt-2 text-xs">{t("Reviewed")} in May 12, 2021</p>
             <p className="mt-4 text-xs font-bold uppercase text-green-500">
-              Verified purchase
+              {t("verifiedPurchase")}
             </p>
             <p className="mt-4 text-sm">{comment}</p>
           </div>
