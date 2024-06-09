@@ -23,7 +23,7 @@ export function Tabs({ tabs }: TabsProps) {
               key={tab}
               className={({ selected }) =>
                 classNames(
-                  "py-2.5 text-sm font-medium leading-5 md:w-48",
+                  "py-2.5 text-sm font-medium leading-5",
                   "ring-white/60 ring-offset-blue-400 ring-offset-2 focus:outline-none",
                   selected ? "" : "text-gray-500",
                 )

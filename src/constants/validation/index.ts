@@ -30,10 +30,7 @@ export const contactSchema = yup.object().shape({
     .required("Name is required")
     .min(2, "Name must be at least 2 characters long")
     .max(50, "Name cannot be longer than 50 characters"),
-  email: yup
-    .string()
-    .email("Invalid email format")
-    .required("Email is required"),
+  email: yup.string().email("emailInvalid").required("required"),
   subject: yup
     .string()
     .optional()
@@ -48,43 +45,43 @@ export const contactSchema = yup.object().shape({
 export const checkoutSchema = yup.object().shape({
   lname: yup
     .string()
-    .required("Last Name is required")
-    .min(2, "Last Name must be at least 2 characters long")
-    .max(50, "Last Name cannot be longer than 15 characters"),
+    .required("lNameRequired")
+    .min(2, "lNameMin")
+    .max(50, "lNameMax"),
   fname: yup
     .string()
-    .required("Firts Name is required")
-    .min(2, "Firts Name must be at least 2 characters long")
-    .max(50, "Firts Name cannot be longer than 20 characters"),
+    .required("fNameRequired")
+    .min(2, "fNameMin")
+    .max(50, "fNameMax"),
   companyName: yup.string().optional(),
   countryRegion: yup
     .string()
-    .required("Country / Region is required")
-    .min(2, "Country / Region must be at least 2 characters long")
-    .max(50, "Country / Region cannot be longer than 30 characters"),
+    .required("Country/RegionRequired")
+    .min(2, "Country/RegionMin")
+    .max(50, "Country/RegionMax"),
   street: yup
     .string()
-    .required("Street is required")
-    .min(2, "Street must be at least 2 characters long")
-    .max(40, "Street cannot be longer than 30 characters"),
+    .required("streetRequired")
+    .min(2, "streetMin")
+    .max(40, "streetMax"),
   townCity: yup
     .string()
-    .required("Town / City is required")
-    .min(2, "Town / City must be at least 2 characters long")
-    .max(20, "Town / City cannot be longer than 30 characters"),
+    .required("townCityRequired")
+    .min(2, "townCityMin")
+    .max(20, "townCityMax"),
 
   province: yup.string().optional(),
   zipCode: yup
     .number()
-    .required("Zip code is required")
-    .min(2, "Zip code must be at least 2 characters long")
-    .max(12, "Zip code cannot be longer than 12 characters"),
+    .required("zipCodeRequired")
+    .min(2, "zipCodeMin")
+    .max(12, "zipCodeMax"),
 
   phone: yup
     .string()
-    .required("Phone is required")
-    .min(2, "Phone must be at least 2 characters long")
-    .max(12, "Phone cannot be longer than 30 characters"),
+    .required("phoneRequired")
+    .min(2, "phoneMin")
+    .max(12, "phoneMax"),
 
   email: yup.string().email("emailInvalid").required("required"),
   additionalInfo: yup.string().optional(),

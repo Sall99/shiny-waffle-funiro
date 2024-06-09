@@ -168,7 +168,7 @@ function RenderReviews({ reviews }: RenderReviewsProps) {
               <h2 className="font-medium">{author}</h2>
             </div>
             <Rating count={false} number={rating} />
-            <p className="mt-2 text-xs">{t("Reviewed")} in May 12, 2021</p>
+            <p className="mt-2 text-xs">{t("Reviewed")} May 12, 2021</p>
             <p className="mt-4 text-xs font-bold uppercase text-green-500">
               {t("verifiedPurchase")}
             </p>

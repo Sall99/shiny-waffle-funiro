@@ -2,12 +2,14 @@ import React from "react";
 import Link from "next/link";
 
 import { X } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 interface CartProps {
   setIsOpen: (isOpen: boolean) => void;
 }
 
 export const Cart = ({ setIsOpen }: CartProps) => {
+  const t = useTranslations("Cart");
   return (
     <div className="h-[90%]">
       <div className="mt-4 flex h-full flex-col justify-between">
@@ -33,7 +35,7 @@ export const Cart = ({ setIsOpen }: CartProps) => {
 
         <div>
           <div className="flex items-center justify-between border-b border-b-gray-300 pb-4">
-            <h2 className="font-medium">Sub Total</h2>
+            <h2 className="font-medium">{t("subTotal")}</h2>
             <p>
               {" "}
               <span className="ml-2 text-orange-500">900.00 USD </span>
@@ -45,14 +47,14 @@ export const Cart = ({ setIsOpen }: CartProps) => {
               className="rounded-2xl border border-black-500 px-8 py-1 text-xs font-medium"
               onClick={() => setIsOpen(false)}
             >
-              Cart
+              {t("Cart")}
             </Link>
             <Link
               href="/checkout"
               className="rounded-2xl border border-black-500 px-8 py-1 text-xs font-medium"
               onClick={() => setIsOpen(false)}
             >
-              Checkout
+              {t("Checkout")}
             </Link>
           </div>
         </div>

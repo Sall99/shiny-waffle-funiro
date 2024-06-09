@@ -6,6 +6,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 
 import { contactSchema } from "@/constants/validation";
 import { Button, Feature, HeroSection, Input, Layout } from "@/components";
+import { useTranslations } from "next-intl";
 
 type contactFormValues = {
   name: string;
@@ -15,6 +16,7 @@ type contactFormValues = {
 };
 
 function Contact() {
+  const t = useTranslations("Contact");
   const {
     handleSubmit,
     register,
@@ -31,11 +33,10 @@ function Contact() {
       <HeroSection title="Contact" />
       <Layout className="pb-16 pt-24">
         <div className="text-center">
-          <h2 className="text-lg font-bold capitalize">Get In Touch With Us</h2>
+          <h2 className="text-lg font-bold capitalize">{t("getInTouch")}</h2>
           <p className="mt-4 text-sm text-gray-500">
-            For More Information About Our Product & Services. Please Feel Free
-            To Drop Us <br /> An Email. Our Staff Always Be There To Help You
-            Out. Do Not Hesitate!
+            {t("ForMore")}
+            <br /> {t("AnEmail")}
           </p>
         </div>
 
@@ -45,7 +46,7 @@ function Contact() {
               <li>
                 <div>
                   <MapPin />
-                  <p className="font-semibold">Address</p>
+                  <p className="font-semibold">{t("Address")}</p>
                   <address className="text-sm">
                     236 5th SE Avenue, New <br /> York NY10000, United <br />{" "}
                     States
@@ -55,7 +56,7 @@ function Contact() {
               <li>
                 <div>
                   <Phone />
-                  <p className="font-semibold">Phone</p>
+                  <p className="font-semibold">{t("Phone")}</p>
                   <p className="text-sm">
                     Mobile: +(84) 546-6789 <br /> Hotline: +(84) 456-6789
                   </p>
@@ -64,10 +65,10 @@ function Contact() {
               <li>
                 <div>
                   <Clock4 />
-                  <p className="font-semibold">Working Time</p>
+                  <p className="font-semibold">{t("workingTime")}</p>
                   <p className="text-sm">
-                    Monday-Friday: 9:00 - 22:00 <br /> Saturday-Sunday: 9:00 -
-                    21:00
+                    {t("Monday-Friday")}: 9:00 - 22:00 <br />{" "}
+                    {t("Saturday-Sunday")}: 9:00 - 21:00
                   </p>
                 </div>
               </li>
@@ -83,7 +84,7 @@ function Contact() {
                 type="text"
                 placeholder="Abc"
                 label
-                labelText="Your name"
+                labelText={t("yourName")}
                 border
                 register={register}
                 errors={errors}
@@ -93,7 +94,7 @@ function Contact() {
                 type="text"
                 placeholder="Abc@def.com"
                 label
-                labelText="Email address"
+                labelText={t("emailAddress")}
                 border
                 register={register}
                 errors={errors}
@@ -101,7 +102,7 @@ function Contact() {
               <Input
                 name="subject"
                 type="text"
-                placeholder="This is an optional"
+                placeholder={t("optional")}
                 label
                 labelText="Subject"
                 border
@@ -111,7 +112,7 @@ function Contact() {
               <Input
                 name="message"
                 type="textarea"
-                placeholder="Hi! i’d like to ask about"
+                placeholder={t("Hi")}
                 label
                 labelText="Message"
                 border
@@ -120,7 +121,7 @@ function Contact() {
               />
 
               <Button
-                label="Submit"
+                label={t("Submit")}
                 variant="primary"
                 className="w-_245 rounded-md py-4"
               />

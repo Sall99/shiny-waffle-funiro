@@ -6,6 +6,7 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { checkoutSchema } from "@/constants/validation";
 import Link from "next/link";
+import { useTranslations } from "next-intl";
 
 type checkoutFormValues = {
   lname: string;
@@ -22,6 +23,7 @@ type checkoutFormValues = {
 };
 
 export default function Checkout() {
+  const t = useTranslations("Checkout");
   const {
     handleSubmit,
     register,
@@ -39,7 +41,7 @@ export default function Checkout() {
       <HeroSection title="Checkout" />
       <Layout className="mt-16 flex flex-col items-center justify-center gap-4 px-5 md:items-start md:px-0 lg:flex-row">
         <div className="pb-_75 pt-9 md:w-_608 md:px-_75">
-          <h2 className="mb-9 text-lg font-bold">Billing details</h2>
+          <h2 className="mb-9 text-lg font-bold">{t("billingDetails")}</h2>
           <form className="flex flex-col gap-4">
             <div className="flex justify-between gap-8">
               <Input
@@ -47,7 +49,7 @@ export default function Checkout() {
                 type="text"
                 placeholder=""
                 label
-                labelText="First Name"
+                labelText={t("firstName")}
                 border
                 register={register}
                 errors={errors}
@@ -57,7 +59,7 @@ export default function Checkout() {
                 type="text"
                 placeholder=""
                 label
-                labelText="Last Name"
+                labelText={t("lastName")}
                 border
                 register={register}
                 errors={errors}
@@ -69,7 +71,7 @@ export default function Checkout() {
                 type="text"
                 placeholder=""
                 label
-                labelText="Company Name (Optional)"
+                labelText={t("companyName")}
                 border
                 register={register}
                 errors={errors}
@@ -79,7 +81,7 @@ export default function Checkout() {
                 type="text"
                 placeholder=""
                 label
-                labelText="Country / Region"
+                labelText={t("Country/Region")}
                 border
                 register={register}
                 errors={errors}
@@ -89,7 +91,7 @@ export default function Checkout() {
                 type="text"
                 placeholder=""
                 label
-                labelText="Street address"
+                labelText={t("streetAddress")}
                 border
                 register={register}
                 errors={errors}
@@ -99,7 +101,7 @@ export default function Checkout() {
                 type="text"
                 placeholder=""
                 label
-                labelText="Town / City"
+                labelText={t("Town/City")}
                 border
                 register={register}
                 errors={errors}
@@ -110,7 +112,7 @@ export default function Checkout() {
                 type="text"
                 placeholder=""
                 label
-                labelText="Province (Optional)"
+                labelText={t("Province")}
                 border
                 register={register}
                 errors={errors}
@@ -120,7 +122,7 @@ export default function Checkout() {
                 type="text"
                 placeholder=""
                 label
-                labelText="Zip code"
+                labelText={t("zipCode")}
                 border
                 register={register}
                 errors={errors}
@@ -130,7 +132,7 @@ export default function Checkout() {
                 type="text"
                 placeholder=""
                 label
-                labelText="Phone"
+                labelText={t("Phone")}
                 border
                 register={register}
                 errors={errors}
@@ -140,7 +142,7 @@ export default function Checkout() {
                 type="text"
                 placeholder=""
                 label
-                labelText="Email address"
+                labelText={t("emailAddress")}
                 border
                 register={register}
                 errors={errors}
@@ -150,7 +152,7 @@ export default function Checkout() {
                 type="text"
                 placeholder=""
                 label
-                labelText="Additional information (Optional)"
+                labelText={t("additionalInformation")}
                 border
                 register={register}
                 errors={errors}
@@ -160,8 +162,8 @@ export default function Checkout() {
         </div>
         <div className="pmd:x-_75 flex flex-col gap-4 py-_102 font-medium md:w-_608 lg:px-9">
           <h2 className="flex justify-between font-semibold">
-            <span>Product</span>
-            <span>Subtotal</span>
+            <span>{t("Product")}</span>
+            <span>{t("Subtotal")}</span>
           </h2>
           <p className="flex justify-between">
             <span className="text-gray-500">Asgaard sofa x 1</span>
@@ -172,17 +174,15 @@ export default function Checkout() {
             <span className="font-semibold text-orange-500">250.00 usd</span>
           </p>
 
-          <div className="border-gray-600 mt-4 border"></div>
+          <div className="mt-4 border border-gray-600"></div>
 
           <div>
             <ul className="list-disc">
-              <li className="">Credit card</li>
+              <li className="">{t("creditCard")}</li>
               <p className="mt-4 text-sm font-light">
-                Your personal data will be used to support your experience
-                throughout this website, to manage access to your account, and
-                for other purposes described in our{" "}
+                {t("personalData")}
                 <Link href="/private-policy" className="font-semibold">
-                  privacy policy
+                  {t("privacyPolicy")}
                 </Link>
                 .
               </p>
@@ -190,7 +190,7 @@ export default function Checkout() {
             <div className="mt-8 text-center">
               <Button
                 variant="tertiary"
-                label={"Place order"}
+                label={t("placeOrder")}
                 onClick={handleSubmit(onSubmit)}
               />
             </div>

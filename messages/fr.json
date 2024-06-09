@@ -67,7 +67,28 @@
     "required": "est requis",
     "emailInvalid": "Format d'email invalide",
     "passwordMinLength": "Le mot de passe doit contenir au moins 8 caractères",
-    "passwordMaxLength": "Le mot de passe doit contenir au plus 32 caractères"
+    "passwordMaxLength": "Le mot de passe doit contenir au plus 32 caractères",
+    "lNameRequired": "Le nom de famille est requis",
+    "lNameMin": "Le nom de famille doit comporter au moins 2 caractères",
+    "lNameMax": "Le nom de famille ne peut pas dépasser 15 caractères",
+    "fNameRequired": "Le prénom est requis",
+    "fNameMin": "Le prénom doit comporter au moins 2 caractères",
+    "fNameMax": "Le prénom ne peut pas dépasser 15 caractères",
+    "CountryRegionMax": "Le pays / la région ne peut pas dépasser 30 caractères",
+    "CountryRegionMin": "Le pays / la région doit comporter au moins 2 caractères",
+    "CountryRegionRequired": "Le pays / la région est requis",
+    "streetMax": "La rue ne peut pas dépasser 30 caractères",
+    "streetMin": "La rue doit comporter au moins 2 caractères",
+    "streetRequired": "La rue est requise",
+    "zipCodeMax": "Le code postal ne peut pas dépasser 30 caractères",
+    "zipCodeMin": "Le code postal doit comporter au moins 2 caractères",
+    "zipCodeRequired": "Le code postal est requis",
+    "phoneMax": "Le numéro de téléphone ne peut pas dépasser 30 caractères",
+    "phoneMin": "Le numéro de téléphone doit comporter au moins 2 caractères",
+    "phoneRequired": "Le numéro de téléphone est requis",
+    "townCityMax": "La ville ne peut pas dépasser 30 caractères",
+    "townCityMin": "La ville doit comporter au moins 2 caractères",
+    "townCityRequired": "La ville est requise"
   },
   "Search": {
     "search": "recherche",
@@ -97,7 +118,56 @@
   },
   "Tabs": {
     "Reviews": "Avis",
-    "Additional Information": "Informations supplémentaires",
+    "additionalInformation": "Informations supplémentaires",
     "Description": "Description"
+  },
+  "Cart": {
+    "shoppingCart": "Panier",
+    "Cart": "Panier",
+    "Checkout": "Passer à la caisse",
+    "subTotal": "Sous-total",
+    "Subtotal": "Sous-total",
+    "Quantity": "Quantité",
+    "Price": "Prix",
+    "Product": "Produit",
+    "cartTotals": "Totaux du panier"
+  },
+  "Checkout": {
+    "billingDetails": "Détails de facturation",
+    "firstName": "Prénom",
+    "lastName": "Nom de famille",
+    "companyName": "Nom de l'entreprise (Optionnel)",
+    "Country/Region": "Pays / Région",
+    "streetAddress": "Adresse",
+    "Town/City": "Ville",
+    "Province": "Province (Optionnel)",
+    "zipCode": "Code postal",
+    "Phone": "Téléphone",
+    "Email Address": "Adresse e-mail",
+    "additionalInformation": "Informations supplémentaires (Optionnel)",
+    "Subtotal": "Sous-total",
+    "Product": "Produit",
+    "creditCard": "Carte de crédit",
+    "personalData": "Vos données personnelles seront utilisées pour améliorer votre expérience sur ce site, pour gérer l'accès à votre compte, et pour d'autres fins décrites dans notre",
+    "privacyPolicy": "politique de confidentialité",
+    "placeOrder": "Passer la commande"
+  },
+  "Favorites": {
+    "MyFavorites": "Mes favoris"
+  },
+  "Contact": {
+    "getInTouch": "Contactez-nous",
+    "ForMore": "Pour plus d'informations sur nos produits et services. N'hésitez pas à nous envoyer",
+    "AnEmail": "un e-mail. Notre personnel est toujours là pour vous aider. N'hésitez pas!",
+    "Address": "Adresse",
+    "Phone": "Téléphone",
+    "workingTime": "Heures de travail",
+    "Monday-Friday": "Lundi-Vendredi",
+    "Saturday-Sunday": "Samedi-Dimanche",
+    "yourName": "Votre nom",
+    "emailAddress": "Adresse e-mail",
+    "optional": "Ceci est optionnel",
+    "Hi": "Salut ! J'aimerais poser une question sur",
+    "Submit": "Soumettre"
   }
 }
