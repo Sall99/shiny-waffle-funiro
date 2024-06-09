@@ -2,8 +2,10 @@ import React from "react";
 
 import { Feature, HeroSection, Layout } from "@/components";
 import { X } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 export default function Favoris() {
+  const t = useTranslations("Favorites");
   const imageWidth = 90;
   const imageHeight = 90;
   const imageStyle = {
@@ -18,7 +20,7 @@ export default function Favoris() {
     <section>
       <HeroSection title="Favoris" />
       <Layout className="px-5 pb-20 pt-10 lg:pb-40">
-        <h2 className="mb-9 text-lg font-semibold">My favorites</h2>
+        <h2 className="mb-9 text-lg font-semibold">{t("MyFavorites")}</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
           <div className="mt-4 flex items-center gap-4">
             <div style={imageStyle}></div>

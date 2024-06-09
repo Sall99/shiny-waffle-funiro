@@ -3,6 +3,7 @@ import { Fragment, ReactNode } from "react";
 import { BsCartX } from "react-icons/bs";
 import { Dialog, Transition } from "@headlessui/react";
 import clsx from "clsx";
+import { useTranslations } from "next-intl";
 
 interface ModalProps {
   isOpen: boolean;
@@ -18,6 +19,7 @@ export function ModalCart({
   children,
   variant,
 }: ModalProps) {
+  const t = useTranslations("Cart");
   function closeModal() {
     setIsOpen(false);
   }
@@ -67,7 +69,7 @@ export function ModalCart({
                     className="text-white flex items-center justify-between text-base/7 font-medium"
                   >
                     <div className="border-b border-b-gray-300 pb-4 pr-8">
-                      Shopping Cart
+                      {t("shoppingCart")}
                     </div>{" "}
                     <BsCartX
                       className="hover:cursor-pointer"

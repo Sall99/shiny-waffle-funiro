@@ -4,8 +4,10 @@ import { Trash } from "lucide-react";
 
 import "./index.css";
 import Link from "next/link";
+import { useTranslations } from "next-intl";
 
 export const CartTotals = () => {
+  const t = useTranslations("Cart");
   return (
     <div className="px-4 py-10 md:py-20 lg:px-14">
       <div className="gap-7 lg:flex">
@@ -13,10 +15,10 @@ export const CartTotals = () => {
           <table className="w-full min-w-max">
             <thead className="h-14 bg-orange-100 text-center font-semibold">
               <tr>
-                <td>Product</td>
-                <td>Price</td>
-                <td>Quantity</td>
-                <td>Subtotal</td>
+                <td>{t("Product")}</td>
+                <td>{t("Price")}</td>
+                <td>{t("Quantity")}</td>
+                <td>{t("Subtotal")}</td>
               </tr>
             </thead>
 
@@ -61,8 +63,8 @@ export const CartTotals = () => {
           </table>
         </div>
 
-        <div className="lg:w-_390 lg:h-_390 mt-8 flex flex-col bg-orange-100 px-2 py-4 lg:mt-0 lg:px-8">
-          <h2 className="text-center font-semibold">Cart Totals</h2>
+        <div className="mt-8 flex flex-col bg-orange-100 px-2 py-4 lg:mt-0 lg:h-_390 lg:w-_390 lg:px-8">
+          <h2 className="text-center font-semibold">{t("cartTotals")}</h2>
 
           <div className="mt-4 lg:mt-16">
             <div className="flex justify-between lg:items-center">
@@ -77,7 +79,7 @@ export const CartTotals = () => {
                 href="/checkout"
                 className="inline-block w-full rounded-2xl border border-black-500 px-10 py-2 text-xs font-medium"
               >
-                Checkout
+                {t("Checkout")}
               </Link>
             </div>
           </div>
