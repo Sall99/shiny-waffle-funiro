@@ -17,7 +17,7 @@ type checkoutFormValues = {
   townCity: string;
   province?: string;
   phone: string;
-  zipCode: number;
+  zipCode: string;
   email: string;
   additionalInfo?: string;
 };
