@@ -71,24 +71,30 @@
     "lNameRequired": "Last Name is required",
     "lNameMin": "Last Name must be at least 2 characters long",
     "lNameMax": "Last Name cannot be longer than 15 characters",
+    "nameRequired": "Name is required",
+    "nameMin": "Name must be at least 2 characters long",
+    "nameMax": "Name cannot be longer than 15 characters",
     "fNameRequired": "First Name is required",
     "fNameMin": "First Name must be at least 2 characters long",
     "fNameMax": "First Name cannot be longer than 15 characters",
-    "Country/RegionMax": "Country / Region cannot be longer than 30 characters",
-    "Country/RegionMin": "Country / Region must be at least 2 characters long",
-    "Country/RegionRequired": "Country / Region is required",
+    "CountryRegionMax": "Country / Region cannot be longer than 30 characters",
+    "CountryRegionMin": "Country / Region must be at least 2 characters long",
+    "CountryRegionRequired": "Country / Region is required",
     "streetMax": "Street cannot be longer than 30 characters",
     "streetMin": "Street must be at least 2 characters long",
     "streetRequired": "Street is required",
     "zipCodeMax": "zipCode cannot be longer than 30 characters",
     "zipCodeMin": "zipCode must be at least 2 characters long",
     "zipCodeRequired": "zipCode is required",
+    "zipCodeInvalid": "Zip Code  is invalid",
     "phoneMax": "zipCode cannot be longer than 30 characters",
     "phoneMin": "zipCode must be at least 2 characters long",
     "phoneRequired": "zipCode is required",
     "townCityMax": "Town / City cannot be longer than 30 characters",
     "townCityMin": "Town / City must be at least 2 characters long",
-    "townCityRequired": "Town / City is required"
+    "townCityRequired": "Town / City is required",
+    "messageMin": "Message must be at least 2 characters long",
+    "messageRequired": "Message is required"
   },
   "Search": {
     "search": "search",
@@ -169,5 +175,22 @@
     "optional": "This is an optional",
     "Hi": "Hi! i’d like to ask about",
     "Submit": "Submit"
+  },
+  "HeroSection": {
+    "Home": "Home",
+    "Checkout": "Checkout",
+    "Cart": "Cart",
+    "Contact": "Contact",
+    "Favoris": "Favoris"
+  },
+  "feature": {
+    "HighQuality": "crafted from top materials",
+    "HighQualityTitle": "High Quality",
+    "WarrantyProtection": "Over 2 years",
+    "WarrantyProtectionTitle": "Warranty Protection",
+    "FreeShipping": "Order over 150 $",
+    "FreeShippingTitle": "Free Shipping",
+    "Support24_7": "Dedicated support",
+    "Support24_7Title": "24 / 7 Support"
   }
 }

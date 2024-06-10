@@ -27,19 +27,15 @@ export const createAccountSchema = yup.object().shape({
 export const contactSchema = yup.object().shape({
   name: yup
     .string()
-    .required("Name is required")
-    .min(2, "Name must be at least 2 characters long")
-    .max(50, "Name cannot be longer than 50 characters"),
+    .required("nameRequired")
+    .min(2, "nameMin")
+    .max(50, "nameMax"),
   email: yup.string().email("emailInvalid").required("required"),
   subject: yup
     .string()
     .optional()
     .max(100, "Subject cannot be longer than 100 characters"),
-  message: yup
-    .string()
-    .required("Message is required")
-    .min(10, "Message must be at least 10 characters long")
-    .max(1000, "Message cannot be longer than 1000 characters"),
+  message: yup.string().required("messageRequired").min(10, "messagesMin"),
 });
 
 export const checkoutSchema = yup.object().shape({
@@ -56,7 +52,7 @@ export const checkoutSchema = yup.object().shape({
   companyName: yup.string().optional(),
   countryRegion: yup
     .string()
-    .required("Country/RegionRequired")
+    .required("CountryRegionRequired")
     .min(2, "Country/RegionMin")
     .max(50, "Country/RegionMax"),
   street: yup
@@ -72,8 +68,9 @@ export const checkoutSchema = yup.object().shape({
 
   province: yup.string().optional(),
   zipCode: yup
-    .number()
+    .string()
     .required("zipCodeRequired")
+    .matches(/^\d{2,5}(-\d{4})?$/, "zipCodeInvalid")
     .min(2, "zipCodeMin")
     .max(12, "zipCodeMax"),
 

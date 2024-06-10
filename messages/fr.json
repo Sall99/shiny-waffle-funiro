@@ -71,6 +71,9 @@
     "lNameRequired": "Le nom de famille est requis",
     "lNameMin": "Le nom de famille doit comporter au moins 2 caractères",
     "lNameMax": "Le nom de famille ne peut pas dépasser 15 caractères",
+    "nameRequired": "Le nom de famille est requis",
+    "nameMin": "Le nom de famille doit comporter au moins 2 caractères",
+    "nameMax": "Le nom de famille ne peut pas dépasser 15 caractères",
     "fNameRequired": "Le prénom est requis",
     "fNameMin": "Le prénom doit comporter au moins 2 caractères",
     "fNameMax": "Le prénom ne peut pas dépasser 15 caractères",
@@ -83,12 +86,15 @@
     "zipCodeMax": "Le code postal ne peut pas dépasser 30 caractères",
     "zipCodeMin": "Le code postal doit comporter au moins 2 caractères",
     "zipCodeRequired": "Le code postal est requis",
+    "zipCodeInvalid": "Le code postal est invalide",
     "phoneMax": "Le numéro de téléphone ne peut pas dépasser 30 caractères",
     "phoneMin": "Le numéro de téléphone doit comporter au moins 2 caractères",
     "phoneRequired": "Le numéro de téléphone est requis",
     "townCityMax": "La ville ne peut pas dépasser 30 caractères",
     "townCityMin": "La ville doit comporter au moins 2 caractères",
-    "townCityRequired": "La ville est requise"
+    "townCityRequired": "La ville est requise",
+    "messageMin": "Message doit comporter au moins 2 caractères",
+    "messageRequired": "Message est requis"
   },
   "Search": {
     "search": "recherche",
@@ -169,5 +175,22 @@
     "optional": "Ceci est optionnel",
     "Hi": "Salut ! J'aimerais poser une question sur",
     "Submit": "Soumettre"
+  },
+  "HeroSection": {
+    "Home": "Accueil",
+    "Checkout": "Passer à la caisse",
+    "Cart": "Panier",
+    "Contact": "Contact",
+    "Favoris": "Favoris"
+  },
+  "feature": {
+    "HighQuality": "abriqués à partir de matériaux de qualité supérieure",
+    "HighQualityTitle": "Haute Qualité",
+    "WarrantyProtection": "Plus de 2 ans",
+    "WarrantyProtectionTitle": "Protection Garantie",
+    "FreeShipping": "Commande de plus de 150 $",
+    "FreeShippingTitle": "Livraison Gratuite",
+    "Support24_7": "Support dédié",
+    "Support24_7Title": "Support 24 / 7"
   }
 }

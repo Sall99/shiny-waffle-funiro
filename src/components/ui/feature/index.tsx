@@ -1,30 +1,32 @@
+import { useTranslations } from "next-intl";
 import Image from "next/image";
 import React from "react";
 
 const items = [
   {
     img: "quality.png",
-    title: "High Quality",
-    description: "crafted from top materials",
+    title: "HighQualityTitle",
+    description: "HighQuality",
   },
   {
     img: "guarantee.png",
-    title: "Warranty Protection",
-    description: "Over 2 years",
+    title: "WarrantyProtectionTitle",
+    description: "WarrantyProtection",
   },
   {
     img: "shipping.png",
-    title: "Free Shipping",
-    description: "Order over 150 $",
+    title: "FreeShippingTitle",
+    description: "FreeShipping",
   },
   {
     img: "customer-support.png",
-    title: "24 / 7 Support",
-    description: "Dedicated support",
+    title: "Support24_7Title",
+    description: "Support24_7",
   },
 ];
 
 export const Feature = () => {
+  const t = useTranslations("feature");
   return (
     <div className="mt-4 flex flex-col gap-14 bg-orange-100 px-14 py-_102 md:flex-row md:justify-center">
       {items.map(({ img, title, description }, key) => (
@@ -38,8 +40,10 @@ export const Feature = () => {
             />
           </div>
           <div className="text-center md:text-start">
-            <h2 className=" font-semibold">{title}</h2>
-            <p className="text-sm font-medium text-gray-500">{description}</p>
+            <h2 className=" font-semibold">{t(title)}</h2>
+            <p className="text-sm font-medium text-gray-500">
+              {t(description)}
+            </p>
           </div>
         </div>
       ))}
