@@ -181,7 +181,8 @@
     "Checkout": "Passer à la caisse",
     "Cart": "Panier",
     "Contact": "Contact",
-    "Favoris": "Favoris"
+    "Favoris": "Favoris",
+    "Shop": "Boutique"
   },
   "feature": {
     "HighQuality": "abriqués à partir de matériaux de qualité supérieure",
@@ -192,5 +193,13 @@
     "FreeShippingTitle": "Livraison Gratuite",
     "Support24_7": "Support dédié",
     "Support24_7Title": "Support 24 / 7"
+  },
+  "Shop": {
+    "Filter": "Filtre",
+    "Showing": "Affichage",
+    "Show": "Affichers",
+    "Short By": "Filtrer par",
+    "Default": "Par défaut",
+    "results": "résultats"
   }
 }

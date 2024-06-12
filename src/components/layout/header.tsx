@@ -8,6 +8,7 @@ import {
   LogIn,
   Search as SearchIcon,
   ShoppingCart,
+  Store,
   User,
 } from "lucide-react";
 
@@ -23,6 +24,7 @@ const links = [
 ];
 
 const iconLinks = [
+  { Icon: Store, path: "/shop", hidden: false, auth: false, name: "Shop" },
   { Icon: User, path: "/account", hidden: false, auth: true, name: "Account" },
   {
     Icon: LogIn,

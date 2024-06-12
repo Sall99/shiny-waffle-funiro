@@ -181,7 +181,8 @@
     "Checkout": "Checkout",
     "Cart": "Cart",
     "Contact": "Contact",
-    "Favoris": "Favoris"
+    "Favoris": "Favoris",
+    "Shop": "Shop"
   },
   "feature": {
     "HighQuality": "crafted from top materials",
@@ -192,5 +193,13 @@
     "FreeShippingTitle": "Free Shipping",
     "Support24_7": "Dedicated support",
     "Support24_7Title": "24 / 7 Support"
+  },
+  "Shop": {
+    "Filter": "Filter",
+    "Showing": "Showing",
+    "Show": "Show",
+    "Short By": "Short By",
+    "Default": "Default",
+    "results": "results"
   }
 }

@@ -1,31 +1,37 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import useSWR, { mutate } from "swr";
 import { useTranslations } from "next-intl";
 
 import { Button, Product, ProductSkeleton } from "@/components";
 import { getAllProducts } from "@/actions";
 import { IProduct } from "@/types";
+import clsx from "clsx";
 
-export function ProductsSection() {
+interface ProductsSectionProps {
+  layout?: string;
+}
+
+export function ProductsSection({ layout = "grid" }: ProductsSectionProps) {
   const [displayCount, setDisplayCount] = useState(9);
   const t = useTranslations("Products");
 
-  const { error, data, isLoading } = useSWR("products", () =>
-    getAllProducts(displayCount),
+  const { error, data, isLoading } = useSWR(
+    ["products", displayCount],
+    () => getAllProducts(displayCount),
+    { revalidateOnFocus: false },
   );
 
-  const fetchMoreProducts = async () => {
-    await mutate("products", async () => {
-      const newData = await getAllProducts(displayCount);
-      return newData;
-    });
-  };
+  useEffect(() => {
+    mutate(["products", displayCount]);
+  }, [displayCount]);
 
   const handleLoadMore = () => {
     setDisplayCount((prevCount) => prevCount + 10);
-    fetchMoreProducts();
   };
+
+  const gridClass =
+    layout === "grid" ? "md:grid-cols-2 lg:grid-cols-3" : "md:grid-cols-1";
 
   return (
     <section className="mb-20 mt-14 md:px-_102">
@@ -36,8 +42,10 @@ export function ProductsSection() {
       {isLoading ? (
         <ProductSkeleton number={9} />
       ) : (
-        <div className="grid grid-cols-1 content-center gap-8 md:grid-cols-2 lg:grid-cols-3">
-          {data.products?.map(
+        <div
+          className={clsx("grid grid-cols-1 content-center gap-8", gridClass)}
+        >
+          {data?.products?.map(
             ({
               id,
               name,
@@ -54,6 +62,7 @@ export function ProductsSection() {
                 promoPrice={promoPrice}
                 price={price}
                 id={id}
+                layout={layout}
               />
             ),
           )}
@@ -62,7 +71,7 @@ export function ProductsSection() {
 
       <div className="mt-8 flex w-full items-center justify-center">
         <Button
-          label="Show More"
+          label={t("showMore")}
           onClick={handleLoadMore}
           className="m-auto h-_48 w-_245 text-base font-bold uppercase hover:bg-white-100"
           variant="primary"
