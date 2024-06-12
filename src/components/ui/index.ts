@@ -19,3 +19,4 @@ export * from "./related-products";
 export * from "./cart";
 export * from "./cart-totals";
 export * from "./feature";
+export * from "./filter";

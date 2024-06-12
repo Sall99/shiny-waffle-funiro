@@ -5,6 +5,7 @@ import { useFormatter } from "next-intl";
 import { ArrowLeftRight, Heart, Share2 } from "lucide-react";
 import { Button } from "@/components";
 import Link from "next/link";
+import clsx from "clsx";
 
 export interface ProductProps {
   id: string;
@@ -13,6 +14,7 @@ export interface ProductProps {
   title: string;
   promoPrice?: number;
   price: number;
+  layout?: string;
 }
 
 export function Product({
@@ -22,6 +24,7 @@ export function Product({
   price,
   promoPrice,
   id,
+  layout = "grid",
 }: ProductProps) {
   const [hovered, setHovered] = useState(false);
   const priceFormat = useFormatter();
@@ -39,7 +42,11 @@ export function Product({
 
   return (
     <div
-      className="relative m-auto w-_285 bg-gray-100 pb-4 sm:h-_450 sm:pb-0 "
+      className={clsx(
+        "relative m-auto w-_285 bg-gray-100 pb-4 sm:pb-0",
+        layout === "vertical" && "flex h-_305 w-full items-center",
+        layout === "grid" && "sm:h-_450",
+      )}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >
@@ -62,60 +69,118 @@ export function Product({
             })}
           </span>
         </p>
-      </div>
-      <div
-        className={`absolute left-1/2 top-1/2 h-full w-full -translate-x-1/2 -translate-y-1/2 transform bg-black-500 px-4 ${
-          hovered ? "opacity-100" : "pointer-events-none opacity-0"
-        } transition-opacity duration-500`}
-      >
-        <div className="flex h-full flex-col items-center justify-center">
-          <Button
-            label="Add to cart"
-            variant="secondary"
-            className="h-12 w-_208 font-semibold"
-          />
-          <div className="mt-6 flex w-full items-center justify-between">
-            <p className="flex items-center font-semibold hover:cursor-pointer">
-              <Share2 color="#fff" size={18} />
+        {layout === "vertical" && (
+          <div className="mt-8 flex flex-col gap-10">
+            <div className="flex gap-10">
+              <div>
+                <p className="flex items-center gap-3 font-semibold hover:cursor-pointer">
+                  <Share2 color="#000" size={18} />
 
-              <span className="font-semibold text-white-100 ">
+                  <span className="font-semibold text-black-800 ">
+                    <span className="group/link relative block overflow-hidden delay-75">
+                      <span className="block text-base tracking-[0.01em] transition-transform duration-500 group-hover/link:translate-y-[-100%]">
+                        Share
+                      </span>
+                      <span className="absolute left-0 block text-base tracking-[0.01em] transition-transform duration-500 group-hover/link:translate-y-[-100%]">
+                        Share
+                      </span>
+                    </span>
+                  </span>
+                </p>
+              </div>
+              <div>
+                <p className="text-white-800 flex items-center gap-3 font-semibold hover:cursor-pointer">
+                  <ArrowLeftRight color="#000" size={18} />
+                  <Link href={`/shop/product/${id}`}>
+                    <span className="group/link relative block overflow-hidden delay-75">
+                      <span className="block text-base tracking-[0.01em] transition-transform duration-500 group-hover/link:translate-y-[-100%]">
+                        Details
+                      </span>
+                      <span className="absolute left-0 block text-base tracking-[0.01em] transition-transform duration-500 group-hover/link:translate-y-[-100%]">
+                        Details
+                      </span>
+                    </span>
+                  </Link>
+                </p>
+              </div>
+              <div>
+                <p className="text-white-800 flex items-center gap-3 font-semibold hover:cursor-pointer">
+                  <Heart color="#000" size={18} />
+                  <span className="group/link relative block overflow-hidden delay-75">
+                    <span className="block text-base tracking-[0.01em] transition-transform duration-500 group-hover/link:translate-y-[-100%]">
+                      Like
+                    </span>
+                    <span className="absolute left-0 block text-base tracking-[0.01em] transition-transform duration-500 group-hover/link:translate-y-[-100%]">
+                      Like
+                    </span>
+                  </span>
+                </p>
+              </div>
+            </div>
+            <Button
+              label="Add to cart"
+              variant="secondary"
+              className="h-12 w-_208 font-semibold"
+            />
+          </div>
+        )}
+      </div>
+
+      {layout === "grid" && (
+        <div
+          className={`absolute left-1/2 top-1/2 h-full w-full -translate-x-1/2 -translate-y-1/2 transform bg-black-500 px-4 ${
+            hovered ? "opacity-100" : "pointer-events-none opacity-0"
+          } transition-opacity duration-500`}
+        >
+          <div className="flex h-full flex-col items-center justify-center">
+            <Button
+              label="Add to cart"
+              variant="secondary"
+              className="h-12 w-_208 font-semibold"
+            />
+            <div className="mt-6 flex w-full items-center justify-between">
+              <p className="flex items-center font-semibold hover:cursor-pointer">
+                <Share2 color="#fff" size={18} />
+
+                <span className="font-semibold text-white-100 ">
+                  <span className="group/link relative block overflow-hidden delay-75">
+                    <span className="block text-base tracking-[0.01em] transition-transform duration-500 group-hover/link:translate-y-[-100%]">
+                      Share
+                    </span>
+                    <span className="absolute left-0 block text-base tracking-[0.01em] transition-transform duration-500 group-hover/link:translate-y-[-100%]">
+                      Share
+                    </span>
+                  </span>
+                </span>
+              </p>
+              <p className="flex items-center font-semibold text-white-100 hover:cursor-pointer">
+                <ArrowLeftRight color="#fff" size={18} />
+                <Link href={`/shop/product/${id}`}>
+                  <span className="group/link relative block overflow-hidden delay-75">
+                    <span className="block text-base tracking-[0.01em] transition-transform duration-500 group-hover/link:translate-y-[-100%]">
+                      Details
+                    </span>
+                    <span className="absolute left-0 block text-base tracking-[0.01em] transition-transform duration-500 group-hover/link:translate-y-[-100%]">
+                      Details
+                    </span>
+                  </span>
+                </Link>
+              </p>
+              <p className="flex items-center font-semibold text-white-100 hover:cursor-pointer">
+                <Heart color="#fff" size={18} />
                 <span className="group/link relative block overflow-hidden delay-75">
                   <span className="block text-base tracking-[0.01em] transition-transform duration-500 group-hover/link:translate-y-[-100%]">
-                    Share
+                    Like
                   </span>
                   <span className="absolute left-0 block text-base tracking-[0.01em] transition-transform duration-500 group-hover/link:translate-y-[-100%]">
-                    Share
+                    Like
                   </span>
                 </span>
-              </span>
-            </p>
-            <p className="flex items-center font-semibold text-white-100 hover:cursor-pointer">
-              <ArrowLeftRight color="#fff" size={18} />
-              <Link href={`/shop/product/${id}`}>
-                <span className="group/link relative block overflow-hidden delay-75">
-                  <span className="block text-base tracking-[0.01em] transition-transform duration-500 group-hover/link:translate-y-[-100%]">
-                    Details
-                  </span>
-                  <span className="absolute left-0 block text-base tracking-[0.01em] transition-transform duration-500 group-hover/link:translate-y-[-100%]">
-                    Details
-                  </span>
-                </span>
-              </Link>
-            </p>
-            <p className="flex items-center font-semibold text-white-100 hover:cursor-pointer">
-              <Heart color="#fff" size={18} />
-              <span className="group/link relative block overflow-hidden delay-75">
-                <span className="block text-base tracking-[0.01em] transition-transform duration-500 group-hover/link:translate-y-[-100%]">
-                  Like
-                </span>
-                <span className="absolute left-0 block text-base tracking-[0.01em] transition-transform duration-500 group-hover/link:translate-y-[-100%]">
-                  Like
-                </span>
-              </span>
-            </p>
+              </p>
+            </div>
           </div>
         </div>
-      </div>
+      )}
     </div>
   );
 }
