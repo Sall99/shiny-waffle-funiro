@@ -40,7 +40,7 @@ export function ProductsSection({ layout = "grid" }: ProductsSectionProps) {
       </h2>
 
       {isLoading ? (
-        <ProductSkeleton number={9} />
+        <ProductSkeleton number={9} layout={layout} />
       ) : (
         <div
           className={clsx("grid grid-cols-1 content-center gap-8", gridClass)}

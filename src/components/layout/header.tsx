@@ -120,7 +120,9 @@ function Header() {
         </div>
 
         <div className="flex items-center gap-6 md:gap-8">
-          <LocalSwitcher />
+          <div className="hidden md:block">
+            <LocalSwitcher />
+          </div>
           <div className="flex gap-6 md:gap-8">
             {iconLinks.map((link, key) =>
               (link.auth && user) || !link.auth ? (
