@@ -6,7 +6,7 @@ import { useParams } from "next/navigation";
 import React, { useState } from "react";
 import useSWR, { mutate } from "swr";
 
-export function Category() {
+export default function Category() {
   const { category } = useParams<{ category: string }>();
 
   const [displayCount, setDisplayCount] = useState(16);
@@ -68,5 +68,3 @@ export function Category() {
     </div>
   );
 }
-
-export default Category;
