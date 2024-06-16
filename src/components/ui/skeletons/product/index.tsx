@@ -3,12 +3,17 @@ import React from "react";
 import { useMediaQuery } from "@react-hook/media-query";
 
 import "./index.css";
+import clsx from "clsx";
 
 interface ProductSkeletonProps {
   number: number;
+  layout?: string;
 }
 
-export function ProductSkeleton({ number }: ProductSkeletonProps) {
+export function ProductSkeleton({
+  number,
+  layout = "grid",
+}: ProductSkeletonProps) {
   const isMobile = useMediaQuery("(max-width: 768px)");
   const imageWidth = 285;
   const imageHeight = isMobile ? 315 : 305;
@@ -18,11 +23,24 @@ export function ProductSkeleton({ number }: ProductSkeletonProps) {
   };
 
   return (
-    <div className="grid w-full grid-cols-1 content-center gap-8 md:grid-cols-2 lg:grid-cols-3">
+    <div
+      className={clsx(
+        "grid w-full content-center gap-8",
+        layout === "vertical" && "grid-cols-1",
+        layout === "grid" && "grid-cols-1 md:grid-cols-2 lg:grid-cols-3",
+      )}
+    >
       {Array(number)
         .fill(0)
         .map((el, index) => (
-          <div key={index} className="c-item m-auto h-_443 w-_285 bg-gray-100">
+          <div
+            key={index}
+            className={clsx(
+              "c-item m-auto w-_285 bg-gray-100",
+              layout === "vertical" && "flex  h-_305 w-full items-center",
+              layout === "grid" && "h-_443",
+            )}
+          >
             <div style={imageStyle} className="c-skeleton-image"></div>
             <div>
               <div className="flex flex-col px-5 pt-2">

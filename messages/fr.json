@@ -23,7 +23,8 @@
     "diningroom": "Salle à manger"
   },
   "Products": {
-    "ourProducts": "Nos produits"
+    "ourProducts": "Nos produits",
+    "showMore": "Voir plus"
   },
   "Footer": {
     "Home": "Accueil",

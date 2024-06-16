@@ -4,6 +4,7 @@ import { ChevronRight, X } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import clsx from "clsx";
+import { LocalSwitcher } from "../locale-switcher";
 
 interface MenuMobileProps {
   isOpen: boolean;
@@ -62,8 +63,11 @@ export function MenuMobile({ isOpen, setIsOpen }: MenuMobileProps) {
                 </li>
               ))}
             </ul>
+            <div className="md:hidden">
+              <LocalSwitcher />
+            </div>
           </div>
-          <div className="mt-12 flex h-11 items-center justify-center gap-3 border border-s-accent-foreground">
+          <div className="mt-24 flex h-11 items-center justify-center gap-3 border border-s-accent-foreground">
             <Image src="/images/Pin.png" alt="map-in" width={16} height={16} />
             <p>Store location</p>
           </div>
