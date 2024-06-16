@@ -11,7 +11,7 @@
   "categoriesSection": {
     "browse": "Parcourir la gamme",
     "discover": "Découvrez une sélection exquise conçue spécialement pour vous.",
-    "dinning": "Salle à manger",
+    "dining": "Salle à manger",
     "living": "Salon",
     "bedroom": "Chambre à coucher",
     "howCan": "COMMENT",
@@ -183,7 +183,10 @@
     "Cart": "Panier",
     "Contact": "Contact",
     "Favoris": "Favoris",
-    "Shop": "Boutique"
+    "Shop": "Boutique",
+    "diningroom": "Salle à manger",
+    "livingroom": "Salon",
+    "bedroom": "Chambre à coucher"
   },
   "feature": {
     "HighQuality": "abriqués à partir de matériaux de qualité supérieure",

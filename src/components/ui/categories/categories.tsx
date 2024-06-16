@@ -7,22 +7,22 @@ import { useTranslations } from "next-intl";
 
 const categories = [
   {
-    title: "dinning",
+    title: "dining",
     imageUrl:
       "https://res.cloudinary.com/dx6jhjxpt/image/upload/v1710347652/shiny-waffle-funiro/dinning_dmrmw0.png",
-    path: "/dinning",
+    path: "/shop/diningroom",
   },
   {
     title: "living",
     imageUrl:
       "https://res.cloudinary.com/dx6jhjxpt/image/upload/v1710347652/shiny-waffle-funiro/living_ccm3p2.png",
-    path: "/living",
+    path: "/shop/livingroom",
   },
   {
     title: "bedroom",
     imageUrl:
       "https://res.cloudinary.com/dx6jhjxpt/image/upload/v1710347653/shiny-waffle-funiro/bedroom_iartde.png",
-    path: "/bedroom",
+    path: "/shop/bedroom",
   },
 ];
 
