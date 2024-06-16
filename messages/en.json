@@ -11,7 +11,7 @@
   "categoriesSection": {
     "browse": "Browse the range",
     "discover": "Discover an exquisite selection tailored just for you.",
-    "dinning": "Dinning room",
+    "dining": "Dinning room",
     "living": "Living room",
     "bedroom": "Bedroom",
     "howCan": "HOW CAN",
@@ -183,7 +183,10 @@
     "Cart": "Cart",
     "Contact": "Contact",
     "Favoris": "Favoris",
-    "Shop": "Shop"
+    "Shop": "Shop",
+    "diningroom": "Dinning room",
+    "livingroom": "Living room",
+    "bedroom": "Bedroom"
   },
   "feature": {
     "HighQuality": "crafted from top materials",
