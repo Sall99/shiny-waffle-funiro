@@ -10,6 +10,7 @@ export interface IProduct {
   imageUrl: string[];
   additionalInformation: string[];
   reviews: IReview[];
+  amount?: number;
 }
 
 export interface IReview {

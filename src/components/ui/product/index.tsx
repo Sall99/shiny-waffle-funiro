@@ -1,11 +1,14 @@
 "use client";
 import React, { useState } from "react";
 import { useMediaQuery } from "@react-hook/media-query";
-import { useFormatter } from "next-intl";
+import { useFormatter, useTranslations } from "next-intl";
 import { ArrowLeftRight, Heart, Share2 } from "lucide-react";
 import { Button } from "@/components";
 import Link from "next/link";
 import clsx from "clsx";
+import { addToCart, selectCartItems } from "@/store";
+import { IProduct } from "@/types";
+import { useDispatch, useSelector } from "react-redux";
 
 export interface ProductProps {
   id: string;
@@ -26,11 +29,14 @@ export function Product({
   id,
   layout = "grid",
 }: ProductProps) {
+  const t = useTranslations("Products");
+  const dispatch = useDispatch();
   const [hovered, setHovered] = useState(false);
   const priceFormat = useFormatter();
   const isMobile = useMediaQuery("(max-width: 768px)");
   const imageWidth = 285;
   const imageHeight = isMobile ? 315 : 305;
+  const cartItems = useSelector(selectCartItems);
 
   const imageStyle = {
     width: `${imageWidth}px`,
@@ -40,6 +46,32 @@ export function Product({
     backgroundPosition: "center",
   };
 
+  const handleAddToCart = () => {
+    const product: IProduct = {
+      id,
+      name,
+      title,
+      price,
+      promoPrice,
+      defaultImage,
+      imageUrl: [],
+      category: "",
+      description: "",
+      additionalInformation: [],
+      reviews: [],
+    };
+
+    const itemInCart = cartItems.find((item) => item.id === id);
+
+    let message;
+    if (itemInCart) {
+      message = t("increased_quantity_of");
+    } else {
+      message = t("addedToCart");
+    }
+
+    dispatch(addToCart({ product, message }));
+  };
   return (
     <div
       className={clsx(
@@ -121,6 +153,7 @@ export function Product({
               label="Add to cart"
               variant="secondary"
               className="h-12 w-_208 font-semibold"
+              onClick={handleAddToCart}
             />
           </div>
         )}
@@ -137,6 +170,7 @@ export function Product({
               label="Add to cart"
               variant="secondary"
               className="h-12 w-_208 font-semibold"
+              onClick={handleAddToCart}
             />
             <div className="mt-6 flex w-full items-center justify-between">
               <p className="flex items-center font-semibold hover:cursor-pointer">

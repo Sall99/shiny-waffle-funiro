@@ -24,7 +24,9 @@
   },
   "Products": {
     "ourProducts": "Our Products",
-    "showMore": "Show More"
+    "showMore": "Show More",
+    "increased_quantity_of": "Increased quantity",
+    "addedToCart": "Added to cart"
   },
   "Footer": {
     "Home": "Home",
@@ -137,7 +139,8 @@
     "Quantity": "Quantity",
     "Price": "Price",
     "Product": "Product",
-    "cartTotals": "Cart Totals"
+    "cartTotals": "Cart Totals",
+    "cartEmpty": "You cart is empty"
   },
   "Checkout": {
     "billingDetails": "Billing details",
