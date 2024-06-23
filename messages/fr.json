@@ -24,7 +24,9 @@
   },
   "Products": {
     "ourProducts": "Nos produits",
-    "showMore": "Voir plus"
+    "showMore": "Voir plus",
+    "increased_quantity_of": "Quantité mise a jour",
+    "addedToCart": "Ajouté au panier"
   },
   "Footer": {
     "Home": "Accueil",
@@ -137,7 +139,8 @@
     "Quantity": "Quantité",
     "Price": "Prix",
     "Product": "Produit",
-    "cartTotals": "Totaux du panier"
+    "cartTotals": "Totaux du panier",
+    "cartEmpty": "Votre panier est vide"
   },
   "Checkout": {
     "billingDetails": "Détails de facturation",

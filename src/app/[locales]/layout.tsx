@@ -8,6 +8,8 @@ import { NextIntlClientProvider, useMessages } from "next-intl";
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import StoreProvider from "@/store/provider";
+import { Toaster } from "react-hot-toast";
 
 const poppins = Poppins({
   subsets: ["latin-ext"],
@@ -37,12 +39,15 @@ export default function RootLayout({
   return (
     <html lang={locale}>
       <body className={`${poppins.className} ${montserrat.className}`}>
-        <NextIntlClientProvider locale={locale} messages={messages}>
-          <Header />
-          <div>{children}</div>
-          <Footer />
-        </NextIntlClientProvider>
-        <Analytics />
+        <StoreProvider>
+          <NextIntlClientProvider locale={locale} messages={messages}>
+            <Header />
+            <div>{children}</div>
+            <Toaster />
+            <Footer />
+          </NextIntlClientProvider>
+          <Analytics />
+        </StoreProvider>
       </body>
       <GoogleTagManager gtmId={`${process.env.GOOGLE_TAGMANAGER}`} />
     </html>
