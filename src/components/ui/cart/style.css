@@ -1,0 +1,21 @@
+.car-overflow-bar {
+  padding: 0.5rem;
+}
+.car-overflow-bar::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+.car-overflow-bar::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+.car-overflow-bar::-webkit-scrollbar-thumb {
+  background: var(--color-orange-500);
+}
+
+/* Handle on hover */
+.car-overflow-bar::-webkit-scrollbar-thumb:hover {
+  background: var(--color-orange-500);
+}
