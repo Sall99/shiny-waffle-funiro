@@ -140,7 +140,8 @@
     "Price": "Prix",
     "Product": "Produit",
     "cartTotals": "Totaux du panier",
-    "cartEmpty": "Votre panier est vide"
+    "cartEmpty": "Votre panier est vide",
+    "itemRemovedFromCart": "Article retiré du panier"
   },
   "Checkout": {
     "billingDetails": "Détails de facturation",

@@ -140,7 +140,8 @@
     "Price": "Price",
     "Product": "Product",
     "cartTotals": "Cart Totals",
-    "cartEmpty": "You cart is empty"
+    "cartEmpty": "You cart is empty",
+    "itemRemovedFromCart": "Item removed from cart"
   },
   "Checkout": {
     "billingDetails": "Billing details",
