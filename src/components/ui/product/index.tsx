@@ -6,7 +6,12 @@ import { ArrowLeftRight, Heart, Share2 } from "lucide-react";
 import { Button } from "@/components";
 import Link from "next/link";
 import clsx from "clsx";
-import { addToCart, selectCartItems } from "@/store";
+import {
+  addToCart,
+  addToFavoris,
+  selectCartItems,
+  selectFavorisItems,
+} from "@/store";
 import { IProduct } from "@/types";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -37,6 +42,7 @@ export function Product({
   const imageWidth = 285;
   const imageHeight = isMobile ? 315 : 305;
   const cartItems = useSelector(selectCartItems);
+  const favorisItems = useSelector(selectFavorisItems);
 
   const imageStyle = {
     width: `${imageWidth}px`,
@@ -46,23 +52,22 @@ export function Product({
     backgroundPosition: "center",
   };
 
+  const product: IProduct = {
+    id,
+    name,
+    title,
+    price,
+    promoPrice,
+    defaultImage,
+    imageUrl: [],
+    category: "",
+    description: "",
+    additionalInformation: [],
+    reviews: [],
+  };
+
   const handleAddToCart = () => {
-    const product: IProduct = {
-      id,
-      name,
-      title,
-      price,
-      promoPrice,
-      defaultImage,
-      imageUrl: [],
-      category: "",
-      description: "",
-      additionalInformation: [],
-      reviews: [],
-    };
-
     const itemInCart = cartItems.find((item) => item.id === id);
-
     let message;
     if (itemInCart) {
       message = t("increased_quantity_of");
@@ -72,6 +77,20 @@ export function Product({
 
     dispatch(addToCart({ product, message }));
   };
+
+  const handleAddToFavoris = () => {
+    const itemInFavoris = favorisItems.find((item) => item.id === id);
+
+    let message;
+    if (itemInFavoris?.id) {
+      message = t("itemExist");
+    } else {
+      message = t("addedToFavoris");
+    }
+
+    dispatch(addToFavoris({ product, message }));
+  };
+
   return (
     <div
       className={clsx(
@@ -200,7 +219,10 @@ export function Product({
                   </span>
                 </Link>
               </p>
-              <p className="flex items-center font-semibold text-white-100 hover:cursor-pointer">
+              <p
+                className="flex items-center font-semibold text-white-100 hover:cursor-pointer"
+                onClick={handleAddToFavoris}
+              >
                 <Heart color="#fff" size={18} />
                 <span className="group/link relative block overflow-hidden delay-75">
                   <span className="block text-base tracking-[0.01em] transition-transform duration-500 group-hover/link:translate-y-[-100%]">
