@@ -7,6 +7,9 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { checkoutSchema } from "@/constants/validation";
 import Link from "next/link";
 import { useTranslations } from "next-intl";
+import { useSelector } from "react-redux";
+import { selectCart, selectCartItems } from "@/store";
+import { truncateTitle } from "@/utils";
 
 type checkoutFormValues = {
   lname: string;
@@ -24,6 +27,8 @@ type checkoutFormValues = {
 
 export default function Checkout() {
   const t = useTranslations("Checkout");
+  const items = useSelector(selectCartItems);
+  const cart = useSelector(selectCart);
   const {
     handleSubmit,
     register,
@@ -165,13 +170,19 @@ export default function Checkout() {
             <span>{t("Product")}</span>
             <span>{t("Subtotal")}</span>
           </h2>
-          <p className="flex justify-between">
-            <span className="text-gray-500">Asgaard sofa x 1</span>
-            <span>250.00 usd</span>
-          </p>
+          {items.map(({ id, title, promoPrice }) => (
+            <p className="flex justify-between" key={id}>
+              <span className="text-gray-500">
+                {truncateTitle(title, 24)} x 1
+              </span>
+              <span>{promoPrice} USD</span>
+            </p>
+          ))}
           <p className="flex justify-between">
             <span>Total</span>
-            <span className="font-semibold text-orange-500">250.00 usd</span>
+            <span className="font-semibold text-orange-500">
+              {cart.subTotal} USD
+            </span>
           </p>
 
           <div className="mt-4 border border-gray-600"></div>

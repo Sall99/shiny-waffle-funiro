@@ -62,6 +62,20 @@ export const cartSlice = createSlice({
         0,
       );
     },
+    setAmount: (
+      state,
+      action: PayloadAction<{ id: string; amount: number }>,
+    ) => {
+      const { id, amount } = action.payload;
+      const item = state.items.find((item) => item.id === id);
+      if (item) {
+        item.amount = amount;
+      }
+      state.subTotal = state.items.reduce(
+        (acc, item) => acc + item.price * (item.amount || 1),
+        0,
+      );
+    },
     removeFromCart: (
       state,
       action: PayloadAction<{ id: string; message: string }>,
@@ -85,5 +99,10 @@ export const selectCartSubtotal = createSelector(
 );
 
 export const cartReducer = cartSlice.reducer;
-export const { addToCart, incrementAmount, decrementAmount, removeFromCart } =
-  cartSlice.actions;
+export const {
+  addToCart,
+  incrementAmount,
+  decrementAmount,
+  removeFromCart,
+  setAmount,
+} = cartSlice.actions;

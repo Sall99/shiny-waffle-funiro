@@ -156,7 +156,7 @@
     "Province": "Province (Optionnel)",
     "zipCode": "Code postal",
     "Phone": "Téléphone",
-    "Email Address": "Adresse e-mail",
+    "emailAddress": "Adresse e-mail",
     "additionalInformation": "Informations supplémentaires (Optionnel)",
     "Subtotal": "Sous-total",
     "Product": "Produit",
