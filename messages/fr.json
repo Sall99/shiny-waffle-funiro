@@ -26,7 +26,9 @@
     "ourProducts": "Nos produits",
     "showMore": "Voir plus",
     "increased_quantity_of": "Quantité mise a jour",
-    "addedToCart": "Ajouté au panier"
+    "addedToCart": "Ajouté au panier",
+    "itemExist": "Article déjà ajouté",
+    "addedToFavoris": "Ajouté à Favoris"
   },
   "Footer": {
     "Home": "Accueil",
@@ -164,7 +166,12 @@
     "placeOrder": "Passer la commande"
   },
   "Favorites": {
-    "MyFavorites": "Mes favoris"
+    "MyFavorites": "Mes favoris",
+    "favorisIsEmpty": "Les favoris sont vides",
+    "addFavorites": "page et ajouter des favoris",
+    "Home": "Accueil",
+    "goToThe": "Aller sur",
+    "itemRemovedFromFavoris": "Article retiré du favoris"
   },
   "Contact": {
     "getInTouch": "Contactez-nous",

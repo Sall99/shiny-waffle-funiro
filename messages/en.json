@@ -26,7 +26,9 @@
     "ourProducts": "Our Products",
     "showMore": "Show More",
     "increased_quantity_of": "Increased quantity",
-    "addedToCart": "Added to cart"
+    "addedToCart": "Added to cart",
+    "itemExist": "Item already added",
+    "addedToFavoris": "Added to Favoris"
   },
   "Footer": {
     "Home": "Home",
@@ -164,7 +166,12 @@
     "placeOrder": "Place order"
   },
   "Favorites": {
-    "MyFavorites": "My favorites"
+    "MyFavorites": "My favorites",
+    "favorisIsEmpty": "Favoris is empty",
+    "addFavorites": "page and add some favorites.",
+    "Home": "Home",
+    "goToThe": "Go to the",
+    "itemRemovedFromFavoris": "Item removed from favoris"
   },
   "Contact": {
     "getInTouch": "Get In Touch With Us",
