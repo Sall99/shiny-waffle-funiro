@@ -10,7 +10,7 @@ export const loginSchema = yup.object().shape({
 });
 
 export const createAccountSchema = yup.object().shape({
-  name: yup.string().required("required").min(2).max(20),
+  fname: yup.string().required("required").min(2).max(20),
   lname: yup.string().required("required").min(2).max(20),
   email: yup.string().email("emailInvalid").required("required"),
   password: yup
