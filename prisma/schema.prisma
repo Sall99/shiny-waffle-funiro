@@ -29,3 +29,11 @@ type Review {
   rating  Int
   comment String
 }
+
+model User {
+  id             String  @id @default(auto()) @map("_id") @db.ObjectId
+  email          String  @unique
+  lname          String
+  fname          String
+  hashedPassword String?
+}

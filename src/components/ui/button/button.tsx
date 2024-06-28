@@ -2,6 +2,7 @@
 import { FC } from "react";
 import clsx from "clsx";
 import { Minus, Plus } from "lucide-react";
+import { Spinner } from "../spinner";
 
 export interface ButtonProps {
   label: string;
@@ -10,6 +11,7 @@ export interface ButtonProps {
   type?: "button" | "submit" | "reset";
   disabled?: boolean;
   variant?: "primary" | "secondary" | "tertiary" | "black";
+  loading?: boolean;
 }
 
 export interface SocialLoginButtonProps {
@@ -31,11 +33,13 @@ export const Button: FC<ButtonProps> = ({
   type,
   disabled,
   variant = "primary",
+  loading,
 }) => {
   return (
     <button
       type={type}
       className={clsx(
+        "flex gap-2",
         variant !== "black" &&
           "text-white rounded-xs border text-xs hover:cursor-pointer hover:border-orange-500 hover:text-orange-500 focus:outline-none",
         variant === "primary" &&
@@ -48,7 +52,8 @@ export const Button: FC<ButtonProps> = ({
       onClick={onClick}
       disabled={disabled}
     >
-      {label}
+      <p>{label}</p>
+      {loading && <Spinner />}
     </button>
   );
 };

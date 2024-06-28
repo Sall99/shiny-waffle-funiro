@@ -20,3 +20,4 @@ export * from "./cart";
 export * from "./cart-totals";
 export * from "./feature";
 export * from "./filter";
+export * from "./spinner";

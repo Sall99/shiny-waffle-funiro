@@ -1,24 +1,22 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { createAccountSchema, loginSchema } from "@/constants/validation";
+import { createAccountSchema } from "@/constants/validation";
 import { Button, Input, SocialLoginButton } from "@/components";
 import Image from "next/image";
 import { FaApple } from "react-icons/fa";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
-
-type createAccountFormValues = {
-  email: string;
-  password: string;
-  name: string;
-  lname: string;
-  confirmPassword: string;
-};
+import toast from "react-hot-toast";
+import { createAccountFormValues } from "@/types/auth";
+import { resisterAction } from "@/actions/auth.action";
+import { useRouter } from "next/navigation";
 
 export default function Login() {
   const t = useTranslations("createAccount");
+  const [isLoading, setIsLoading] = useState(false);
+  const router = useRouter();
   const {
     handleSubmit,
     register,
@@ -28,7 +26,19 @@ export default function Login() {
   });
 
   const onSubmit: SubmitHandler<createAccountFormValues> = (values) => {
-    console.log(values);
+    setIsLoading(true);
+    resisterAction(values)
+      .then((result) => {
+        toast.success("accountCreated!");
+        setIsLoading(false);
+        router.push("/");
+      })
+      .catch((error) => {
+        toast.error("error");
+      })
+      .finally(() => {
+        setIsLoading(false);
+      });
   };
 
   return (
@@ -43,7 +53,7 @@ export default function Login() {
         >
           <div className="flex justify-between gap-9">
             <Input
-              name="name"
+              name="fname"
               type="text"
               placeholder={t("name")}
               register={register}
@@ -81,8 +91,9 @@ export default function Login() {
           <Button
             type="submit"
             label={t("createAccount")}
-            className="h-10 w-36 text-left text-sm font-bold uppercase"
+            className="h-10 w-44 text-left text-sm font-bold uppercase"
             variant="black"
+            loading={isLoading}
           />
         </form>
 

@@ -66,7 +66,8 @@
     "loginApple": "Se connecter avec Apple",
     "haveAnAccount": "Vous avez un compte ?",
     "login": "Connectez-vous",
-    "OR": "Ou"
+    "OR": "Ou",
+    "accountCreated": "Compte créé"
   },
   "Validation": {
     "required": "est requis",
