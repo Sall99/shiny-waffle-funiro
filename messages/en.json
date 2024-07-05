@@ -50,7 +50,7 @@
     "emailAddresse": "Email Address",
     "Password": "Password",
     "loginGoogle": "Login with Google",
-    "loginApple": "Login with Apple",
+    "loginGithub": "Login with Github",
     "doNotHaveAnAccount": "do not have an account ?",
     "craeteIt": "create it",
     "OR": "OR"
@@ -63,7 +63,7 @@
     "Password": "Password",
     "confirmPassword": "Confirm Password",
     "loginGoogle": "Login with Google",
-    "loginApple": "Login with Apple",
+    "loginGithub": "Login with Github ",
     "haveAnAccount": "already have an account ?",
     "login": "login",
     "OR": "OR",

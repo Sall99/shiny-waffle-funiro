@@ -39,7 +39,7 @@ export const Button: FC<ButtonProps> = ({
     <button
       type={type}
       className={clsx(
-        "flex gap-2",
+        "flex items-center justify-center gap-2",
         variant !== "black" &&
           "text-white rounded-xs border text-xs hover:cursor-pointer hover:border-orange-500 hover:text-orange-500 focus:outline-none",
         variant === "primary" &&

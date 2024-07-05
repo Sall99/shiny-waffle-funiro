@@ -9,6 +9,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 
 import { loginSchema } from "@/constants/validation";
 import { Button, Input, SocialLoginButton } from "@/components";
+import { signIn } from "next-auth/react";
 
 type loginFormValues = {
   email: string;
@@ -74,11 +75,13 @@ export default function Login() {
                 />
               }
               label={t("loginGoogle")}
+              onClick={() => signIn("google")}
             />
 
             <SocialLoginButton
               icon={<FaApple className="text-xl" />}
-              label={t("loginApple")}
+              label={t("loginGithub")}
+              onClick={() => signIn("github")}
             />
           </div>
         </div>

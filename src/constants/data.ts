@@ -2,7 +2,7 @@ export const allProducts = [
   {
     name: "Syltherine",
     title: "Stylish cafe chair",
-    category: "living-room",
+    category: "livingroom",
     description:
       "Introducing the 'Syltherine' – a sleek and stylish cafe chair designed to elevate your dining experience. With its modern aesthetic and ergonomic design, the 'Syltherine' combines form and function seamlessly. Crafted from premium materials, this chair offers both durability and comfort, making it the perfect choice for cafes, bistros, or even home dining spaces. Add a touch of sophistication to your establishment or home decor with the 'Syltherine' cafe chair.",
     price: 430.0,
@@ -39,7 +39,7 @@ export const allProducts = [
   {
     name: "Leviosa",
     title: "Stylish Cafe Chair",
-    category: "living-room",
+    category: "livingroom",
     description:
       "Introducing the 'Leviosa' chair – a stylish addition to any cafe or living room. With its sleek design and comfortable seating, the 'Leviosa' chair effortlessly combines form and function. Crafted from high-quality materials, this chair offers durability and style, making it the perfect choice for modern spaces.",
     price: 500.99,
@@ -90,7 +90,7 @@ export const allProducts = [
   {
     name: "Lolito",
     title: "Elegant Living Room Chair",
-    category: "living-room",
+    category: "livingroom",
     description:
       "Introducing the 'Lolito' chair – a perfect blend of style and comfort for your living room. Crafted with premium materials and designed with sophistication in mind, the 'Lolito' chair adds a touch of elegance to any space. With its plush cushions and sleek silhouette, it's the perfect spot to unwind after a long day or entertain guests in style.",
     price: 699,
@@ -175,7 +175,7 @@ export const allProducts = [
   {
     name: "Respira",
     title: "Outdoor Bar Table and Stool",
-    category: "livin-groom",
+    category: "livingroom",
     description:
       "Transform your outdoor space into a stylish oasis with the 'Respira' outdoor bar table and stool set. Crafted from weather-resistant materials, this set is designed to withstand the elements while adding elegance to your patio or garden. The sleek design and durable construction make it perfect for outdoor entertaining or enjoying a peaceful evening under the stars.",
     price: 299.99,
@@ -229,7 +229,7 @@ export const allProducts = [
   {
     name: "KM Legend Armless",
     title: "Modern Chairs with Wood Legs for Living, Bedroom,",
-    category: "dinning-room",
+    category: "diningroom",
     description:
       "Upgrade your dining experience with the 'KM Legend Armless' modern chairs. Featuring a sleek design with wood legs, these chairs add a touch of elegance to any dining room or living space. Crafted with comfort and style in mind, they are perfect for everyday use or special occasions. Enhance your home decor with these versatile and stylish chairs.",
     price: 149.99,
@@ -281,7 +281,7 @@ export const allProducts = [
   {
     name: "Rustic Dining Chair",
     title: "Rustic Dining Chair with Cushions, 2 Count, Brown",
-    category: "dinning-room",
+    category: "diningroom",
     description:
       "Add a touch of rustic charm to your dining room with these 'Rustic Dining Chairs'. Featuring a classic design with cushions for added comfort, these chairs are perfect for family dinners or entertaining guests. Crafted from durable materials, they are built to last and withstand everyday use. Elevate your dining experience with these stylish and versatile chairs.",
     price: 199.99,
@@ -337,7 +337,7 @@ export const allProducts = [
   {
     name: "IDEALHOUSE 3",
     title: "3-Piece Kitchen Table Set, Dining Table and Chairs for 2",
-    category: "dinning-room",
+    category: "diningroom",
     description:
       "Upgrade your dining area with the 'IDEALHOUSE 3' kitchen table set. This 3-piece set includes a dining table and two chairs, perfect for intimate meals or cozy breakfasts. The sleek design and compact size make it ideal for small spaces or apartments. Crafted from sturdy materials, this set is built to last and withstand everyday use. Enhance your dining experience with the 'IDEALHOUSE 3' kitchen table set.",
     price: 159.99,
@@ -389,7 +389,7 @@ export const allProducts = [
   {
     name: "Tiophome 7 Pieces Extendable",
     title: "Tabletop and 6 Upholstered Chairs",
-    category: "dinning-room",
+    category: "diningroom",
     description:
       "Upgrade your dining room with the 'Tiophome 7 Pieces Extendable' dining set. This set includes a spacious tabletop and six upholstered chairs, providing ample seating for family gatherings or dinner parties. The extendable design allows you to accommodate extra guests with ease. Crafted from high-quality materials, this dining set combines style and functionality for your dining space.",
     price: 599.99,
@@ -859,7 +859,7 @@ export const allProducts = [
   {
     name: "Bloddream 5 Tier Wall Shelf with RGB Light",
     title: "5-Tier Wall Mounted Shelf with LED RGB Light",
-    category: "living-room",
+    category: "livingroom",
     description:
       "Elevate your home decor with the 'Bloddream 5 Tier Wall Shelf'. This innovative shelf features five tiers of storage space, perfect for displaying books, photos, plants, or other decorative items. The built-in LED RGB light adds a vibrant touch to your space, allowing you to customize the ambiance to suit your mood. Made from high-quality materials, it's easy to install and will enhance any room in your home.",
     price: 59.99,
@@ -918,7 +918,7 @@ export const allProducts = [
   {
     name: "GAOMON Dining Table",
     title: "Modern Rectangular Dining Table",
-    category: "dining-room",
+    category: "diningroom",
     description:
       "Upgrade your dining area with the 'GAOMON Dining Table'. This modern rectangular table features clean lines and a sleek design, making it a stylish addition to any dining room or kitchen. Crafted from high-quality materials, it's built to last and withstand daily use. Whether you're hosting dinner parties or enjoying meals with your family, this dining table provides the perfect setting for every occasion.",
     price: 349.99,
@@ -977,7 +977,7 @@ export const allProducts = [
   {
     name: "Nathan James Linus Modern Upholstered",
     title: "Modern Upholstered Dining Chair",
-    category: "dining-room",
+    category: "diningroom",
     description:
       "Add a touch of modern elegance to your dining room with the 'Nathan James Linus Modern Upholstered' chair. This sleek and stylish dining chair features a minimalist design with clean lines and a comfortable upholstered seat. Crafted from high-quality materials, it's built to last and provides reliable support for everyday use. Whether you're hosting dinner parties or enjoying meals with your family, this dining chair offers both style and comfort.",
     price: 89.99,
@@ -1037,7 +1037,7 @@ export const allProducts = [
   {
     name: "LITTLE TREE Square Dining Table for 4",
     title: "Square Dining Table with Solid Wood Legs",
-    category: "dining-room",
+    category: "diningroom",
     description:
       "Upgrade your dining area with the 'LITTLE TREE Square Dining Table'. This stylish table is designed to comfortably seat four people, making it perfect for small families or intimate gatherings. The square shape saves space while the solid wood legs provide stability and durability. Whether you're enjoying family meals or hosting dinner parties, this dining table will add a touch of elegance to your home decor.",
     price: 199.99,
@@ -1096,7 +1096,7 @@ export const allProducts = [
   {
     name: "Kichler Kailey 3-Light Linear Chandelier",
     title: "Modern Linear Chandelier with Clear Glass Shades",
-    category: "lighting",
+    category: "diningroom",
     description:
       "Illuminate your space with the 'Kichler Kailey 3-Light Linear Chandelier'. This modern chandelier features three lights suspended from a sleek linear frame, creating a striking focal point in any room. The clear glass shades add a touch of elegance and allow the light to shine brightly. Perfect for dining rooms, kitchens, or living areas, this chandelier will enhance your home decor with its contemporary design and warm ambiance.",
     price: 199.99,
@@ -1454,7 +1454,7 @@ export const allProducts = [
   {
     name: "SAFAVIEH Madison Collection Area Rug",
     title: "Modern Area Rug with Vintage Distressed Design",
-    category: "living-room",
+    category: "livingroom",
     description:
       "Enhance your living space with the 'SAFAVIEH Madison Collection Area Rug'. This modern area rug features a vintage distressed design that adds character and charm to any room. Crafted from high-quality materials, it's soft to the touch and durable enough to withstand daily foot traffic. Whether you place it in your living room, bedroom, or dining area, this area rug will bring warmth and style to your home decor.",
     price: 89.99,
@@ -1514,7 +1514,7 @@ export const allProducts = [
   {
     name: "Furinno Simple Design Coffee Table, Espresso",
     title: "Modern Coffee Table with Minimalist Design",
-    category: "living-room",
+    category: "livingroom",
     description:
       "Add a touch of modern style to your living room with the 'Furinno Simple Design Coffee Table'. This sleek and minimalist coffee table features clean lines and a rich espresso finish, making it a versatile addition to any decor. Crafted from durable engineered wood, it's built to last and provides a sturdy surface for drinks, snacks, and decorative items. Whether you're entertaining guests or enjoying a quiet evening at home, this coffee table is sure to impress.",
     price: 49.99,
@@ -1572,7 +1572,7 @@ export const allProducts = [
   {
     name: "SIMPLIHOME Warm Shaker SOLID WOOD",
     title: "Solid Wood Coffee Table with Storage",
-    category: "living-room",
+    category: "livingroom",
     description:
       "Add warmth and style to your living room with the 'SIMPLIHOME Warm Shaker SOLID WOOD' coffee table. Crafted from solid pine wood, this coffee table features a timeless design with clean lines and a warm finish. The spacious tabletop provides ample space for drinks, snacks, and decorative items, while the two drawers offer convenient storage for remote controls, magazines, and more. Whether you're relaxing with family or entertaining guests, this coffee table is the perfect centerpiece for your space.",
     price: 199.99,
@@ -1632,7 +1632,7 @@ export const allProducts = [
   {
     name: "SogesGame Side Table, 23.6in Adjustable Laptop",
     title: "Adjustable Side Table with Laptop Stand",
-    category: "living-room",
+    category: "livingroom",
     description:
       "Enhance your living room or home office with the versatile 'SogesGame Side Table'. This adjustable table features a modern design with a durable metal frame and a smooth desktop surface. The height-adjustable design allows you to customize the table to your preferred height, making it perfect for use as a side table, laptop stand, or snack tray. Whether you're working from home or relaxing with a book, this table provides convenience and functionality.",
     price: 49.99,
@@ -1751,7 +1751,7 @@ export const allProducts = [
   {
     name: "4-in-1 Sofa Bed Modern Convertible Sleeper Sofa Chair Bed",
     title: "Versatile Sofa Bed with Multiple Functions",
-    category: "living-room",
+    category: "livingroom",
     description:
       "Maximize space in your living room or guest room with the '4-in-1 Sofa Bed'. This versatile piece of furniture can be used as a sofa, a bed, a lounger, or a recliner, making it perfect for small spaces and multi-functional rooms. Crafted from high-quality materials, it's designed for comfort and durability, providing a cozy seating or sleeping experience. Whether you're entertaining guests or relaxing at home, this sofa bed offers convenience and style.",
     price: 299.99,
@@ -1806,7 +1806,7 @@ export const allProducts = [
   {
     name: "Sorbus Wooden Modern Wall Clock - Large Wall Clock for Living Room Decor",
     title: "Modern Wooden Wall Clock for Stylish Living Room Decor",
-    category: "living-room",
+    category: "livingroom",
     description:
       "Add a touch of modern elegance to your living room decor with the 'Sorbus Wooden Modern Wall Clock'. This large wall clock features a sleek wooden design with minimalist details, making it a stylish addition to any room. Crafted from high-quality materials, it's durable and built to last. With its silent quartz movement, this wall clock ensures accurate timekeeping without any ticking noise, making it perfect for bedrooms, offices, and living rooms.",
     price: 49.99,
@@ -1862,7 +1862,7 @@ export const allProducts = [
   {
     name: "VASAGLE Small Round Side End Table",
     title: "Modern Round Side Table for Living Room or Bedroom",
-    category: "living-room",
+    category: "livingroom",
     description:
       "Add a touch of modern style to your living room or bedroom with the 'VASAGLE Small Round Side End Table'. This compact end table features a sleek round design with a minimalist aesthetic, making it a versatile addition to any space. Crafted from high-quality materials, it's sturdy and built to last. Whether you use it to hold drinks, snacks, or decorative items, this side table adds functionality and charm to your home decor.",
     price: 39.99,
@@ -1917,7 +1917,7 @@ export const allProducts = [
   {
     name: "Sectional Living Room Furniture, L-Shape Couch",
     title: "Modern L-Shaped Sectional Couch for Living Room",
-    category: "living-room",
+    category: "livingroom",
     description:
       "Transform your living room with the 'Sectional Living Room Furniture, L-Shape Couch'. This modern L-shaped sectional couch offers ample seating space and contemporary style, making it the perfect centerpiece for your living room. Crafted from high-quality materials, it's built to last and provides superior comfort for lounging and entertaining. With its versatile design and neutral color, this sectional couch complements a variety of decor styles and adds functionality to your home.",
     price: 799.99,
@@ -1972,7 +1972,7 @@ export const allProducts = [
   {
     name: "Recaceik Dining Table Set for 4 Kitchen Table Set with 2 Dining Benches",
     title: "Modern Dining Table Set with Benches for Kitchen",
-    category: "dining-room",
+    category: "diningroom",
     description:
       "Upgrade your kitchen or dining area with the 'Recaceik Dining Table Set'. This modern dining table set includes a sturdy table and two dining benches, providing ample seating for up to four people. Crafted from high-quality materials, it's designed to withstand daily use and provide long-lasting durability. Whether you're enjoying family meals or hosting dinner parties with friends, this dining table set adds style and functionality to your space.",
     price: 349.99,
@@ -2039,7 +2039,7 @@ export const homeProductsSlider = [
   {
     id: "2",
     title: "Inner peace",
-    description: "Living room",
+    description: "Living sroom",
     imageUrl:
       "https://res.cloudinary.com/dx6jhjxpt/image/upload/v1712231435/shiny-waffle-funiro/81bPDeM0LrL._AC_SL1500__nu8pxj.jpg",
   },
