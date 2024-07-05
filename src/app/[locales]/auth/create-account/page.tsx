@@ -1,11 +1,12 @@
 "use client";
 import React, { useState } from "react";
+import { signIn } from "next-auth/react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { createAccountSchema } from "@/constants/validation";
 import { Button, Input, SocialLoginButton } from "@/components";
 import Image from "next/image";
-import { FaApple } from "react-icons/fa";
+import { FaGithub } from "react-icons/fa";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
 import toast from "react-hot-toast";
@@ -29,7 +30,7 @@ export default function Login() {
     setIsLoading(true);
     resisterAction(values)
       .then((result) => {
-        toast.success("accountCreated!");
+        toast.success("accountCreated");
         setIsLoading(false);
         router.push("/");
       })
@@ -112,11 +113,13 @@ export default function Login() {
                 />
               }
               label={t("loginGoogle")}
+              onClick={() => signIn("google")}
             />
 
             <SocialLoginButton
-              icon={<FaApple className="text-xl" />}
-              label={t("loginApple")}
+              icon={<FaGithub className="text-xl" />}
+              label={t("loginGithub")}
+              onClick={() => signIn("github")}
             />
           </div>
         </div>

@@ -10,6 +10,8 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import StoreProvider from "@/store/provider";
 import { Toaster } from "react-hot-toast";
+import getCurrentUser from "@/actions/current-user";
+import { getServerSession } from "next-auth";
 
 const poppins = Poppins({
   subsets: ["latin-ext"],
@@ -35,7 +37,6 @@ export default function RootLayout({
   params: { locale: string };
 }>) {
   const messages = useMessages();
-
   return (
     <html lang={locale}>
       <body className={`${poppins.className} ${montserrat.className}`}>

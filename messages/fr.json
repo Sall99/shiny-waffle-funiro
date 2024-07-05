@@ -50,7 +50,7 @@
     "emailAddresse": "Adresse e-mail",
     "Password": "Mot de passe",
     "loginGoogle": "Se connecter avec Google",
-    "loginApple": "Se connecter avec Apple",
+    "loginGithub": "Se connecter avec Github",
     "doNotHaveAnAccount": "Vous n'avez pas de compte ?",
     "createIt": "Créez-le",
     "OR": "Ou"
@@ -63,11 +63,11 @@
     "Password": "Mot de passe",
     "confirmPassword": "Confirmez le mot de passe",
     "loginGoogle": "Se connecter avec Google",
-    "loginApple": "Se connecter avec Apple",
+    "loginGithub": "Se connecter avec Github ",
     "haveAnAccount": "Vous avez un compte ?",
     "login": "Connectez-vous",
     "OR": "Ou",
-    "accountCreated": "Compte créé"
+    "accountCreated": "Compte créé avec succès"
   },
   "Validation": {
     "required": "est requis",
