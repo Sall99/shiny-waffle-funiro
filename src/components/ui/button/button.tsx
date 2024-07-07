@@ -45,7 +45,8 @@ export const Button: FC<ButtonProps> = ({
         variant === "primary" &&
           "bg-orange-500 text-accent hover:bg-orange-100",
         variant === "secondary" && "bg-white-100 text-orange-500",
-        variant === "black" && "border-b-2 border-black-800",
+        variant === "black" &&
+          "border-b-2 border-white-100 hover:border-black-800",
         variant === "tertiary" && "rounded-xl border-2 px-8 py-4 font-medium",
         className,
       )}

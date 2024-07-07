@@ -1,15 +1,18 @@
 "use client";
-import React from "react";
-import Image from "next/image";
+import React, { useState } from "react";
+import { signIn } from "next-auth/react";
+import toast from "react-hot-toast";
+import { useRouter } from "next/navigation";
 import { FaApple } from "react-icons/fa";
 import { useTranslations } from "next-intl";
-import Link from "next/link";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
+import Link from "next/link";
+import clsx from "clsx";
+import Image from "next/image";
 
 import { loginSchema } from "@/constants/validation";
 import { Button, Input, SocialLoginButton } from "@/components";
-import { signIn } from "next-auth/react";
 
 type loginFormValues = {
   email: string;
@@ -18,6 +21,8 @@ type loginFormValues = {
 
 export default function Login() {
   const t = useTranslations("Login");
+  const [isLoading, setIsLoading] = useState(false);
+  const router = useRouter();
   const {
     handleSubmit,
     register,
@@ -27,7 +32,24 @@ export default function Login() {
   });
 
   const onSubmit: SubmitHandler<loginFormValues> = (values) => {
-    console.log(values);
+    setIsLoading(true);
+
+    signIn("credentials", {
+      ...values,
+      redirect: false,
+    }).then((callback) => {
+      setIsLoading(false);
+
+      if (callback?.ok) {
+        toast.success(t("loggedIn"));
+        router.refresh();
+        router.push("/");
+      }
+
+      if (callback?.error) {
+        toast.error(callback.error);
+      }
+    });
   };
 
   return (
@@ -55,8 +77,9 @@ export default function Login() {
           <Button
             type="submit"
             label={t("Login")}
-            className="h-10 w-20 text-left text-sm font-bold uppercase"
+            className={clsx("h-10 w-40 text-left text-sm font-bold uppercase")}
             variant="black"
+            loading={isLoading}
           />
         </form>
 
@@ -75,13 +98,17 @@ export default function Login() {
                 />
               }
               label={t("loginGoogle")}
-              onClick={() => signIn("google")}
+              onClick={() =>
+                signIn("google", { redirect: false, callbackUrl: "/" })
+              }
             />
 
             <SocialLoginButton
               icon={<FaApple className="text-xl" />}
               label={t("loginGithub")}
-              onClick={() => signIn("github")}
+              onClick={() =>
+                signIn("github", { redirect: false, callbackUrl: "/" })
+              }
             />
           </div>
         </div>

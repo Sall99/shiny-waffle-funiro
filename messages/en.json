@@ -53,7 +53,8 @@
     "loginGithub": "Login with Github",
     "doNotHaveAnAccount": "do not have an account ?",
     "craeteIt": "create it",
-    "OR": "OR"
+    "OR": "OR",
+    "loggedIn": "Logged in"
   },
   "createAccount": {
     "createAccount": "Create Account",
