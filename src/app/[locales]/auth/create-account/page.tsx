@@ -3,16 +3,17 @@ import React, { useState } from "react";
 import { signIn } from "next-auth/react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { createAccountSchema } from "@/constants/validation";
-import { Button, Input, SocialLoginButton } from "@/components";
+import { useRouter } from "next/navigation";
 import Image from "next/image";
 import { FaGithub } from "react-icons/fa";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
 import toast from "react-hot-toast";
+
+import { createAccountSchema } from "@/constants/validation";
+import { Button, Input, SocialLoginButton } from "@/components";
 import { createAccountFormValues } from "@/types/auth";
 import { resisterAction } from "@/actions/auth.action";
-import { useRouter } from "next/navigation";
 
 export default function Login() {
   const t = useTranslations("createAccount");
@@ -30,9 +31,9 @@ export default function Login() {
     setIsLoading(true);
     resisterAction(values)
       .then((result) => {
-        toast.success("accountCreated");
+        toast.success(t("accountCreated"));
         setIsLoading(false);
-        router.push("/");
+        router.push("/auth/login");
       })
       .catch((error) => {
         toast.error("error");
@@ -113,13 +114,23 @@ export default function Login() {
                 />
               }
               label={t("loginGoogle")}
-              onClick={() => signIn("google")}
+              onClick={() =>
+                signIn("google", {
+                  redirect: false,
+                  callbackUrl: "/",
+                })
+              }
             />
 
             <SocialLoginButton
               icon={<FaGithub className="text-xl" />}
               label={t("loginGithub")}
-              onClick={() => signIn("github")}
+              onClick={() =>
+                signIn("github", {
+                  redirect: false,
+                  callbackUrl: "/",
+                })
+              }
             />
           </div>
         </div>

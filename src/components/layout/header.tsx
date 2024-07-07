@@ -24,32 +24,65 @@ const links = [
 ];
 
 const iconLinks = [
-  { Icon: Store, path: "/shop", hidden: false, auth: false, name: "Shop" },
-  { Icon: User, path: "/account", hidden: false, auth: true, name: "Account" },
+  {
+    Icon: Store,
+    path: "/shop",
+    hidden: false,
+    auth: false,
+    display: true,
+    name: "Shop",
+  },
+  {
+    Icon: User,
+    path: "/account",
+    hidden: false,
+    auth: true,
+    display: true,
+    name: "Account",
+  },
   {
     Icon: LogIn,
     path: "/auth/login",
     hidden: false,
     auth: false,
+    display: false,
     name: "Login",
   },
-  { Icon: SearchIcon, path: "", hidden: false, auth: false, name: "Search" },
-  { Icon: Heart, path: "/favoris", hidden: true, auth: false, name: "Favoris" },
+  {
+    Icon: SearchIcon,
+    path: "",
+    hidden: false,
+    auth: false,
+    display: true,
+    name: "Search",
+  },
+  {
+    Icon: Heart,
+    path: "/favoris",
+    hidden: true,
+    auth: false,
+    display: true,
+    name: "Favoris",
+  },
   {
     Icon: ShoppingCart,
     path: "",
     hidden: false,
     auth: false,
+    display: true,
     name: "Cart",
   },
 ];
 
-function Header() {
+type Props = {
+  session: any;
+};
+
+function Header({ session }: Props) {
   const [isOpen, setIsOpen] = useState(false);
   const [isCartOpen, setCartIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [openSearch, setOpenSearch] = useState(false);
-  const user = null;
 
   const toggleMenu = () => {
     setIsOpen((prevIsOpen) => !prevIsOpen);
@@ -124,8 +157,11 @@ function Header() {
             <LocalSwitcher />
           </div>
           <div className="flex gap-6 md:gap-8">
-            {iconLinks.map((link, key) =>
-              (link.auth && user) || !link.auth ? (
+            {iconLinks.map((link, key) => {
+              const shouldRender =
+                (!link.auth && !session) || (link.display && session);
+
+              return shouldRender ? (
                 <Link
                   href={link.path}
                   key={key}
@@ -145,8 +181,8 @@ function Header() {
                     <link.Icon width={18} height={18} />
                   )}
                 </Link>
-              ) : null,
-            )}
+              ) : null;
+            })}
           </div>
         </div>
       </Layout>
