@@ -83,3 +83,9 @@ export const checkoutSchema = yup.object().shape({
   email: yup.string().email("emailInvalid").required("required"),
   additionalInfo: yup.string().optional(),
 });
+
+export const UserInformationSchema = yup.object().shape({
+  fname: yup.string().min(2).max(20),
+  lname: yup.string().min(2).max(20),
+  email: yup.string().email("emailInvalid"),
+});

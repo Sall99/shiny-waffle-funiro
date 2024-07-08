@@ -21,3 +21,4 @@ export * from "./cart-totals";
 export * from "./feature";
 export * from "./filter";
 export * from "./spinner";
+export * from "./account";

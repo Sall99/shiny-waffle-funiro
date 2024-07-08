@@ -218,5 +218,13 @@
     "Short By": "Short By",
     "Default": "Default",
     "results": "results"
+  },
+  "UserInformation": {
+    "name": "name",
+    "lName": "last name",
+    "firstName": "First name",
+    "lastName": "Last name",
+    "emailAddresse": "Email Address",
+    "saveChanges": "Save changes"
   }
 }

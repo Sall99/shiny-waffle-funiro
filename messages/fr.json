@@ -218,5 +218,13 @@
     "Short By": "Filtrer par",
     "Default": "Par défaut",
     "results": "résultats"
+  },
+  "UserInformation": {
+    "name": "Nom",
+    "lName": "Nom de famille",
+    "firstName": "Prénom",
+    "lastName": "Nom de famille",
+    "emailAddresse": "Adresse e-mail",
+    "saveChanges": "Enregistrer les modifications"
   }
 }
