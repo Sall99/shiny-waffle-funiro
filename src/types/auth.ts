@@ -5,3 +5,9 @@ export type createAccountFormValues = {
   lname: string;
   confirmPassword: string;
 };
+
+export type UserInformatioFormValues = {
+  email?: string;
+  fname?: string;
+  lname?: string;
+};
