@@ -225,6 +225,13 @@
     "firstName": "Prénom",
     "lastName": "Nom de famille",
     "emailAddresse": "Adresse e-mail",
-    "saveChanges": "Enregistrer les modifications"
+    "saveChanges": "Enregistrer"
+  },
+  "AccountBart": {
+    "accountDashboard": "Account Dashboard",
+    "accountInformation": "Informations sur le compte",
+    "myOrders": "Mes commandes",
+    "addressBook": "Carnet d'adresses",
+    "signout": "Se déconnecter"
   }
 }
