@@ -226,5 +226,12 @@
     "lastName": "Last name",
     "emailAddresse": "Email Address",
     "saveChanges": "Save changes"
+  },
+  "AccountBart": {
+    "accountDashboard": "Account Dashboard",
+    "accountInformation": "Account Information",
+    "myOrders": "My Orders",
+    "addressBook": "Address Book",
+    "signout": "signout"
   }
 }

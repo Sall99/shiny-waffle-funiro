@@ -18,3 +18,5 @@ export interface IReview {
   rating: number;
   comment: string;
 }
+
+export type TabName = "accountInformation" | "addressBook" | "myOrders";
