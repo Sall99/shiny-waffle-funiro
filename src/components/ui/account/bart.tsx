@@ -6,6 +6,7 @@ import { useTranslations } from "next-intl";
 import React from "react";
 import { IconType } from "react-icons/lib";
 import { LogOut } from "lucide-react";
+import { signOut } from "next-auth/react";
 
 interface Link {
   name: TabName;
@@ -48,7 +49,10 @@ export const AccountBart = ({ setActiveTab }: Props) => {
             </li>
           ))}
         </ul>
-        <p className="flex items-center justify-center gap-2">
+        <p
+          className="flex items-center justify-center gap-2"
+          onClick={() => signOut()}
+        >
           <LogOut color="#B88E2F" />
           <span className="text-xs font-semibold uppercase hover:cursor-pointer">
             {t("signout")}

@@ -1,25 +1,50 @@
 "use client";
-import React, { useState } from "react";
-import { Input } from "../input";
+import React, { useEffect, useState } from "react";
 import { useTranslations } from "next-intl";
 import { useRouter } from "next/navigation";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
+
 import { UserInformationSchema } from "@/constants/validation";
 import { UserInformatioFormValues } from "@/types";
 import { Button } from "../button";
+import { Input } from "../input";
+import { currentUserAction } from "@/actions";
 
 export const UserInformation = () => {
   const t = useTranslations("UserInformation");
   const [isLoading, setIsLoading] = useState(false);
+  const [userData, setUserData] = useState<UserInformatioFormValues | null>(
+    null,
+  );
+
   const router = useRouter();
   const {
     handleSubmit,
     register,
+    setValue,
     formState: { errors },
   } = useForm<UserInformatioFormValues>({
     resolver: yupResolver(UserInformationSchema),
   });
+
+  useEffect(() => {
+    currentUserAction()
+      .then((result) => {
+        setUserData(result.user);
+        if (result) {
+          setValue("email", result.user.email);
+          setValue("fname", result.user.fname || result.user.name);
+          setValue("lname", result.user.lname);
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+      })
+      .finally(() => {
+        setIsLoading(false);
+      });
+  }, []);
 
   const onSubmit: SubmitHandler<UserInformatioFormValues> = (values) => {};
 
