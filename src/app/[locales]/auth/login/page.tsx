@@ -1,8 +1,8 @@
 "use client";
-import React, { useState } from "react";
-import { signIn } from "next-auth/react";
+import React, { useEffect, useState } from "react";
+import { getSession, signIn, useSession } from "next-auth/react";
 import toast from "react-hot-toast";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { FaApple } from "react-icons/fa";
 import { useTranslations } from "next-intl";
 import { SubmitHandler, useForm } from "react-hook-form";
@@ -23,6 +23,9 @@ export default function Login() {
   const t = useTranslations("Login");
   const [isLoading, setIsLoading] = useState(false);
   const router = useRouter();
+  const session = useSession();
+
+  console.log(session);
   const {
     handleSubmit,
     register,
@@ -30,6 +33,12 @@ export default function Login() {
   } = useForm<loginFormValues>({
     resolver: yupResolver(loginSchema),
   });
+
+  useEffect(() => {
+    if (session.data?.user) {
+      router.push("/");
+    }
+  }, [session, router]);
 
   const onSubmit: SubmitHandler<loginFormValues> = (values) => {
     setIsLoading(true);
@@ -42,7 +51,7 @@ export default function Login() {
 
       if (callback?.ok) {
         toast.success(t("loggedIn"));
-        router.refresh();
+        window.location.reload();
         router.push("/");
       }
 
