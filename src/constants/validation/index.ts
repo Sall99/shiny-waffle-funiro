@@ -85,7 +85,7 @@ export const checkoutSchema = yup.object().shape({
 });
 
 export const UserInformationSchema = yup.object().shape({
-  fname: yup.string().min(2).max(20),
-  lname: yup.string().min(2).max(20),
+  fname: yup.string().min(2, "lNameMin").max(20),
+  lname: yup.string().min(2, "fNameMin").max(20),
   email: yup.string().email("emailInvalid"),
 });
