@@ -101,7 +101,9 @@
     "townCityMin": "Town / City must be at least 2 characters long",
     "townCityRequired": "Town / City is required",
     "messageMin": "Message must be at least 2 characters long",
-    "messageRequired": "Message is required"
+    "messageRequired": "Message is required",
+    "lname": "Last Name must be at least 2 characters long",
+    "fname": "First Name must be at least 2 characters long"
   },
   "Search": {
     "search": "search",
@@ -225,7 +227,8 @@
     "firstName": "First name",
     "lastName": "Last name",
     "emailAddresse": "Email Address",
-    "saveChanges": "Save changes"
+    "saveChanges": "Save changes",
+    "Updated": "Updated"
   },
   "AccountBart": {
     "accountDashboard": "Account Dashboard",

@@ -9,7 +9,9 @@ import { UserInformationSchema } from "@/constants/validation";
 import { UserInformatioFormValues } from "@/types";
 import { Button } from "../button";
 import { Input } from "../input";
-import { currentUserAction } from "@/actions";
+import { currentUserAction, updateUserPersonal } from "@/actions";
+import clsx from "clsx";
+import toast from "react-hot-toast";
 
 export const UserInformation = () => {
   const t = useTranslations("UserInformation");
@@ -18,7 +20,6 @@ export const UserInformation = () => {
     null,
   );
 
-  const router = useRouter();
   const {
     handleSubmit,
     register,
@@ -46,12 +47,27 @@ export const UserInformation = () => {
       });
   }, []);
 
-  const onSubmit: SubmitHandler<UserInformatioFormValues> = (values) => {};
+  const onSubmit: SubmitHandler<UserInformatioFormValues> = (values) => {
+    updateUserPersonal(values)
+      .then((result) => {
+        toast.success(t("Updated"));
+        setIsLoading(false);
+      })
+      .catch((error) => {
+        toast.error("error");
+      })
+      .finally(() => {
+        setIsLoading(false);
+      });
+  };
 
   return (
     <div className="w-full pt-10">
       <h2 className="mb-4 font-semibold">User Information</h2>
-      <form className="border border-gray-300 p-16">
+      <form
+        className="border border-gray-300 p-16"
+        onSubmit={handleSubmit(onSubmit)}
+      >
         <div className="flex w-96 flex-col gap-4">
           <Input
             name="fname"
@@ -82,6 +98,8 @@ export const UserInformation = () => {
             border
             labelText="Email"
             label
+            disabled
+            classname={clsx("hover:cursor-not-allowed")}
           />
           <Button
             type="submit"

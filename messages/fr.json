@@ -101,7 +101,9 @@
     "townCityMin": "La ville doit comporter au moins 2 caractères",
     "townCityRequired": "La ville est requise",
     "messageMin": "Message doit comporter au moins 2 caractères",
-    "messageRequired": "Message est requis"
+    "messageRequired": "Message est requis",
+    "lname": "Le nom de famille doit comporter au moins 2 caractères",
+    "fname": "Le prénom ne peut pas dépasser 15 caractères"
   },
   "Search": {
     "search": "recherche",
@@ -225,7 +227,8 @@
     "firstName": "Prénom",
     "lastName": "Nom de famille",
     "emailAddresse": "Adresse e-mail",
-    "saveChanges": "Enregistrer"
+    "saveChanges": "Enregistrer",
+    "Updated": "Mis a jour avec succès"
   },
   "AccountBart": {
     "accountDashboard": "Account Dashboard",
