@@ -228,7 +228,8 @@
     "lastName": "Last name",
     "emailAddresse": "Email Address",
     "saveChanges": "Save changes",
-    "Updated": "Updated"
+    "Updated": "Updated",
+    "UserInformation": "User Information"
   },
   "AccountBart": {
     "accountDashboard": "Account Dashboard",
@@ -236,5 +237,21 @@
     "myOrders": "My Orders",
     "addressBook": "Address Book",
     "signout": "signout"
+  },
+  "AddressBook": {
+    "firstName": "First Name",
+    "lastName": "Last Name",
+    "companyName": "Company Name (Optional)",
+    "Country/Region": "Country / Region",
+    "streetAddress": "Street addresss",
+    "Town/City": "Town/City",
+    "Province": "Province (Optional)",
+    "zipCode": "Zip code",
+    "Phone": "Phone",
+    "emailAddress": "Email Address",
+    "additionalInformation": "Additional information (Optional)",
+    "saveChanges": "Save changes",
+    "addressBook": "Address Book",
+    "addressBookCreated": "Successfully created address book"
   }
 }
