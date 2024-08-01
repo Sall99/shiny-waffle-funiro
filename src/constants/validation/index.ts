@@ -38,7 +38,7 @@ export const contactSchema = yup.object().shape({
   message: yup.string().required("messageRequired").min(10, "messagesMin"),
 });
 
-export const checkoutSchema = yup.object().shape({
+export const addressBookSchema = yup.object().shape({
   lname: yup
     .string()
     .required("lNameRequired")

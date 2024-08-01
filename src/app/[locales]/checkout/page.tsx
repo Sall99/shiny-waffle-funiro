@@ -1,29 +1,16 @@
 "use client";
 import React from "react";
-
-import { Button, Feature, HeroSection, Input, Layout } from "@/components";
-import { useForm } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
-import { checkoutSchema } from "@/constants/validation";
 import Link from "next/link";
 import { useTranslations } from "next-intl";
 import { useSelector } from "react-redux";
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+
+import { Button, Feature, HeroSection, Input, Layout } from "@/components";
+import { addressBookSchema } from "@/constants/validation";
 import { selectCart, selectCartItems } from "@/store";
 import { truncateTitle } from "@/utils";
-
-type checkoutFormValues = {
-  lname: string;
-  fname: string;
-  companyName?: string;
-  countryRegion: string;
-  street: string;
-  townCity: string;
-  province?: string;
-  phone: string;
-  zipCode: string;
-  email: string;
-  additionalInfo?: string;
-};
+import { addressBookFormValues } from "@/types";
 
 export default function Checkout() {
   const t = useTranslations("Checkout");
@@ -33,12 +20,12 @@ export default function Checkout() {
     handleSubmit,
     register,
     formState: { errors },
-  } = useForm<checkoutFormValues>({
-    resolver: yupResolver(checkoutSchema),
+  } = useForm<addressBookFormValues>({
+    resolver: yupResolver(addressBookSchema),
   });
 
-  const onSubmit = (data: checkoutFormValues) => {
-    console.log("Form Data: ", data);
+  const onSubmit = (values: addressBookFormValues) => {
+    console.log("Form values: ", values);
   };
 
   return (

@@ -1,17 +1,16 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import { useTranslations } from "next-intl";
-import { useRouter } from "next/navigation";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
+import clsx from "clsx";
+import toast from "react-hot-toast";
 
 import { UserInformationSchema } from "@/constants/validation";
 import { UserInformatioFormValues } from "@/types";
 import { Button } from "../button";
 import { Input } from "../input";
 import { currentUserAction, updateUserPersonal } from "@/actions";
-import clsx from "clsx";
-import toast from "react-hot-toast";
 
 export const UserInformation = () => {
   const t = useTranslations("UserInformation");
@@ -63,7 +62,7 @@ export const UserInformation = () => {
 
   return (
     <div className="w-full pt-10">
-      <h2 className="mb-4 font-semibold">User Information</h2>
+      <h2 className="mb-4 font-semibold">{t("UserInformation")}</h2>
       <form
         className="border border-gray-300 p-16"
         onSubmit={handleSubmit(onSubmit)}
