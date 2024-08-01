@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useTranslations } from "next-intl";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -8,12 +8,15 @@ import { Input } from "../input";
 import { addressBookFormValues } from "@/types";
 import { addressBookSchema } from "@/constants/validation";
 import { Button } from "../button";
-import { createAddressBook } from "@/actions";
+import { createAddressBook, getAddressBook } from "@/actions";
 import toast from "react-hot-toast";
 
 export const AddressBook = () => {
   const t = useTranslations("AddressBook");
   const [isLoading, setIsLoading] = useState(false);
+  const [userAddressBookData, setAddressBookData] =
+    useState<addressBookFormValues | null>(null);
+
   const {
     handleSubmit,
     register,
@@ -22,6 +25,23 @@ export const AddressBook = () => {
   } = useForm<addressBookFormValues>({
     resolver: yupResolver(addressBookSchema),
   });
+
+  useEffect(() => {
+    getAddressBook()
+      .then((result) => {
+        const address = result.data[0];
+        setAddressBookData(address);
+        Object.keys(address).forEach((key) => {
+          setValue(key as keyof addressBookFormValues, address[key]);
+        });
+      })
+      .catch((error) => {
+        console.log(error);
+      })
+      .finally(() => {
+        setIsLoading(false);
+      });
+  }, []);
 
   const onSubmit = (values: addressBookFormValues) => {
     createAddressBook(values)

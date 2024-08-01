@@ -22,3 +22,9 @@ export const createAddressBook = async (values: addressBookFormValues) => {
 
   return data;
 };
+
+export const getAddressBook = async () => {
+  const { data } = await instance.get(`/auth/get-address-book`);
+
+  return data;
+};
