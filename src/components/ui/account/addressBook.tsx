@@ -1,14 +1,19 @@
 "use client";
+
 import React, { useEffect, useState } from "react";
 import { useTranslations } from "next-intl";
-import { useForm } from "react-hook-form";
+import { SubmitHandler, useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 
 import { Input } from "../input";
 import { addressBookFormValues } from "@/types";
 import { addressBookSchema } from "@/constants/validation";
 import { Button } from "../button";
-import { createAddressBook, getAddressBook } from "@/actions";
+import {
+  createAddressBook,
+  getAddressBook,
+  updateUserAddressBook,
+} from "@/actions";
 import toast from "react-hot-toast";
 
 export const AddressBook = () => {
@@ -27,34 +32,51 @@ export const AddressBook = () => {
   });
 
   useEffect(() => {
+    setIsLoading(true);
     getAddressBook()
       .then((result) => {
         const address = result.data[0];
-        setAddressBookData(address);
-        Object.keys(address).forEach((key) => {
-          setValue(key as keyof addressBookFormValues, address[key]);
-        });
+        if (address) {
+          setAddressBookData(address);
+          Object.keys(address).forEach((key) => {
+            setValue(key as keyof addressBookFormValues, address[key]);
+          });
+        }
       })
       .catch((error) => {
-        console.log(error);
+        console.error(error);
       })
       .finally(() => {
         setIsLoading(false);
       });
-  }, []);
+  }, [setValue]);
 
-  const onSubmit = (values: addressBookFormValues) => {
-    createAddressBook(values)
-      .then((result) => {
-        toast.success(t("addressBookCreated"));
-        setIsLoading(false);
-      })
-      .catch((error) => {
-        toast.error("error");
-      })
-      .finally(() => {
-        setIsLoading(false);
-      });
+  const onSubmit: SubmitHandler<addressBookFormValues> = (values) => {
+    setIsLoading(true);
+
+    if (userAddressBookData) {
+      updateUserAddressBook(values)
+        .then(() => {
+          toast.success(t("addressBookUpdated"));
+        })
+        .catch(() => {
+          toast.error(t("error"));
+        })
+        .finally(() => {
+          setIsLoading(false);
+        });
+    } else {
+      createAddressBook(values)
+        .then(() => {
+          toast.success(t("addressBookCreated"));
+        })
+        .catch(() => {
+          toast.error(t("error"));
+        })
+        .finally(() => {
+          setIsLoading(false);
+        });
+    }
   };
 
   return (
@@ -128,7 +150,6 @@ export const AddressBook = () => {
               register={register}
               errors={errors}
             />
-
             <Input
               name="province"
               type="text"
@@ -179,11 +200,12 @@ export const AddressBook = () => {
               register={register}
               errors={errors}
             />
+
             <Button
               className="mt-10 h-10 w-44 text-left text-sm font-bold uppercase"
               type="submit"
               variant="primary"
-              label={t("saveChanges")}
+              label={userAddressBookData ? t("update") : t("saveChanges")}
               loading={isLoading}
             />
           </div>
