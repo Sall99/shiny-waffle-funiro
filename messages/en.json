@@ -253,6 +253,7 @@
     "saveChanges": "Save changes",
     "addressBook": "Address Book",
     "addressBookCreated": "Successfully created address book",
-    "update": "update"
+    "update": "update",
+    "addressBookUpdated": "Addressbook updated"
   }
 }

@@ -253,6 +253,7 @@
     "saveChanges": "Enregistrer",
     "addressBook": "Carnet d'adresses",
     "addressBookCreated": "Carnet d'adresses créé avec succès",
-    "update": "Mettre a jour"
+    "update": "Mettre a jour",
+    "addressBookUpdated": "Addressbook mis a jour"
   }
 }
