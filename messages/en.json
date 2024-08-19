@@ -252,6 +252,7 @@
     "additionalInformation": "Additional information (Optional)",
     "saveChanges": "Save changes",
     "addressBook": "Address Book",
-    "addressBookCreated": "Successfully created address book"
+    "addressBookCreated": "Successfully created address book",
+    "update": "update"
   }
 }

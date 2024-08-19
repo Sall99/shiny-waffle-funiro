@@ -28,3 +28,9 @@ export const getAddressBook = async () => {
 
   return data;
 };
+
+export const updateUserAddressBook = async (values: addressBookFormValues) => {
+  const { data } = await instance.post(`/auth/update-user-addressbook`, values);
+
+  return data;
+};
