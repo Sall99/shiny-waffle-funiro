@@ -82,12 +82,12 @@ export const AddressBook = () => {
   return (
     <div className="w-full pt-10">
       <h2 className="mb-4 font-semibold">{t("addressBook")}</h2>
-      <div className="border border-gray-300 p-16">
+      <div className="border border-gray-300 px-8 py-16 md:p-16">
         <form
-          className="flex w-96 flex-col gap-4"
+          className="flex flex-col gap-4 sm:w-96"
           onSubmit={handleSubmit(onSubmit)}
         >
-          <div className="flex justify-between gap-8">
+          <div className="flex flex-col justify-between gap-8 sm:flex-row">
             <Input
               name="fname"
               type="text"

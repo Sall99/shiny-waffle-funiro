@@ -7,7 +7,6 @@ import { TabName } from "@/types";
 const tabComponents: Record<TabName, React.ReactNode> = {
   accountInformation: <UserInformation />,
   addressBook: <AddressBook />,
-  // To fix
   myOrders: <UserInformation />,
 };
 
@@ -16,7 +15,7 @@ export default function Account() {
 
   return (
     <Layout>
-      <div className="mb-28 mt-16 flex w-full gap-9">
+      <div className="mb-28 mt-16 flex w-full gap-4 px-4 sm:gap-9 lg:px-14">
         <AccountBart activeTab={activeTab} setActiveTab={setActiveTab} />
         {tabComponents[activeTab]}
       </div>
