@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { useTranslations } from "next-intl";
 import { useSelector } from "react-redux";
@@ -11,21 +11,71 @@ import { addressBookSchema } from "@/constants/validation";
 import { selectCart, selectCartItems } from "@/store";
 import { truncateTitle } from "@/utils";
 import { addressBookFormValues } from "@/types";
+import { createAddressBook, getAddressBook, updateUserAddressBook } from "@/actions";
+import toast from "react-hot-toast";
 
 export default function Checkout() {
   const t = useTranslations("Checkout");
+  const [isLoading, setIsLoading] = useState(false);
+  const [userAddressBookData, setAddressBookData] =
+  useState<addressBookFormValues | null>(null);
   const items = useSelector(selectCartItems);
   const cart = useSelector(selectCart);
   const {
     handleSubmit,
     register,
+    setValue,
     formState: { errors },
   } = useForm<addressBookFormValues>({
     resolver: yupResolver(addressBookSchema),
   });
 
+  useEffect(() => {
+    setIsLoading(true);
+    getAddressBook()
+      .then((result) => {
+        const address = result.data[0];
+        if (address) {
+          setAddressBookData(address);
+          Object.keys(address).forEach((key) => {
+            setValue(key as keyof addressBookFormValues, address[key]);
+          });
+        }
+      })
+      .catch((error) => {
+        console.error(error);
+      })
+      .finally(() => {
+        setIsLoading(false);
+      });
+  }, [setValue]);
+
   const onSubmit = (values: addressBookFormValues) => {
-    console.log("Form values: ", values);
+    setIsLoading(true);
+
+    if (userAddressBookData) {
+      updateUserAddressBook(values)
+        .then(() => {
+          
+        })
+        .catch(() => {
+          toast.error(t("error"));
+        })
+        .finally(() => {
+          setIsLoading(false);
+        });
+    } else {
+      createAddressBook(values)
+        .then(() => {
+          
+        })
+        .catch(() => {
+          toast.error(t("error"));
+        })
+        .finally(() => {
+          setIsLoading(false);
+        });
+    }
   };
 
   return (
