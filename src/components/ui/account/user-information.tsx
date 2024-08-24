@@ -64,10 +64,10 @@ export const UserInformation = () => {
     <div className="w-full pt-10">
       <h2 className="mb-4 font-semibold">{t("UserInformation")}</h2>
       <form
-        className="border border-gray-300 p-16"
+        className="border border-gray-300 p-8 sm:p-16"
         onSubmit={handleSubmit(onSubmit)}
       >
-        <div className="flex w-96 flex-col gap-4">
+        <div className="flex flex-col gap-4 sm:w-96">
           <Input
             name="fname"
             type="text"
