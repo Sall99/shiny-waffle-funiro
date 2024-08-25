@@ -1,13 +1,18 @@
 "use client";
 import React, { useState } from "react";
-import { AddressBook, Layout, UserInformation } from "@/components";
+import {
+  AccountOrders,
+  AddressBook,
+  Layout,
+  UserInformation,
+} from "@/components";
 import { AccountBart } from "@/components/ui/account/bart";
 import { TabName } from "@/types";
 
 const tabComponents: Record<TabName, React.ReactNode> = {
   accountInformation: <UserInformation />,
   addressBook: <AddressBook />,
-  myOrders: <UserInformation />,
+  myOrders: <AccountOrders />,
 };
 
 export default function Account() {

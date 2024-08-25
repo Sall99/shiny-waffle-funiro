@@ -256,5 +256,9 @@
     "addressBookCreated": "Carnet d'adresses créé avec succès",
     "update": "Mettre a jour",
     "addressBookUpdated": "Addressbook mis a jour"
+  },
+  "Orders": {
+    "Orders": "Mes commandes",
+    "ViewOrders": "Voir mes commandes"
   }
 }

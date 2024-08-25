@@ -256,5 +256,9 @@
     "addressBookCreated": "Successfully created address book",
     "update": "update",
     "addressBookUpdated": "Addressbook updated"
+  },
+  "Orders": {
+    "Orders": "My orders",
+    "ViewOrders": "View my orders"
   }
 }
