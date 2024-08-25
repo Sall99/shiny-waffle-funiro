@@ -18,6 +18,7 @@ import {
   updateUserAddressBook,
   createOrderAction,
 } from "@/actions";
+import { useRouter } from "next/navigation";
 
 export default function Checkout() {
   const t = useTranslations("Checkout");
@@ -25,6 +26,7 @@ export default function Checkout() {
   const [userAddressBookData, setAddressBookData] =
     useState<addressBookFormValues | null>(null);
 
+  const router = useRouter();
   const dispatch = useDispatch();
   const items = useSelector(selectCartItems);
   const cart = useSelector(selectCart);
@@ -71,6 +73,7 @@ export default function Checkout() {
         });
         toast.success(t("orderSuccess"));
         dispatch(clearCart());
+        router.push("/orders");
       } catch (error) {
         console.error("Failed to place order:", error);
         toast.error(t("orderError"));
@@ -78,7 +81,7 @@ export default function Checkout() {
         setIsLoading(false);
       }
     },
-    [cart.items, cart.subTotal, t, dispatch],
+    [cart.items, cart.subTotal, t, dispatch, router],
   );
 
   const onSubmit = useCallback(
