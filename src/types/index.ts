@@ -1,4 +1,5 @@
 export type addressBookFormValues = {
+  id?: string;
   lname: string;
   fname: string;
   companyName?: string;
@@ -14,3 +15,4 @@ export type addressBookFormValues = {
 
 export * from "./product";
 export * from "./auth";
+export * from "./orders";

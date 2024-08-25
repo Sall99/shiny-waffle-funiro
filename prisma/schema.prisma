@@ -90,7 +90,7 @@ model Order {
   userId        String       @db.ObjectId
   items         OrderItem[]
   total         Float
-  status        String       @default("pending")
+  status        orderStatus  @default(PENDING)
   addressBookId String       @db.ObjectId
   addressBook   AddressBoook @relation(fields: [addressBookId], references: [id], onDelete: Cascade)
   createdAt     DateTime     @default(now())
@@ -105,4 +105,12 @@ model OrderItem {
   quantity  Int
   price     Float
   Order     Order    @relation(fields: [orderId], references: [id])
+}
+
+enum orderStatus {
+  PENDING
+  PROCESSING
+  SHIPPED
+  DELIVERED
+  CANCELLED
 }
