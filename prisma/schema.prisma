@@ -11,7 +11,7 @@ datasource db {
 }
 
 model Products {
-  id                    String   @id @default(auto()) @map("_id") @db.ObjectId
+  id                    String      @id @default(auto()) @map("_id") @db.ObjectId
   name                  String
   title                 String
   category              String
@@ -22,6 +22,7 @@ model Products {
   imageUrl              String[]
   additionalInformation String[]
   reviews               Review[]
+  OrderItem             OrderItem[]
 }
 
 type Review {
@@ -81,4 +82,35 @@ model AddressBoook {
   user           User     @relation(fields: [userId], references: [id], onDelete: Cascade)
   createdAt      DateTime @default(now())
   updatedAt      DateTime @updatedAt
+  Order          Order[]
+}
+
+model Order {
+  id            String       @id @default(auto()) @map("_id") @db.ObjectId
+  userId        String       @db.ObjectId
+  items         OrderItem[]
+  total         Float
+  status        orderStatus  @default(PENDING)
+  addressBookId String       @db.ObjectId
+  addressBook   AddressBoook @relation(fields: [addressBookId], references: [id], onDelete: Cascade)
+  createdAt     DateTime     @default(now())
+  updatedAt     DateTime     @updatedAt
+}
+
+model OrderItem {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  orderId   String   @db.ObjectId
+  productId String   @db.ObjectId
+  product   Products @relation(fields: [productId], references: [id], onDelete: Cascade)
+  quantity  Int
+  price     Float
+  Order     Order    @relation(fields: [orderId], references: [id])
+}
+
+enum orderStatus {
+  PENDING
+  PROCESSING
+  SHIPPED
+  DELIVERED
+  CANCELLED
 }

@@ -167,7 +167,8 @@
     "creditCard": "Credit card",
     "personalData": "Your personal data will be used to support your experience throughout this website, to manage access to your account, and for other purposes described in our",
     "privacyPolicy": "privacy policy",
-    "placeOrder": "Place order"
+    "placeOrder": "Place order",
+    "orderSuccess": "Your order has been successfully created"
   },
   "Favorites": {
     "MyFavorites": "My favorites",
