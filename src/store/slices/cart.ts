@@ -88,6 +88,11 @@ export const cartSlice = createSlice({
         0,
       );
     },
+
+    clearCart: (state) => {
+      state.items = [];
+      state.subTotal = 0;
+    },
   },
 });
 
@@ -105,4 +110,5 @@ export const {
   decrementAmount,
   removeFromCart,
   setAmount,
+  clearCart,
 } = cartSlice.actions;

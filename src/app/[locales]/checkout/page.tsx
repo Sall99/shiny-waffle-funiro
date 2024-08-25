@@ -2,14 +2,14 @@
 import React, { useEffect, useState, useCallback, useMemo } from "react";
 import Link from "next/link";
 import { useTranslations } from "next-intl";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import toast from "react-hot-toast";
 
 import { Button, Feature, HeroSection, Input, Layout } from "@/components";
 import { addressBookSchema } from "@/constants/validation";
-import { selectCart, selectCartItems } from "@/store";
+import { clearCart, selectCart, selectCartItems } from "@/store";
 import { truncateTitle } from "@/utils";
 import { addressBookFormValues } from "@/types";
 import {
@@ -25,6 +25,7 @@ export default function Checkout() {
   const [userAddressBookData, setAddressBookData] =
     useState<addressBookFormValues | null>(null);
 
+  const dispatch = useDispatch();
   const items = useSelector(selectCartItems);
   const cart = useSelector(selectCart);
 
@@ -69,6 +70,7 @@ export default function Checkout() {
           addressBookId,
         });
         toast.success(t("orderSuccess"));
+        dispatch(clearCart());
       } catch (error) {
         console.error("Failed to place order:", error);
         toast.error(t("orderError"));
@@ -76,7 +78,7 @@ export default function Checkout() {
         setIsLoading(false);
       }
     },
-    [cart.items, cart.subTotal, t],
+    [cart.items, cart.subTotal, t, dispatch],
   );
 
   const onSubmit = useCallback(
