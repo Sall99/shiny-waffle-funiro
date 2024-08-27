@@ -8,6 +8,7 @@ import { Toaster } from "react-hot-toast";
 import "./globals.css";
 import { Footer, Header } from "@/components";
 import { NextIntlClientProvider } from "next-intl";
+import { AppRouterCacheProvider } from "@mui/material-nextjs/v13-appRouter";
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -51,7 +52,7 @@ export default async function RootLayout({
           <StoreProvider>
             <NextIntlClientProvider locale={locale} messages={messages}>
               <Header session={session} />
-              <div>{children}</div>
+              <AppRouterCacheProvider>{children}</AppRouterCacheProvider>
               <Toaster />
               <Footer />S
             </NextIntlClientProvider>
