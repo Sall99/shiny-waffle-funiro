@@ -26,6 +26,14 @@ export async function GET(req: NextRequest, res: NextResponse) {
       where: {
         userId: user.id,
       },
+      include: {
+        items: {
+          include: {
+            product: true,
+          },
+        },
+        addressBook: true,
+      },
     });
 
     return NextResponse.json(

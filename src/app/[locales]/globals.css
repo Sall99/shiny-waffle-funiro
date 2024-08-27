@@ -43,6 +43,8 @@
     --color-black-800: rgb(0, 0, 0);
 
     --color-green-500: rgba(79, 173, 123, 0.872);
+
+    --color-red-500: rgba(233, 113, 113, 1);
   }
 
   .dark {
@@ -110,4 +112,10 @@ input[type="search"]::-webkit-search-results-decoration {
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
+}
+
+.order-card {
+  box-shadow:
+    rgba(0, 0, 0, 0.12) 0px 1px 3px,
+    rgba(0, 0, 0, 0.24) 0px 1px 2px;
 }

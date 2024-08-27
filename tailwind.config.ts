@@ -70,6 +70,10 @@ const config: Config = {
       green: {
         500: "var(--color-green-500)",
       },
+
+      red: {
+        500: "var(--color-red-100)",
+      },
     },
     backgroundImage: {
       "home-hero-pattern": "url('/images/Hero.jpg')",

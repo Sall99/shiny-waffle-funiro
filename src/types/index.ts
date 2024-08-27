@@ -13,6 +13,10 @@ export type addressBookFormValues = {
   additionalInfo?: string;
 };
 
+export interface HorizontalStepperProps {
+  status: string;
+}
+
 export * from "./product";
 export * from "./auth";
 export * from "./orders";
