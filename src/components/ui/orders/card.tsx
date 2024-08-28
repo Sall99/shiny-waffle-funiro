@@ -2,10 +2,12 @@
 import Link from "next/link";
 import React, { useState } from "react";
 import dayjs from "dayjs";
-import { OrderWithItems } from "@/types";
 import { useMediaQuery } from "@react-hook/media-query";
 import { useFormatter } from "next-intl";
+import { X } from "lucide-react";
+import clsx from "clsx";
 
+import { OrderWithItems } from "@/types";
 import HorizontalStepper from "../stepper/horizontal";
 import { Button } from "../button";
 import { CancelOrder } from "./cancel";
@@ -25,7 +27,12 @@ export function OrdersCard({
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="order-card rounded-md p-8">
+    <div
+      className={clsx(
+        "order-card rounded-md p-8",
+        status === "CANCELLED" && "opacity-40",
+      )}
+    >
       <div>
         <h2 className="mb-4 text-lg font-semibold">Items</h2>
       </div>
@@ -98,19 +105,25 @@ export function OrdersCard({
         </p>
       </div>
       <div className="mt-8 flex justify-end">
-        <div className="flex gap-4">
-          <Button
-            label="Pay"
-            className="rounded-xl px-8 py-2"
-            variant="primary"
-          />
-          <Button
-            label="Cancel"
-            className="px-4 py-2"
-            variant="cancel"
-            onClick={() => setIsOpen(true)}
-          />
-        </div>
+        {status !== "CANCELLED" ? (
+          <div className="flex gap-4">
+            <Button
+              label="Pay"
+              className="rounded-xl px-8 py-2"
+              variant="primary"
+            />
+            <Button
+              label="Cancel"
+              className="px-4 py-2"
+              variant="cancel"
+              onClick={() => setIsOpen(true)}
+            />
+          </div>
+        ) : (
+          <p className="flex items-center justify-center gap-2 font-semibold text-red-500">
+            <p> This order is cancelled</p> <X size={20} />
+          </p>
+        )}
       </div>
 
       <CancelOrder

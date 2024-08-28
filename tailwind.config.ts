@@ -72,7 +72,7 @@ const config: Config = {
       },
 
       red: {
-        500: "var(--color-red-100)",
+        500: "var(--color-red-500)",
       },
     },
     backgroundImage: {
