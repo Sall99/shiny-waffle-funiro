@@ -20,8 +20,9 @@ export const CancelOrder = ({
   const handleOrderCancel = () => {
     cancelOrder(id)
       .then((result) => {
-        toast.success("accountCreated");
+        toast.success("Successfully canceled");
         onOrderCancelled();
+        setIsOpen(false);
       })
       .catch((error) => {
         toast.error("error");
