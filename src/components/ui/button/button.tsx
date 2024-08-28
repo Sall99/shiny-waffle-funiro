@@ -48,8 +48,7 @@ export const Button: FC<ButtonProps> = ({
         variant === "black" &&
           "border-b-2 border-white-100 hover:border-black-800",
         variant === "tertiary" && "rounded-xl border-2 px-8 py-4 font-medium",
-        variant === "cancel" &&
-          "bg-red-500 rounded-xl border-2 px-8 py-4 font-medium",
+        variant === "cancel" && "rounded-xl border-2 px-8 py-4 font-medium",
         className,
       )}
       onClick={onClick}
