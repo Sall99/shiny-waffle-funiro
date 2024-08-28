@@ -1,10 +1,9 @@
 "use client";
 import React from "react";
-import useSWR from "swr";
+import useSWR, { mutate } from "swr";
 
 import { getOrders } from "@/actions";
 import { Layout, OrdersCard } from "@/components";
-import { Order } from "@prisma/client";
 import { OrderWithItems } from "@/types";
 
 const Orders = () => {
@@ -12,7 +11,9 @@ const Orders = () => {
     revalidateOnFocus: false,
   });
 
-  console.log("data", data);
+  const handleOrderCancelled = () => {
+    mutate(["Orders"]);
+  };
 
   return (
     <Layout className="px-5 pb-20 pt-10 lg:pb-40">
@@ -28,6 +29,7 @@ const Orders = () => {
                 total={total}
                 items={items}
                 createdAt={createdAt}
+                onOrderCancelled={handleOrderCancelled}
               />
             ),
           )}

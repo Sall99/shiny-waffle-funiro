@@ -13,4 +13,5 @@ export type OrderItemWithProduct = OrderItem & {
 
 export interface OrderWithItems extends Order {
   items: OrderItemWithProduct[];
+  onOrderCancelled?: () => void;
 }
