@@ -14,7 +14,7 @@ export const getOrders = async () => {
 };
 
 export const cancelOrder = async (id: string) => {
-  const { data } = await instance.get(`/orders/cancel/${id}`);
+  const { data } = await instance.post(`/orders/cancel/${id}`);
 
   return data;
 };
