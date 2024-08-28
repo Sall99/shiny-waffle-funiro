@@ -1,12 +1,14 @@
 "use client";
+import Link from "next/link";
+import React, { useState } from "react";
+import dayjs from "dayjs";
 import { OrderWithItems } from "@/types";
 import { useMediaQuery } from "@react-hook/media-query";
 import { useFormatter } from "next-intl";
-import Link from "next/link";
-import React from "react";
+
 import HorizontalStepper from "../stepper/horizontal";
 import { Button } from "../button";
-import dayjs from "dayjs";
+import { CancelOrder } from "./cancel";
 
 export function OrdersCard({
   id,
@@ -14,11 +16,13 @@ export function OrdersCard({
   total,
   items,
   createdAt,
+  onOrderCancelled,
 }: Partial<OrderWithItems>) {
   const priceFormat = useFormatter();
   const isMobile = useMediaQuery("(max-width: 768px)");
   const imageHeight = isMobile ? 200 : 235;
   const orderCreated = dayjs(createdAt).format("YYYY-MM-DD HH:mm:ss");
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
     <div className="order-card rounded-md p-8">
@@ -36,7 +40,7 @@ export function OrdersCard({
         </div>
       </div>
       <div className="py-8">
-        <HorizontalStepper status={"DELIVERED"} />
+        <HorizontalStepper status={`${status}`} />
       </div>
       <div className="flex gap-4">
         {items?.map(
@@ -100,9 +104,21 @@ export function OrdersCard({
             className="rounded-xl px-8 py-2"
             variant="primary"
           />
-          <Button label="Cancel" className="px-4 py-2" variant="cancel" />
+          <Button
+            label="Cancel"
+            className="px-4 py-2"
+            variant="cancel"
+            onClick={() => setIsOpen(true)}
+          />
         </div>
       </div>
+
+      <CancelOrder
+        id={`${id}`}
+        isOpen={isOpen}
+        setIsOpen={setIsOpen}
+        onOrderCancelled={onOrderCancelled || (() => {})}
+      />
     </div>
   );
 }

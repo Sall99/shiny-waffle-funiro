@@ -7,8 +7,14 @@ export const createOrderAction = async (values: createOrderValues) => {
   return data;
 };
 
-export const getOrders = async (id: string) => {
+export const getOrders = async () => {
   const { data } = await instance.get(`/orders/get-orders`);
+
+  return data;
+};
+
+export const cancelOrder = async (id: string) => {
+  const { data } = await instance.get(`/orders/cancel/${id}`);
 
   return data;
 };

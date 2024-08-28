@@ -9,15 +9,15 @@ const steps = ["PENDING", "PROCESSING", "SHIPPED", "DELIVERED"];
 export const statusToStepIndex = (status: string) => {
   switch (status) {
     case "PENDING":
-      return 0;
-    case "PROCESSING":
       return 1;
-    case "SHIPPED":
+    case "PROCESSING":
       return 2;
-    case "DELIVERED":
+    case "SHIPPED":
       return 3;
+    case "DELIVERED":
+      return 4;
     default:
-      return 0;
+      return 1;
   }
 };
 
