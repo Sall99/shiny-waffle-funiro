@@ -93,8 +93,12 @@ model Order {
   status        orderStatus  @default(PENDING)
   addressBookId String       @db.ObjectId
   addressBook   AddressBoook @relation(fields: [addressBookId], references: [id], onDelete: Cascade)
+  paymentId     String?      @db.ObjectId
+  paid          Boolean      @default(false)
+  datePaid      DateTime?
   createdAt     DateTime     @default(now())
   updatedAt     DateTime     @updatedAt
+  Payment       Payment[]
 }
 
 model OrderItem {
@@ -107,10 +111,31 @@ model OrderItem {
   Order     Order    @relation(fields: [orderId], references: [id])
 }
 
+model Payment {
+  id            String        @id @default(auto()) @map("_id") @db.ObjectId
+  orderId       String        @db.ObjectId
+  order         Order         @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  amount        Float
+  currency      String
+  status        paymentStatus @default(PENDING)
+  paymentMethod String?
+  transactionId String?
+  paidAt        DateTime?
+  createdAt     DateTime      @default(now())
+  updatedAt     DateTime      @updatedAt
+}
+
 enum orderStatus {
   PENDING
   PROCESSING
   SHIPPED
   DELIVERED
   CANCELLED
+}
+
+enum paymentStatus {
+  PENDING
+  PAID
+  FAILED
+  REFUNDED
 }
