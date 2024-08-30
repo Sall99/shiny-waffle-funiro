@@ -11,6 +11,7 @@ import { OrderWithItems } from "@/types";
 import HorizontalStepper from "../stepper/horizontal";
 import { Button } from "../button";
 import { CancelOrder } from "./cancel";
+import { Pay } from "./pay";
 
 export function OrdersCard({
   id,
@@ -25,6 +26,7 @@ export function OrdersCard({
   const imageHeight = isMobile ? 200 : 235;
   const orderCreated = dayjs(createdAt).format("YYYY-MM-DD HH:mm:ss");
   const [isOpen, setIsOpen] = useState(false);
+  const [payIsOpen, setPayIsOpen] = useState(false);
 
   return (
     <div
@@ -111,6 +113,7 @@ export function OrdersCard({
               label="Pay"
               className="rounded-xl px-8 py-2"
               variant="primary"
+              onClick={() => setPayIsOpen(true)}
             />
             <Button
               label="Cancel"
@@ -131,6 +134,11 @@ export function OrdersCard({
         isOpen={isOpen}
         setIsOpen={setIsOpen}
         onOrderCancelled={onOrderCancelled || (() => {})}
+      />
+      <Pay
+        payIsOpen={payIsOpen}
+        setPayIsOpen={setPayIsOpen}
+        orderId={id ?? ""}
       />
     </div>
   );

@@ -4,3 +4,9 @@ export const truncateTitle = (title: string, length: number) => {
   }
   return title;
 };
+
+export function convertToSubcurrency(amount: number, factor = 100) {
+  return Math.round(amount * factor);
+}
+
+export default convertToSubcurrency;
