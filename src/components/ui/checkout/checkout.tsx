@@ -6,6 +6,7 @@ import {
   useStripe,
 } from "@stripe/react-stripe-js";
 import React, { useState } from "react";
+import { Spinner } from "../spinner";
 
 interface Props {
   amount: number;
@@ -13,12 +14,14 @@ interface Props {
 }
 
 export const Checkout = ({ amount, orderId }: Props) => {
+  const [loading, setLoading] = useState(false);
   const stripe = useStripe();
   const elements = useElements();
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
+    setLoading(true);
 
     if (!stripe || !elements) {
       setErrorMessage("Stripe is not properly initialized.");
@@ -35,9 +38,7 @@ export const Checkout = ({ amount, orderId }: Props) => {
         return;
       }
 
-      const {clientSecret} = await createPaymentIntent(amount, orderId);
-
-      console.log(clientSecret, "clientSecret");
+      const { clientSecret } = await createPaymentIntent(amount, orderId);
 
       const result = await stripe.confirmPayment({
         elements,
@@ -46,6 +47,8 @@ export const Checkout = ({ amount, orderId }: Props) => {
         },
         clientSecret,
       });
+
+      setLoading(false);
 
       if (result.error) {
         setErrorMessage(result.error.message || "An unknown error occurred.");
@@ -64,9 +67,9 @@ export const Checkout = ({ amount, orderId }: Props) => {
       {errorMessage && <p className="text-red-500">{errorMessage}</p>}
       <button
         type="submit"
-        className="text-white bg-teal-600 mt-4 w-20 rounded-md border p-2 text-sm"
+        className="text-white bg-teal-600 m-auto mt-4 flex w-40 items-center justify-center gap-2 rounded-md border p-2 text-sm"
       >
-        Submit
+        <span>Submit</span> {loading && <Spinner />}
       </button>
     </form>
   );
