@@ -35,7 +35,9 @@ export const Checkout = ({ amount, orderId }: Props) => {
         return;
       }
 
-      const clientSecret = await createPaymentIntent(amount, orderId);
+      const {clientSecret} = await createPaymentIntent(amount, orderId);
+
+      console.log(clientSecret, "clientSecret");
 
       const result = await stripe.confirmPayment({
         elements,
@@ -62,7 +64,7 @@ export const Checkout = ({ amount, orderId }: Props) => {
       {errorMessage && <p className="text-red-500">{errorMessage}</p>}
       <button
         type="submit"
-        className="text-white bg-teal-600 mt-4 w-full rounded-md p-2"
+        className="text-white bg-teal-600 mt-4 w-20 rounded-md border p-2 text-sm"
       >
         Submit
       </button>
