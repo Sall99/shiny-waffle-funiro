@@ -135,7 +135,11 @@ export function OrdersCard({
         setIsOpen={setIsOpen}
         onOrderCancelled={onOrderCancelled || (() => {})}
       />
-      <Pay payIsOpen={payIsOpen} setPayIsOpen={setPayIsOpen} orderId={id} />
+      <Pay
+        payIsOpen={payIsOpen}
+        setPayIsOpen={setPayIsOpen}
+        orderId={id ?? ""}
+      />
     </div>
   );
 }

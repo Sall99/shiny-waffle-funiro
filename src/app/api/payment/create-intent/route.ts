@@ -24,7 +24,6 @@ export async function POST(req: NextRequest) {
     const result = await prisma.$transaction(async (prisma) => {
       const { user, address } = await getUserAndAddress(email);
 
-      console.log(user, address, orderId);
       const order = await prisma.order.findUnique({ where: { id: orderId } });
 
       if (!order) {
@@ -57,8 +56,6 @@ export async function POST(req: NextRequest) {
 
     return NextResponse.json({ clientSecret: result }, { status: 200 });
   } catch (error: any) {
-    console.error("Payment processing error:", error);
-
     try {
       await prisma.order.update({
         where: { id: orderId },
