@@ -1,5 +1,5 @@
 import { allProducts } from "@/constants/data";
-import prisma from "../../../../../libs/prisma.db";
+import { prisma } from "../../../../../libs";
 import { NextResponse } from "next/server";
 
 export async function POST(req: Request, res: NextResponse) {

@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
-import prisma from "../../../../../libs/prisma.db";
-import { getServerSession } from "next-auth";
+
+import { prisma, getUserAndSession } from "../../../../../libs";
 
 export async function POST(req: Request) {
   const body = await req.json();
@@ -8,27 +8,13 @@ export async function POST(req: Request) {
   const { items, total, addressBookId } = body;
 
   try {
-    const session = await getServerSession();
-    if (!session || !session.user || !session.user.email) {
-      return NextResponse.json({ message: "Unauthorized" }, { status: 401 });
-    }
+    const { user } = await getUserAndSession();
 
-    const user = await prisma.user.findUnique({
-      where: { email: session.user.email },
-    });
-
-    if (!user) {
-      return NextResponse.json(
-        {
-          message: "User not found",
-        },
-        { status: 404 },
-      );
-    }
+    const userId = user.id;
 
     const order = await prisma.order.create({
       data: {
-        userId: user.id,
+        userId,
         addressBookId,
         total,
         items: {
