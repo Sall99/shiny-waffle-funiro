@@ -46,9 +46,25 @@ export async function POST(req: NextRequest) {
         },
       });
 
+      const payment = await prisma.payment.create({
+        data: {
+          orderId: order.id,
+          amount: amount,
+          currency: "USD",
+          status: "PAID",
+          paidAt: new Date(),
+          paymentMethod: "card",
+        },
+      });
+
       await prisma.order.update({
         where: { id: orderId },
-        data: { status: "PROCESSING" },
+        data: {
+          status: "PROCESSING",
+          paid: true,
+          datePaid: new Date(),
+          paymentId: payment.id,
+        },
       });
 
       return paymentIntent.client_secret;

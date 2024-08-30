@@ -139,6 +139,7 @@ export function OrdersCard({
         payIsOpen={payIsOpen}
         setPayIsOpen={setPayIsOpen}
         orderId={id ?? ""}
+        amount={total ?? 0}
       />
     </div>
   );

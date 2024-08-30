@@ -10,6 +10,7 @@ interface Props {
   payIsOpen: boolean;
   setPayIsOpen: (isOpen: boolean) => void;
   orderId: string;
+  amount: number;
 }
 
 if (process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY === undefined) {
@@ -19,8 +20,7 @@ const stripePromise = loadStripe(
   process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY,
 );
 
-export const Pay = ({ setPayIsOpen, payIsOpen, orderId }: Props) => {
-  const amount = 49.99;
+export const Pay = ({ setPayIsOpen, payIsOpen, orderId, amount }: Props) => {
   return (
     <Modal isOpen={payIsOpen} setIsOpen={setPayIsOpen} variant="tertiary">
       <div className="text-white bg-gradient-to-tr from-blue-500 to-purple-500 m-10 mx-auto max-w-6xl rounded-md border p-10 text-center">

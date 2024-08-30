@@ -38,7 +38,7 @@ export function Modal({ isOpen, setIsOpen, children, variant }: ModalProps) {
               variant === "primary" &&
                 "bg-white w-full transform overflow-hidden rounded-2xl p-6 text-left align-middle shadow-xl transition-all",
               variant === "secondary" && "mt-20",
-              variant === "tertiary" && "mt-48",
+              variant === "tertiary" && "mt-36",
             )}
           >
             <div
