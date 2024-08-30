@@ -1,7 +1,7 @@
-import { getServerSession } from "next-auth";
-import prisma from "../../../../../../libs/prisma.db";
-import { NextRequest, NextResponse } from "next/server";
+import { NextResponse } from "next/server";
 import { NextApiRequest } from "next";
+
+import { prisma, getUserAndSession } from "../../../../../../libs";
 
 type Params = {
   id: string;
@@ -15,24 +15,7 @@ export async function POST(
   const { id } = context.params;
 
   try {
-    const session = await getServerSession();
-
-    if (!session || !session.user || !session.user.email) {
-      return NextResponse.json({ message: "Unauthorized" }, { status: 401 });
-    }
-
-    const user = await prisma.user.findUnique({
-      where: { email: session.user.email },
-    });
-
-    if (!user) {
-      return NextResponse.json(
-        {
-          message: "User not found",
-        },
-        { status: 404 },
-      );
-    }
+    await getUserAndSession();
 
     const order = await prisma.order.findFirst({
       where: { id },
