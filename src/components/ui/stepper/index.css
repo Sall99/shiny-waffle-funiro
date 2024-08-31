@@ -15,3 +15,9 @@
   font-family: var(--font-montserrat) !important;
   text-transform: uppercase !important;
 }
+
+@media (max-width: 768px) {
+  .mui-190y1a4-MuiStep-root {
+    padding-left: 0 !important;
+  }
+}
