@@ -47,7 +47,6 @@ export function OrdersCard({
 }: Partial<OrderWithItems>) {
   const priceFormat = useFormatter();
   const isMobile = useMediaQuery("(max-width: 768px)");
-  const imageHeight = isMobile ? 200 : 235;
   const orderCreated = dayjs(createdAt).format("YYYY-MM-DD HH:mm:ss");
   const [isOpen, setIsOpen] = useState(false);
   const [payIsOpen, setPayIsOpen] = useState(false);
@@ -74,8 +73,8 @@ export function OrdersCard({
   return (
     <div
       className={clsx(
-        "order-card rounded-md p-8",
-        status === "CANCELLED" && "opacity-40",
+        "order-card rounded-md px-2 py-8 md:p-8",
+        // status === "CANCELLED" && "opacity-40",
       )}
     >
       <div>
@@ -94,23 +93,21 @@ export function OrdersCard({
       <div className="py-8">
         <HorizontalStepper status={`${status}`} />
       </div>
-      <div className="flex gap-4">
+      <div className="grid grid-cols-1 gap-4 p-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
         {items?.map(
           ({
             id,
             product: { id: productId, defaultImage, name, price, promoPrice },
           }) => (
-            <div key={id} className="bg-gray-100 px-2 pb-4 pt-2">
+            <div key={id} className="w-_224 m-auto bg-gray-100 px-2 pb-4 pt-2">
               {" "}
               <div
                 style={{
-                  width: "200px",
-                  height: `${imageHeight}px`,
                   backgroundSize: "cover",
                   backgroundPosition: "center",
                   backgroundImage: `url(${defaultImage})`,
                 }}
-                className="mb-4"
+                className="mb-4 h-_305 md:h-_208 md:w-_208"
               ></div>
               <h2 className="mt-4 text-sm font-semibold">{name}</h2>
               <p className="mt-2 text-sm">
