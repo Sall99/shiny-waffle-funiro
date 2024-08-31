@@ -13,6 +13,8 @@ const initialState: ICart = {
   subTotal: 0,
 };
 
+const roundToTwoDecimals = (num: number) => Math.round(num * 100) / 100;
+
 export const cartSlice = createSlice({
   name: "cart",
   initialState,
@@ -31,9 +33,11 @@ export const cartSlice = createSlice({
         state.items.push({ ...product, amount: 1 });
         toast.success(message);
       }
-      state.subTotal = state.items.reduce(
-        (acc, item) => acc + item.price * (item.amount || 1),
-        0,
+      state.subTotal = roundToTwoDecimals(
+        state.items.reduce(
+          (acc, item) => acc + item.price * (item.amount || 1),
+          0,
+        ),
       );
     },
     incrementAmount: (state, action: PayloadAction<{ id: string }>) => {
@@ -43,9 +47,11 @@ export const cartSlice = createSlice({
         item.amount = (item.amount || 0) + 1;
         toast.success(`Increased quantity`);
       }
-      state.subTotal = state.items.reduce(
-        (acc, item) => acc + item.price * (item.amount || 1),
-        0,
+      state.subTotal = roundToTwoDecimals(
+        state.items.reduce(
+          (acc, item) => acc + item.price * (item.amount || 1),
+          0,
+        ),
       );
     },
     decrementAmount: (state, action: PayloadAction<{ id: string }>) => {
@@ -57,9 +63,11 @@ export const cartSlice = createSlice({
           state.items = state.items.filter((item) => item.id !== id);
         }
       }
-      state.subTotal = state.items.reduce(
-        (acc, item) => acc + item.price * (item.amount || 1),
-        0,
+      state.subTotal = roundToTwoDecimals(
+        state.items.reduce(
+          (acc, item) => acc + item.price * (item.amount || 1),
+          0,
+        ),
       );
     },
     setAmount: (
@@ -71,9 +79,11 @@ export const cartSlice = createSlice({
       if (item) {
         item.amount = amount;
       }
-      state.subTotal = state.items.reduce(
-        (acc, item) => acc + item.price * (item.amount || 1),
-        0,
+      state.subTotal = roundToTwoDecimals(
+        state.items.reduce(
+          (acc, item) => acc + item.price * (item.amount || 1),
+          0,
+        ),
       );
     },
     removeFromCart: (
@@ -83,9 +93,11 @@ export const cartSlice = createSlice({
       const { id, message } = action.payload;
       state.items = state.items.filter((item) => item.id !== id);
       toast.success(message);
-      state.subTotal = state.items.reduce(
-        (acc, item) => acc + item.price * (item.amount || 1),
-        0,
+      state.subTotal = roundToTwoDecimals(
+        state.items.reduce(
+          (acc, item) => acc + item.price * (item.amount || 1),
+          0,
+        ),
       );
     },
 

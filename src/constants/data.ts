@@ -864,7 +864,8 @@ export const allProducts = [
       "Elevate your home decor with the 'Bloddream 5 Tier Wall Shelf'. This innovative shelf features five tiers of storage space, perfect for displaying books, photos, plants, or other decorative items. The built-in LED RGB light adds a vibrant touch to your space, allowing you to customize the ambiance to suit your mood. Made from high-quality materials, it's easy to install and will enhance any room in your home.",
     price: 59.99,
     promoPrice: 49.99,
-    defaultImage: "https://example.com/default-image.jpg",
+    defaultImage:
+      "https://res.cloudinary.com/dx6jhjxpt/image/upload/v1710793523/shiny-waffle-funiro/810UFguwQPL._AC_SL1500__qdre7o.jpg",
     imageUrl: [
       "https://res.cloudinary.com/dx6jhjxpt/image/upload/v1710793523/shiny-waffle-funiro/810UFguwQPL._AC_SL1500__qdre7o.jpg",
       "https://res.cloudinary.com/dx6jhjxpt/image/upload/v1710793523/shiny-waffle-funiro/71Q5rriYdJL._AC_SL1500__xujh0h.jpg",
@@ -1270,7 +1271,8 @@ export const allProducts = [
       "Upgrade your bedroom with the 'Purple Twin Size Bed Frames'. These modern bed frames feature a sleek design with a vibrant purple finish, adding a pop of color to your space. Crafted from high-quality materials, they provide sturdy support for your mattress and ensure a comfortable night's sleep. Whether you're furnishing a guest room, kid's room, or small apartment, these bed frames are the perfect choice.",
     price: 199.99,
     promoPrice: 179.99,
-    defaultImage: "https://example.com/default-image.jpg",
+    defaultImage:
+      "https://res.cloudinary.com/dx6jhjxpt/image/upload/v1710804478/shiny-waffle-funiro/71um4bSt1lL._AC_SL1500__gvlrfa.jpg",
     imageUrl: [
       "https://res.cloudinary.com/dx6jhjxpt/image/upload/v1710804478/shiny-waffle-funiro/71um4bSt1lL._AC_SL1500__gvlrfa.jpg",
       "https://res.cloudinary.com/dx6jhjxpt/image/upload/v1710804419/shiny-waffle-funiro/71PCivDdPxL._AC_SL1500__mqpiq6.jpg",

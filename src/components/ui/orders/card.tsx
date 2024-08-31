@@ -71,12 +71,7 @@ export function OrdersCard({
   );
 
   return (
-    <div
-      className={clsx(
-        "order-card rounded-md px-2 py-8 md:p-8",
-        // status === "CANCELLED" && "opacity-40",
-      )}
-    >
+    <div className={clsx("order-card rounded-md px-2 py-8 md:p-8")}>
       <div>
         <h2 className="mb-4 text-lg font-semibold">Items</h2>
       </div>
@@ -99,7 +94,7 @@ export function OrdersCard({
             id,
             product: { id: productId, defaultImage, name, price, promoPrice },
           }) => (
-            <div key={id} className="w-_224 m-auto bg-gray-100 px-2 pb-4 pt-2">
+            <div key={id} className="m-auto w-_224 bg-gray-100 px-2 pb-4 pt-2">
               {" "}
               <div
                 style={{
