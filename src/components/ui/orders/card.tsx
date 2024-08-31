@@ -13,6 +13,28 @@ import { Button } from "../button";
 import { CancelOrder } from "./cancel";
 import { Pay } from "./pay";
 
+interface ActionButtonsProps {
+  onPayClick: () => void;
+  onCancelClick: () => void;
+}
+
+const ActionButtons = ({ onPayClick, onCancelClick }: ActionButtonsProps) => (
+  <div className="flex gap-4">
+    <Button
+      label="Pay"
+      className="rounded-xl px-8 py-2"
+      variant="primary"
+      onClick={onPayClick}
+    />
+    <Button
+      label="Cancel"
+      className="px-4 py-2"
+      variant="cancel"
+      onClick={onCancelClick}
+    />
+  </div>
+);
+
 export function OrdersCard({
   id,
   status,
@@ -20,6 +42,8 @@ export function OrdersCard({
   items,
   createdAt,
   onOrderCancelled,
+  paid,
+  datePaid,
 }: Partial<OrderWithItems>) {
   const priceFormat = useFormatter();
   const isMobile = useMediaQuery("(max-width: 768px)");
@@ -27,6 +51,25 @@ export function OrdersCard({
   const orderCreated = dayjs(createdAt).format("YYYY-MM-DD HH:mm:ss");
   const [isOpen, setIsOpen] = useState(false);
   const [payIsOpen, setPayIsOpen] = useState(false);
+  const isCancelled = status === "CANCELLED";
+  const isPaid = Boolean(paid);
+
+  const handlePayClick = () => setPayIsOpen(true);
+
+  const handleCancelClick = () => setIsOpen(true);
+
+  const renderCancelledMessage = () => (
+    <p className="flex items-center justify-center gap-2 font-semibold text-red-500">
+      This order is cancelled <X size={20} />
+    </p>
+  );
+
+  const renderPaidDate = () => (
+    <p className="text-sm font-semibold text-green-500">
+      You paid this order on :{" "}
+      {datePaid ? dayjs(datePaid).format("YYYY-MM-DD HH:mm:ss") : "N/A"}
+    </p>
+  );
 
   return (
     <div
@@ -107,25 +150,15 @@ export function OrdersCard({
         </p>
       </div>
       <div className="mt-8 flex justify-end">
-        {status !== "CANCELLED" ? (
-          <div className="flex gap-4">
-            <Button
-              label="Pay"
-              className="rounded-xl px-8 py-2"
-              variant="primary"
-              onClick={() => setPayIsOpen(true)}
-            />
-            <Button
-              label="Cancel"
-              className="px-4 py-2"
-              variant="cancel"
-              onClick={() => setIsOpen(true)}
-            />
-          </div>
+        {isCancelled ? (
+          renderCancelledMessage()
+        ) : isPaid ? (
+          renderPaidDate()
         ) : (
-          <p className="flex items-center justify-center gap-2 font-semibold text-red-500">
-            <p> This order is cancelled</p> <X size={20} />
-          </p>
+          <ActionButtons
+            onPayClick={handlePayClick}
+            onCancelClick={handleCancelClick}
+          />
         )}
       </div>
 

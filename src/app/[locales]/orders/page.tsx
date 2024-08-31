@@ -21,7 +21,15 @@ const Orders = () => {
       <div className="flex flex-col gap-8">
         {data?.orders &&
           data.orders.map(
-            ({ id, status, total, createdAt, items }: OrderWithItems) => (
+            ({
+              id,
+              status,
+              total,
+              createdAt,
+              items,
+              paid,
+              datePaid,
+            }: OrderWithItems) => (
               <OrdersCard
                 key={id}
                 id={id}
@@ -30,6 +38,8 @@ const Orders = () => {
                 items={items}
                 createdAt={createdAt}
                 onOrderCancelled={handleOrderCancelled}
+                paid={paid}
+                datePaid={datePaid}
               />
             ),
           )}
