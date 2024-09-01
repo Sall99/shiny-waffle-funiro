@@ -11,13 +11,20 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
 export async function POST(req: NextRequest) {
   const { amount, orderId } = await req.json();
 
-  const { user, address } = await getUserAndSession();
+  const { user } = await getUserAndSession();
+  const userId = user.id;
 
   const email = user.email;
 
   try {
     const result = await prisma.$transaction(async (prisma) => {
       const order = await prisma.order.findUnique({ where: { id: orderId } });
+
+      const addressBook = await prisma.addressBoook.findMany({
+        where: { userId },
+      });
+
+      const address = addressBook[0];
 
       if (!order) {
         throw new Error("Order not found");
