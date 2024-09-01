@@ -98,12 +98,11 @@ export default function Checkout() {
         }
       } catch (error) {
         console.error("Error processing the form:", error);
-        toast.error(t("error"));
       } finally {
         setIsLoading(false);
       }
     },
-    [handleOrder, t, userAddressBookData],
+    [handleOrder, userAddressBookData],
   );
 
   const formFields = useMemo(

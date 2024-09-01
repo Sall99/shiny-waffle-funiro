@@ -40,6 +40,7 @@ export async function POST(req: NextRequest, res: NextResponse) {
         userId,
       },
     });
+    
     return NextResponse.json({
       data: addressBook,
     });

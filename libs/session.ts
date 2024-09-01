@@ -16,15 +16,5 @@ export async function getUserAndSession() {
     throw new Error("User not found");
   }
 
-  const addressBook = await prisma.addressBoook.findMany({
-    where: { userId: user.id },
-  });
-
-  if (!addressBook || addressBook.length === 0) {
-    throw new Error("Address not found");
-  }
-
-  const address = addressBook[0];
-
-  return { session, user, address };
+  return { session, user };
 }

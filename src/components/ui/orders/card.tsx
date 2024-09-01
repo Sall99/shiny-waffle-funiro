@@ -3,7 +3,7 @@ import Link from "next/link";
 import React, { useState } from "react";
 import dayjs from "dayjs";
 import { useMediaQuery } from "@react-hook/media-query";
-import { useFormatter } from "next-intl";
+import { useFormatter, useTranslations } from "next-intl";
 import { X } from "lucide-react";
 import clsx from "clsx";
 
@@ -18,22 +18,25 @@ interface ActionButtonsProps {
   onCancelClick: () => void;
 }
 
-const ActionButtons = ({ onPayClick, onCancelClick }: ActionButtonsProps) => (
-  <div className="flex gap-4">
-    <Button
-      label="Pay"
-      className="rounded-xl px-8 py-2"
-      variant="primary"
-      onClick={onPayClick}
-    />
-    <Button
-      label="Cancel"
-      className="px-4 py-2"
-      variant="cancel"
-      onClick={onCancelClick}
-    />
-  </div>
-);
+const ActionButtons = ({ onPayClick, onCancelClick }: ActionButtonsProps) => {
+  const t = useTranslations("Orders");
+  return (
+    <div className="flex gap-4">
+      <Button
+        label={t("Pay")}
+        className="rounded-xl px-8 py-2"
+        variant="primary"
+        onClick={onPayClick}
+      />
+      <Button
+        label={t("Cancel")}
+        className="px-4 py-2"
+        variant="cancel"
+        onClick={onCancelClick}
+      />
+    </div>
+  );
+};
 
 export function OrdersCard({
   id,
@@ -52,6 +55,7 @@ export function OrdersCard({
   const [payIsOpen, setPayIsOpen] = useState(false);
   const isCancelled = status === "CANCELLED";
   const isPaid = Boolean(paid);
+  const t = useTranslations("Orders");
 
   const handlePayClick = () => setPayIsOpen(true);
 
@@ -59,34 +63,33 @@ export function OrdersCard({
 
   const renderCancelledMessage = () => (
     <p className="flex items-center justify-center gap-2 font-semibold text-red-500">
-      This order is cancelled <X size={20} />
+      {t("orderCanceled")} <X size={20} />
     </p>
   );
 
   const renderPaidDate = () => (
     <p className="text-sm font-semibold text-green-500">
-      You paid this order on :{" "}
+      {t("orderPaid")}{" "}
       {datePaid ? dayjs(datePaid).format("YYYY-MM-DD HH:mm:ss") : "N/A"}
     </p>
   );
 
   return (
-    <div
-      className={clsx(
-        "order-card rounded-md px-2 py-8 md:p-8",
-        // status === "CANCELLED" && "opacity-40",
-      )}
-    >
+    <div className={clsx("order-card rounded-md px-2 py-8 md:p-8")}>
       <div>
-        <h2 className="mb-4 text-lg font-semibold">Items</h2>
+        <h2 className="mb-4 text-lg font-semibold">{t("Items")}</h2>
       </div>
       <div className="mb-4 flex justify-between">
-        <p>Nombre de produits : {items?.length}</p>
+        <p>
+          {t("productLength")} {items?.length}
+        </p>
         <div>
           {" "}
-          <p className="text-sm font-semibold text-gray-200">Order #{id}</p>
+          <p className="text-sm font-semibold text-gray-200">
+            {t("Order")} #{id}
+          </p>
           <p className="mt-2 text-sm font-semibold text-gray-200">
-            Creer le : {orderCreated}
+            {t("createOn")} {orderCreated}
           </p>
         </div>
       </div>
@@ -99,7 +102,7 @@ export function OrdersCard({
             id,
             product: { id: productId, defaultImage, name, price, promoPrice },
           }) => (
-            <div key={id} className="w-_224 m-auto bg-gray-100 px-2 pb-4 pt-2">
+            <div key={id} className="m-auto w-_224 bg-gray-100 px-2 pb-4 pt-2">
               {" "}
               <div
                 style={{
@@ -129,7 +132,7 @@ export function OrdersCard({
                 href={`/shop/product/${productId}`}
                 className="text-xs text-orange-500"
               >
-                View details
+                {t("viewDetails")}
               </Link>
             </div>
           ),
@@ -137,7 +140,7 @@ export function OrdersCard({
       </div>
       <div className="flex justify-end">
         <p className="mt-2 flex gap-4 text-sm">
-          <span>Total price:</span>
+          <span>{t("totalPrice")}</span>
           <span className="font-semibold">
             {priceFormat.number(total || 0, {
               style: "currency",

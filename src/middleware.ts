@@ -1,24 +1,47 @@
+import { NextRequest, NextResponse } from "next/server";
+import { getToken } from "next-auth/jwt";
 import createMiddleware from "next-intl/middleware";
 import { pathnames, locales, localePrefix } from "./config";
 
-export default createMiddleware({
-  defaultLocale: "en",
-  locales,
-  pathnames,
-  localePrefix,
-});
+const protectedPaths = ["/account", "/orders", "/checkout", "/payment-confirm"];
+
+export async function middleware(req: NextRequest) {
+  const { pathname, origin } = req.nextUrl;
+
+  const localeMatch = pathname.match(/^\/(en|fr)(\/|$)/);
+  const locale = localeMatch ? localeMatch[1] : null;
+
+  const basePath = pathname.replace(/^\/(en|fr)/, "");
+  const isProtectedRoute = protectedPaths.some((path) =>
+    basePath.startsWith(path),
+  );
+
+  // If the path is protected, check authentication
+  if (isProtectedRoute) {
+    const token = await getToken({ req, secret: process.env.NEXTAUTH_SECRET });
+
+    // If the user is not authenticated, redirect to the login page with the current locale
+    if (!token) {
+      const redirectUrl = locale
+        ? `${origin}/${locale}/auth/login`
+        : `${origin}/auth/login`;
+      return NextResponse.redirect(redirectUrl);
+    }
+  }
+
+  // Continue with locale middleware handling
+  return createMiddleware({
+    defaultLocale: "en",
+    locales,
+    pathnames,
+    localePrefix,
+  })(req);
+}
 
 export const config = {
   matcher: [
-    // Enable a redirect to a matching locale at the root
-    "/",
-
-    // Set a cookie to remember the previous locale for
-    // all requests that have a locale prefix
-    "/(en|fr)/:path*",
-
-    // Enable redirects that add missing locales
-    // (e.g. `/pathnames` -> `/en/pathnames`)
-    "/((?!api|!_next|_vercel|.*\\..*).*)",
+    "/", // Redirect to a matching locale at the root
+    "/(en|fr)/:path*", // Handle locale prefixes
+    "/((?!api|_next|_vercel|.*\\..*).*)", // Handle non-API, non-static paths
   ],
 };

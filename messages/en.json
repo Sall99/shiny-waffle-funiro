@@ -259,6 +259,23 @@
   },
   "Orders": {
     "Orders": "My orders",
-    "ViewOrders": "View my orders"
+    "ViewOrders": "View my orders",
+    "loading": "Loading orders...",
+    "errorLoading": "Error loading orders.",
+    "noOrders": "You have no orders yet. Explore our products and place your first  order!",
+    "goHome": "Go to Home",
+    "Pay": "Pay",
+    "Cancel": "Cancel",
+    "orderCanceled": "This order is cancelled",
+    "orderPaid": "You paid this order on :",
+    "Items": "Items",
+    "productLength": "Number of products :",
+    "Order": "Order",
+    "createOn": "Create on :",
+    "viewDetails": "View details",
+    "totalPrice": "Total price:",
+    "cancelOrder": "Cancel My order",
+    "Close": "Close",
+    "Confirm": "Confirm"
   }
 }
