@@ -328,5 +328,20 @@
     "contactUs": "Besoin d'aide?",
     "contactDescription": "Si vous rencontrez des problèmes de paiement, veuillez contacter notre équipe de support.",
     "thankYou": "Merci d'avoir choisi Shiny Waffle Funiro Elevate Home Spaces"
+  },
+  "ReturnPolicies": {
+    "title": "Politique de Retour",
+    "description": "Découvrez notre politique de retour pour garantir un processus de retour fluide et sans tracas.",
+    "returnPeriod": "Période de Retour",
+    "returnPeriodDescription": "Vous pouvez retourner la plupart des articles dans les 30 jours suivant la réception pour un remboursement complet. Les articles doivent être dans leur état et emballage d'origine.",
+    "returnProcess": "Processus de Retour",
+    "returnProcessDescription": "Pour initier un retour, veuillez contacter notre service clientèle avec votre numéro de commande et la raison du retour. Nous vous fournirons des instructions sur la manière de retourner l'article.",
+    "refunds": "Remboursements",
+    "refundsDescription": "Les remboursements seront traités sur le mode de paiement d'origine dans un délai de 5 à 7 jours ouvrables après réception de l'article retourné. Les frais de livraison ne sont pas remboursables.",
+    "exchanges": "Échanges",
+    "exchangesDescription": "Nous n'offrons pas d'échanges. Si vous souhaitez échanger un article, veuillez le retourner pour obtenir un remboursement et passer une nouvelle commande pour l'article souhaité.",
+    "contactUs": "Besoin d'assistance?",
+    "contactDescription": "Pour toute question ou problème lié aux retours, veuillez contacter notre équipe de support.",
+    "thankYou": "Merci d'avoir choisi Shiny Waffle Funiro Elevate Home Spaces"
   }
 }
