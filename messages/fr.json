@@ -259,6 +259,23 @@
   },
   "Orders": {
     "Orders": "Mes commandes",
-    "ViewOrders": "Voir mes commandes"
+    "ViewOrders": "Voir mes commandes",
+    "loading": "Chargement des commandes...",
+    "errorLoading": "Erreur lors du chargement des commandes.",
+    "noOrders": "Vous n'avez pas encore de commandes. Explorez nos produits et passez votre première commande !",
+    "goHome": "Aller à l'accueil",
+    "Pay": "Payer",
+    "Cancel": "Annuler",
+    "orderCanceled": "Cette commande a été annulée",
+    "orderPaid": "Vous avez payé cette commande le :",
+    "Items": "Articles",
+    "productLength": "Nombre de produits :",
+    "Order": "Commande",
+    "createOn": "Créée le :",
+    "viewDetails": "Voir les détails",
+    "totalPrice": "Prix total :",
+    "cancelOrder": "Annuler ma commande",
+    "Close": "Fermer",
+    "Confirm": "Confirmer"
   }
 }
