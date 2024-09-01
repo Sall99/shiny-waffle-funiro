@@ -2,8 +2,8 @@ import { Layout } from "@/components";
 import { useTranslations } from "next-intl";
 import React from "react";
 
-const PaymentOptions = () => {
-  const t = useTranslations("PaymentOptions");
+const ReturnPolicies = () => {
+  const t = useTranslations("ReturnPolicies");
 
   return (
     <Layout className="bg-white text-gray-800 px-5 pt-8">
@@ -12,20 +12,19 @@ const PaymentOptions = () => {
       </h1>
       <p className="mb-4 text-center">{t("description")}</p>
 
+      <h2 className="mb-4 font-semibold text-[#B88E2F]">{t("returnPeriod")}</h2>
+      <p className="mb-6">{t("returnPeriodDescription")}</p>
+
       <h2 className="mb-4 font-semibold text-[#B88E2F]">
-        {t("onlyCardAvailable")}
+        {t("returnProcess")}
       </h2>
+      <p className="mb-6">{t("returnProcessDescription")}</p>
 
-      <h2 className="mb-4 font-semibold text-[#B88E2F]">{t("howToPay")}</h2>
-      <ul className="mb-6 list-inside list-disc">
-        <li className="mb-2">{t("step1")}</li>
-        <li className="mb-2">{t("step2")}</li>
-        <li className="mb-2">{t("step3")}</li>
-        <li className="mb-2">{t("step4")}</li>
-      </ul>
+      <h2 className="mb-4 font-semibold text-[#B88E2F]">{t("refunds")}</h2>
+      <p className="mb-6">{t("refundsDescription")}</p>
 
-      <h2 className="mb-4 font-semibold text-[#B88E2F]">{t("securityInfo")}</h2>
-      <p className="mb-6">{t("securityDescription")}</p>
+      <h2 className="mb-4 font-semibold text-[#B88E2F]">{t("exchanges")}</h2>
+      <p className="mb-6">{t("exchangesDescription")}</p>
 
       <h2 className="mb-4 font-semibold text-[#B88E2F]">{t("contactUs")}</h2>
       <p className="mb-6">{t("contactDescription")}</p>
@@ -35,4 +34,4 @@ const PaymentOptions = () => {
   );
 };
 
-export default PaymentOptions;
+export default ReturnPolicies;

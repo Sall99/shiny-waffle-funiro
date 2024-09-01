@@ -16,7 +16,7 @@ const links = [
 
 const helpLinks = [
   { name: "PaymentOptions", path: "/payment-options" },
-  { name: "Returns", path: "/returns" },
+  { name: "Returns", path: "/returns-policies" },
   { name: "PrivacyPolicies", path: "/privacy-policies" },
 ];
 
@@ -44,14 +44,14 @@ export function Footer() {
               </span>
             </Link>
           </h2>
-          <p className="text-gray-500 mt-14 text-sm">
+          <p className="mt-14 text-sm text-gray-500">
             400 University Drive Suite 200 Coral <br /> Gables, <br /> FL 33134
             USA
           </p>
         </div>
         <div className="lg:mt0 mt-12 flex justify-between md:gap-36 xl:gap-36">
           <div>
-            <p className="text-gray-500 text-sm">{t("Links")}</p>
+            <p className="text-sm text-gray-500">{t("Links")}</p>
             <ul className="mt-14">
               {links.map(({ name, path }, id) => (
                 <li key={id} className="mb-11 text-xs font-medium">
@@ -71,7 +71,7 @@ export function Footer() {
             </ul>
           </div>
           <div>
-            <p className="text-gray-500 text-sm">{t("Help")}</p>
+            <p className="text-sm text-gray-500">{t("Help")}</p>
             <ul className="mt-14">
               {helpLinks.map(({ name, path }, id) => (
                 <li key={id} className="mb-11 text-xs font-medium">
@@ -92,7 +92,7 @@ export function Footer() {
           </div>
         </div>
         <div>
-          <p className="text-gray-500 text-sm">{t("Newstler")}</p>
+          <p className="text-sm text-gray-500">{t("Newstler")}</p>
           <div className="mt-14 flex items-center gap-4">
             <div className="w-52">
               <Input
