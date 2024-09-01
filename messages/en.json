@@ -328,5 +328,20 @@
     "contactUs": "Need Help?",
     "contactDescription": "If you have any issues with payment, please contact our support team.",
     "thankYou": "Thank you for choosing Elevate Home Spaces!"
+  },
+  "ReturnPolicies": {
+    "title": "Return Policies",
+    "description": "Learn about our return policies to ensure a smooth and hassle-free return process.",
+    "returnPeriod": "Return Period",
+    "returnPeriodDescription": "You can return most items within 30 days of receipt for a full refund. Items must be in their original condition and packaging.",
+    "returnProcess": "Return Process",
+    "returnProcessDescription": "To initiate a return, please contact our customer service team with your order number and reason for return. We will provide you with instructions on how to return the item.",
+    "refunds": "Refunds",
+    "refundsDescription": "Refunds will be processed to the original payment method within 5-7 business days after we receive the returned item. Shipping costs are non-refundable.",
+    "exchanges": "Exchanges",
+    "exchangesDescription": "We do not offer exchanges. If you wish to exchange an item, please return it for a refund and place a new order for the desired item.",
+    "contactUs": "Need Assistance?",
+    "contactDescription": "For any questions or issues related to returns, please contact our support team.",
+    "thankYou": "Thank you for choosing Elevate Home Spaces!"
   }
 }
