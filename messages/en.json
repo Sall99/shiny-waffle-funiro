@@ -313,5 +313,20 @@
     "contactUs": "9. Contact Us",
     "contactUsParagraph": "If you have any questions or concerns about this Privacy Policy or our data practices, please contact us at:",
     "thankYou": "Thank you for choosing Shiny Waffle Funiro Elevate Home Spaces! We appreciate your trust in us and are committed to protecting your privacy."
+  },
+  "PaymentOptions": {
+    "title": "Payment Options",
+    "description": "Choose your preferred payment method to complete your purchase on Elevate Home Spaces.",
+    "onlyCardAvailable": "Currently, only card payments are available.",
+    "howToPay": "How to Pay with Card",
+    "step1": "Select 'Pay with Card' as your payment method.",
+    "step2": "Enter your card details, including card number, expiration date, and CVV.",
+    "step3": "Confirm your payment details and click 'Submit'.",
+    "step4": "Once the payment is successful, you will receive a confirmation email with your order details.",
+    "securityInfo": "Security Information",
+    "securityDescription": "We use secure and encrypted payment gateways to protect your financial information. Your card details are not stored on our servers.",
+    "contactUs": "Need Help?",
+    "contactDescription": "If you have any issues with payment, please contact our support team.",
+    "thankYou": "Thank you for choosing Elevate Home Spaces!"
   }
 }
