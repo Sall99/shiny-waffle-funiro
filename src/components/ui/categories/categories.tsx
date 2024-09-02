@@ -43,7 +43,7 @@ export function CategoriesSection() {
             <div className="relative">
               <Image
                 src={imageUrl}
-                alt={title}
+                alt={""}
                 width={imageWidth}
                 height={imageHeight}
               />
