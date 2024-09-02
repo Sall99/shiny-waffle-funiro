@@ -16,13 +16,6 @@ import { Menu } from "../svg";
 import { LocalSwitcher, Search, Layout, MenuMobile, Cart } from "@/components";
 import { ModalCart } from "../ui/cart/modal";
 
-const links = [
-  { name: "Home", path: "/" },
-  { name: "Shop", path: "/shop" },
-  { name: "About", path: "/about" },
-  { name: "Contact", path: "/contact" },
-];
-
 const iconLinks = [
   {
     Icon: Store,
@@ -121,7 +114,7 @@ function Header({ session }: Props) {
           <div className="md:hidden" onClick={toggleMenu}>
             <Menu />
           </div>
-          <Link href="/" className="flex items-center">
+          <Link href="/" className="flex items-center" aria-label="Home">
             <div className="relative h-_30 w-_50">
               <Image
                 src="/images/logo.png"
@@ -142,16 +135,6 @@ function Header({ session }: Props) {
           </Link>
         </div>
 
-        <div className="hidden transition duration-500 ease-in md:flex md:gap-10 lg:gap-12">
-          {links.map((link, key) => (
-            <Link
-              href={link.path}
-              key={key}
-              className="font-poppins text-base font-semibold hover:text-muted-foreground"
-            ></Link>
-          ))}
-        </div>
-
         <div className="flex items-center gap-6 md:gap-8">
           <div className="hidden md:block">
             <LocalSwitcher />
@@ -165,6 +148,7 @@ function Header({ session }: Props) {
                 <Link
                   href={link.path}
                   key={key}
+                  aria-label={link.name}
                   className={clsx(
                     "font-poppins hover:text-muted-foreground",
                     link.hidden ? "hidden md:block" : "",
@@ -178,7 +162,10 @@ function Header({ session }: Props) {
                       <link.Icon width={18} height={18} />
                     </div>
                   ) : (
-                    <link.Icon width={18} height={18} />
+                    <>
+                      <link.Icon width={18} height={18} />
+                      <span className="sr-only">{link.name}</span>{" "}
+                    </>
                   )}
                 </Link>
               ) : null;
