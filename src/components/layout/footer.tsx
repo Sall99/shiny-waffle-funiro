@@ -117,13 +117,15 @@ export function Footer() {
           {t("Copyright")}
         </p>
         <div className="flex gap-3">
-          <Link href={myGithub} target="blank">
+          <Link href={myGithub} target="blank" aria-label="Github">
             {" "}
             <FaGithub fill="#B88E2F" />
+            <span className="sr-only">Github</span>
           </Link>
-          <Link href={myLinkedin} target="blank">
+          <Link href={myLinkedin} target="blank" aria-label="Linkedin">
             {" "}
             <FaLinkedinIn fill="#B88E2F" />
+            <span className="sr-only">Linkedin</span>
           </Link>
         </div>
       </div>
