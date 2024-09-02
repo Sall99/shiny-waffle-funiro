@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Poppins, Montserrat } from "next/font/google";
 import { Analytics } from "@vercel/analytics/react";
 import { GoogleTagManager } from "@next/third-parties/google";
-import { getMessages } from "next-intl/server";
+import { getLocale, getMessages } from "next-intl/server";
 import { getServerSession } from "next-auth";
 import { Toaster } from "react-hot-toast";
 import "./globals.css";
@@ -34,15 +34,11 @@ export const metadata: Metadata = {
 
 type Props = {
   children: React.ReactNode;
-  params: { locale: string };
 };
 
-export default async function RootLayout({
-  children,
-  params: { locale },
-}: Props) {
+export default async function RootLayout({ children }: Props) {
   const messages = await getMessages();
-
+  const locale = await getLocale();
   const session = await getServerSession(authOptions);
 
   return (
@@ -54,7 +50,7 @@ export default async function RootLayout({
               <Header session={session} />
               <AppRouterCacheProvider>{children}</AppRouterCacheProvider>
               <Toaster />
-              <Footer />S
+              <Footer />
             </NextIntlClientProvider>
             <Analytics />
           </StoreProvider>
