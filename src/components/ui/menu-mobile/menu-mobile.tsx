@@ -79,7 +79,7 @@ export function MenuMobile({ isOpen, setIsOpen }: MenuMobileProps) {
                   <Link href={path} className="flex items-center gap-2">
                     <Image
                       src={`/images/${imageSrc}`}
-                      alt={title}
+                      alt={""}
                       width={16}
                       height={16}
                     />
