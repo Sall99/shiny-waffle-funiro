@@ -23,4 +23,5 @@ export * from "./filter";
 export * from "./spinner";
 export * from "./account";
 export * from "./orders";
-export * from './checkout'
+export * from "./checkout";
+export * from "./emails";

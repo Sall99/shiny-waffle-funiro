@@ -1,7 +1,8 @@
 import { NextResponse, NextRequest } from "next/server";
 import Stripe from "stripe";
 
-import { prisma, getUserAndSession } from "../../../../../libs";
+import { prisma, getUserAndSession, resendClient } from "../../../../../libs";
+import { WelcomEmailTemplate } from "@/components";
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
   apiVersion: "2024-06-20",
@@ -69,6 +70,15 @@ export async function POST(req: NextRequest) {
 
       return paymentIntent.client_secret;
     });
+
+    const isSent = await resendClient.emails.send({
+      from: `Acme  ${process.env.RESEND_ON_BOARDING}`,
+      to: ["sallaboudaouda@gmail.com"],
+      subject: "Pay successful",
+      react: WelcomEmailTemplate({ firstName: user.fname || "" }),
+    });
+
+    console.log("isSent", isSent);
 
     return NextResponse.json({ clientSecret: result }, { status: 200 });
   } catch (error: any) {
