@@ -25,3 +25,4 @@ export * from "./account";
 export * from "./orders";
 export * from "./checkout";
 export * from "./emails";
+export * from "./gallery";
