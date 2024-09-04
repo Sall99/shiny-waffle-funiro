@@ -1,9 +1,10 @@
 "use client";
-import React, { useState } from "react";
+import React from "react";
 import Slider from "react-slick";
 
 import "./index.css";
 import { homeProductsSlider } from "@/constants/data";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 export default function Products() {
   const settings = {
@@ -12,6 +13,9 @@ export default function Products() {
     speed: 500,
     slidesToShow: 3,
     slidesToScroll: 1,
+    arrows: true,
+    nextArrow: <ChevronRight color="#B88E2F" width={10} height={10} />,
+    prevArrow: <ChevronLeft color="#B88E2F" />,
   };
 
   return (
@@ -23,12 +27,18 @@ export default function Products() {
             className="home-slider-image"
             style={{
               backgroundImage: `url(${imageUrl})`,
-              width: "100%",
-              height: "100%",
-              backgroundSize: "cover",
-              backgroundPosition: "center",
             }}
-          ></div>
+          >
+            <div className="slider-content-overlay">
+              <p className="flex items-center gap-4 text-xs">
+                <span>0 {id}</span>{" "}
+                <span className="w-8 border-t border-black-500"> </span>
+                <span>{description}</span>
+              </p>
+              <h3 className="slider-title">{title}</h3>
+              <p className="slider-description">{description}</p>
+            </div>
+          </div>
         </div>
       ))}
     </Slider>

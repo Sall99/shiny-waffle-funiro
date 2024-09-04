@@ -6,7 +6,7 @@ import Products from "./products";
 
 export function Inspiration() {
   return (
-    <section className="bg-orange-200 h-_586 mb-16 flex justify-between py-11 pl-_102">
+    <section className="mb-16 flex h-_586 justify-between bg-orange-200 py-11 pl-_102">
       <div className="flex h-full flex-col justify-center">
         <h2 className="text-lg font-bold capitalize">
           50+ Beautiful rooms <br /> inspiration
@@ -17,7 +17,7 @@ export function Inspiration() {
         </p>
         <Button
           label="Explore"
-          className="w-_176 h-_48 mt-6 text-base font-bold uppercase hover:bg-white-100"
+          className="mt-6 h-_48 w-_176 text-base font-bold uppercase hover:bg-white-100"
           variant="primary"
         />
       </div>
