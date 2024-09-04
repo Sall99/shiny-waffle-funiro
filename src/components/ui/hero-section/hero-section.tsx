@@ -10,7 +10,10 @@ interface HomeHeroSectionProps {
 export function HeroSection({ title }: HomeHeroSectionProps) {
   const t = useTranslations("HeroSection");
   return (
-    <div className="flex h-_316 w-full items-center justify-center bg-hero-pattern bg-cover bg-center bg-no-repeat">
+    <div
+      className="flex h-_316 w-full items-center justify-center bg-cover bg-center bg-no-repeat"
+      style={{ backgroundImage: `url(/images/Hero.jpg)` }}
+    >
       <div className="flex flex-col items-center">
         <div className="relative h-_30 w-_50">
           <Image
