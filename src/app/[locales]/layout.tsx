@@ -30,6 +30,9 @@ export const metadata: Metadata = {
   title: "Elevate Home Spaces",
   description:
     "Discover curated selections for your living room, dining, and bedroom",
+  verification: {
+    google: process.env.NEXT_PUBLIC_GOOGLE_VERIFICATION,
+  },
 };
 
 type Props = {
