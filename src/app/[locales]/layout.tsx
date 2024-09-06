@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Poppins, Montserrat } from "next/font/google";
 import { Analytics } from "@vercel/analytics/react";
-import { GoogleTagManager } from "@next/third-parties/google";
+import { GoogleAnalytics, GoogleTagManager } from "@next/third-parties/google";
 import { getLocale, getMessages } from "next-intl/server";
 import { getServerSession } from "next-auth";
 import { Toaster } from "react-hot-toast";
@@ -50,6 +50,7 @@ export default async function RootLayout({ children }: Props) {
         <SessionWrapper>
           <StoreProvider>
             <NextIntlClientProvider locale={locale} messages={messages}>
+              <GoogleTagManager gtmId={`${process.env.GOOGLE_TAGMANAGER}`} />
               <Header session={session} />
               <AppRouterCacheProvider>{children}</AppRouterCacheProvider>
               <Toaster />
@@ -59,7 +60,7 @@ export default async function RootLayout({ children }: Props) {
           </StoreProvider>
         </SessionWrapper>
       </body>
-      <GoogleTagManager gtmId={`${process.env.GOOGLE_TAGMANAGER}`} />
+      <GoogleAnalytics gaId={`${process.env.GOOGLE_ANALYTICS}`} />
     </html>
   );
 }
