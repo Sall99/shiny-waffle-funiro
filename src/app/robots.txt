@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://shiny-waffle-funiro.vercel.app/sitemap.xml
