@@ -202,7 +202,8 @@
     "Shop": "Shop",
     "diningroom": "Dinning room",
     "livingroom": "Living room",
-    "bedroom": "Bedroom"
+    "bedroom": "Bedroom",
+    "About": "About"
   },
   "feature": {
     "HighQuality": "crafted from top materials",
