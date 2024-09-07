@@ -191,7 +191,8 @@
     "emailAddress": "Adresse e-mail",
     "optional": "Ceci est optionnel",
     "Hi": "Salut ! J'aimerais poser une question sur",
-    "Submit": "Soumettre"
+    "Submit": "Soumettre",
+    "submissionSuccess": "Votre message a bien été reçu"
   },
   "HeroSection": {
     "Home": "Accueil",

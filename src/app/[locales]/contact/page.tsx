@@ -1,12 +1,14 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import { Clock4, MapPin, Phone } from "lucide-react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
+import toast from "react-hot-toast";
+import { useTranslations } from "next-intl";
 
 import { contactSchema } from "@/constants/validation";
 import { Button, Feature, HeroSection, Input, Layout } from "@/components";
-import { useTranslations } from "next-intl";
+import { contactAction } from "@/actions/contact.action";
 
 type contactFormValues = {
   name: string;
@@ -16,17 +18,32 @@ type contactFormValues = {
 };
 
 function Contact() {
+  const [isLoading, setIsLoading] = useState(false);
+
   const t = useTranslations("Contact");
   const {
     handleSubmit,
     register,
+    reset,
     formState: { errors },
   } = useForm<contactFormValues>({
     resolver: yupResolver(contactSchema),
   });
 
   const onSubmit: SubmitHandler<contactFormValues> = (values) => {
-    console.log(values);
+    setIsLoading(true);
+    contactAction(values)
+      .then((result) => {
+        toast.success(t("submissionSuccess"));
+        setIsLoading(false);
+        reset();
+      })
+      .catch((error) => {
+        toast.error("error");
+      })
+      .finally(() => {
+        setIsLoading(false);
+      });
   };
   return (
     <section className="px-5">
@@ -124,6 +141,7 @@ function Contact() {
                 label={t("Submit")}
                 variant="primary"
                 className="w-_245 rounded-md py-4"
+                loading={isLoading}
               />
             </form>
           </div>

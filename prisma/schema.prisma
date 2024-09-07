@@ -125,6 +125,22 @@ model Payment {
   updatedAt     DateTime      @updatedAt
 }
 
+model ContactMessage {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  name      String
+  email     String
+  subject   String?
+  message   String
+  phone     String?   
+  status    String    @default("UNREAD") 
+  ipAddress String?   
+  userAgent String?   
+  source    String?   
+  createdAt DateTime  @default(now()) 
+  updatedAt DateTime  @updatedAt      
+}
+
+
 enum orderStatus {
   PENDING
   PROCESSING
