@@ -102,7 +102,7 @@ export const Gallery: React.FC = () => {
               }}
             ></div>
           </div>
-          <div className="flex gap-4">
+          <div className="flex justify-end gap-4">
             <div
               style={{
                 backgroundImage: `url(https://res.cloudinary.com/dx6jhjxpt/image/upload/v1725466536/shiny-waffle-funiro/Rectangle_37_oitmqq.png)`,
