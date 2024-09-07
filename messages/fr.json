@@ -202,7 +202,11 @@
     "Shop": "Boutique",
     "diningroom": "Salle à manger",
     "livingroom": "Salon",
-    "bedroom": "Chambre à coucher"
+    "bedroom": "Chambre à coucher",
+    "About": "À Propos",
+    "PaymentOptions": "Options de Paiement",
+    "ReturnPolicies": "Politiques de retour",
+    "PrivacyPolicies": "Politiques de Confidentialité"
   },
   "feature": {
     "HighQuality": "abriqués à partir de matériaux de qualité supérieure",

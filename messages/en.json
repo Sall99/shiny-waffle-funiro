@@ -202,7 +202,11 @@
     "Shop": "Shop",
     "diningroom": "Dinning room",
     "livingroom": "Living room",
-    "bedroom": "Bedroom"
+    "bedroom": "Bedroom",
+    "About": "About",
+    "PaymentOptions": "Payment Options",
+    "ReturnPolicies": "Return Policies",
+    "PrivacyPolicies": "Privacy Policies"
   },
   "feature": {
     "HighQuality": "crafted from top materials",

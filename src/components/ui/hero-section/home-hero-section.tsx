@@ -6,10 +6,7 @@ import { Button } from "@/components";
 export function HomeHeroSection() {
   const t = useTranslations();
   return (
-    <section
-      className="h-_716 w-full bg-cover bg-center bg-no-repeat"
-      style={{ backgroundImage: `url(/images/Hero.jpg)` }}
-    >
+    <section className="h-_716 w-full bg-home-hero-pattern bg-cover bg-center bg-no-repeat">
       <div className="flex h-full w-full items-center justify-end px-4 md:pr-14">
         <div className="h-_443 w-_543 bg-orange-100 px-10 pt-16">
           <p className="mb-2 text-base font-semibold">

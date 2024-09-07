@@ -76,7 +76,7 @@ const config: Config = {
       },
     },
     backgroundImage: {
-      "home-hero-pattern": "url('/public/images/Hero.jpg')",
+      "home-hero-pattern": "url('/images/hero.jpg')",
       "hero-pattern": "url('/images/Hero-section.jpg')",
     },
     extend: {
