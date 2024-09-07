@@ -191,7 +191,8 @@
     "emailAddress": "Email address",
     "optional": "This is an optional",
     "Hi": "Hi! i’d like to ask about",
-    "Submit": "Submit"
+    "Submit": "Submit",
+    "submissionSuccess": "Your message has been received"
   },
   "HeroSection": {
     "Home": "Home",

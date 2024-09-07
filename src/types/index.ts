@@ -13,6 +13,17 @@ export type addressBookFormValues = {
   additionalInfo?: string;
 };
 
+export type ContactMessageData = {
+  name: string;
+  email: string;
+  subject?: string;
+  message: string;
+  phone?: string;
+  ipAddress?: string;
+  userAgent?: string;
+  source?: string;
+};
+
 export interface HorizontalStepperProps {
   status: string;
 }
