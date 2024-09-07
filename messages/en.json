@@ -203,7 +203,10 @@
     "diningroom": "Dinning room",
     "livingroom": "Living room",
     "bedroom": "Bedroom",
-    "About": "About"
+    "About": "About",
+    "PaymentOptions": "Payment Options",
+    "ReturnPolicies": "Return Policies",
+    "PrivacyPolicies": "Privacy Policies"
   },
   "feature": {
     "HighQuality": "crafted from top materials",

@@ -10,8 +10,8 @@ import { useTranslations } from "next-intl";
 const links = [
   { name: "Home", path: "/" },
   { name: "Shop", path: "/shop" },
-  { name: "About", path: "/about" },
   { name: "Contact", path: "/contact" },
+  { name: "About", path: "/about" },
 ];
 
 const helpLinks = [
