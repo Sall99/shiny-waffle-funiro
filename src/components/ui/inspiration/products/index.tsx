@@ -5,8 +5,10 @@ import Slider from "react-slick";
 import "./index.css";
 import { homeProductsSlider } from "@/constants/data";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { useMediaQuery } from "react-responsive";
 
 export default function Products() {
+  const isMobile = useMediaQuery({ maxWidth: 767 });
   const settings = {
     dots: true,
     infinite: true,
@@ -16,6 +18,16 @@ export default function Products() {
     arrows: true,
     nextArrow: <ChevronRight color="#B88E2F" width={10} height={10} />,
     prevArrow: <ChevronLeft color="#B88E2F" />,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          dots: false,
+        },
+      },
+    ],
   };
 
   return (

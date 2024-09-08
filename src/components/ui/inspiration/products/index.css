@@ -115,3 +115,16 @@
 .slick-next:focus {
   background: #ffffff94;
 }
+
+@media (max-width: 768px) {
+  .slick-current .home-slider-container .home-slider-image {
+    width: 373px !important;
+  }
+  .home-slider-container {
+    width: 373px !important;
+    margin: 0 auto;
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+  }
+}

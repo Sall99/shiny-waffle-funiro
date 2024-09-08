@@ -6,8 +6,8 @@ import Products from "./products";
 
 export function Inspiration() {
   return (
-    <section className="mb-16 flex h-_586 justify-between bg-orange-200 py-11 pl-_102">
-      <div className="flex h-full flex-col justify-center">
+    <section className="mb-16 flex h-_586 justify-between bg-orange-200 px-5 py-11 xl:pl-_102">
+      <div className="hidden h-full flex-col justify-center xl:flex">
         <h2 className="text-lg font-bold capitalize">
           50+ Beautiful rooms <br /> inspiration
         </h2>
@@ -21,7 +21,7 @@ export function Inspiration() {
           variant="primary"
         />
       </div>
-      <div className="w-_876">
+      <div className="w-_373 m-auto lg:w-_876">
         <Products />
       </div>
     </section>
