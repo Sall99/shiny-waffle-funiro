@@ -39,7 +39,7 @@ export function Product({
   const [hovered, setHovered] = useState(false);
   const priceFormat = useFormatter();
   const isMobile = useMediaQuery("(max-width: 768px)");
-  const imageWidth = 285;
+  const imageWidth = isMobile ? 404 : 285;
   const imageHeight = isMobile ? 315 : 305;
   const cartItems = useSelector(selectCartItems);
   const favorisItems = useSelector(selectFavorisItems);
@@ -50,6 +50,7 @@ export function Product({
     backgroundImage: `url(${defaultImage})`,
     backgroundSize: "cover",
     backgroundPosition: "center",
+    margin: "0 auto",
   };
 
   const product: IProduct = {
@@ -94,7 +95,7 @@ export function Product({
   return (
     <div
       className={clsx(
-        "relative m-auto w-_285 bg-gray-100 pb-4 sm:pb-0",
+        "relative m-auto bg-gray-100 pb-4 sm:pb-0 md:w-_285",
         layout === "vertical" && "flex h-_305 w-full items-center",
         layout === "grid" && "sm:h-_450",
       )}
