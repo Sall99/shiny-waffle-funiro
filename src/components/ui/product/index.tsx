@@ -39,7 +39,7 @@ export function Product({
   const [hovered, setHovered] = useState(false);
   const priceFormat = useFormatter();
   const isMobile = useMediaQuery("(max-width: 768px)");
-  const imageWidth = isMobile ? 404 : 285;
+  const imageWidth = isMobile ? 384 : 285;
   const imageHeight = isMobile ? 315 : 305;
   const cartItems = useSelector(selectCartItems);
   const favorisItems = useSelector(selectFavorisItems);

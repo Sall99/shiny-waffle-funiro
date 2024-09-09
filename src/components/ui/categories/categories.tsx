@@ -37,7 +37,7 @@ export function CategoriesSection() {
         <h2 className="text-lg font-bold capitalize">{t("browse")}</h2>
         <p>{t("discover")}</p>
       </div>
-      <div className="flex flex-col items-center justify-center gap-8 md:flex-row">
+      <div className="flex items-center justify-center gap-8">
         {categories.map(({ title, imageUrl, path }, index) => (
           <Link href={path} key={index}>
             <div className="relative">
