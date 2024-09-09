@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
 import { Poppins, Montserrat } from "next/font/google";
 import { Analytics } from "@vercel/analytics/react";
-import { GoogleAnalytics, GoogleTagManager } from "@next/third-parties/google";
+import { GoogleTagManager } from "@next/third-parties/google";
 import { getLocale, getMessages } from "next-intl/server";
 import { getServerSession } from "next-auth";
 import { Toaster } from "react-hot-toast";
 import "./globals.css";
-import { Footer, Header } from "@/components";
+import { Footer, GoogleAnalytics, Header } from "@/components";
 import { NextIntlClientProvider } from "next-intl";
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v13-appRouter";
 
@@ -60,7 +60,7 @@ export default async function RootLayout({ children }: Props) {
           </StoreProvider>
         </SessionWrapper>
       </body>
-      <GoogleAnalytics gaId={`${process.env.GOOGLE_ANALYTICS}`} />
+      <GoogleAnalytics />
     </html>
   );
 }

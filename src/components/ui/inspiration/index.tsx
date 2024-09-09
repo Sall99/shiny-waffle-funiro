@@ -21,7 +21,7 @@ export function Inspiration() {
           variant="primary"
         />
       </div>
-      <div className="w-_373 m-auto lg:w-_876">
+      <div className="m-auto w-_373 lg:w-_876">
         <Products />
       </div>
     </section>
