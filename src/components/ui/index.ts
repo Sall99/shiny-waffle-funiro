@@ -26,3 +26,4 @@ export * from "./orders";
 export * from "./checkout";
 export * from "./emails";
 export * from "./gallery";
+export * from "./google";
