@@ -31,7 +31,7 @@ export const metadata: Metadata = {
   description:
     "Discover curated selections for your living room, dining, and bedroom",
   verification: {
-    google: "qcWfJCFZItyPgfp1PN0QFBnwCG5o-jiTYHstZ0GlpJI",
+    google: "qcWfJCFZItyPgfp1PN0QFBnwCG5o-jiTYHstZ0GlpJ",
   },
 };
 

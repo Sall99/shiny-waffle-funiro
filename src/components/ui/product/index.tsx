@@ -50,7 +50,6 @@ export function Product({
     backgroundImage: `url(${defaultImage})`,
     backgroundSize: "cover",
     backgroundPosition: "center",
-    margin: "0 auto",
   };
 
   const product: IProduct = {
@@ -95,15 +94,16 @@ export function Product({
   return (
     <div
       className={clsx(
-        "relative m-auto bg-gray-100 pb-4 sm:pb-0 md:w-_285",
-        layout === "vertical" && "flex h-_305 w-full items-center",
-        layout === "grid" && "sm:h-_450",
+        "relative m-auto bg-gray-100 pb-4 sm:pb-0",
+        layout === "vertical" &&
+          "w-_387 flex h-_450 flex-col items-center justify-between md:h-_305 md:w-full md:flex-row",
+        layout === "grid" && "sm:h-_450 md:w-_285",
       )}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >
       <div style={imageStyle}></div>
-      <div className="px-5 pt-2">
+      <div className="pt-2 md:px-5">
         <h2 className="mt-4 text-sm font-semibold">{name}</h2>
         <p className="mt-2 truncate text-xs text-gray-400 ">{title}</p>
         <p className="mt-2 text-sm">
