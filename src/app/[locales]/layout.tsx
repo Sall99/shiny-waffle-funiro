@@ -33,6 +33,27 @@ export const metadata: Metadata = {
   verification: {
     google: "wl3JxJ5o6Fls3aR5fEDCg3Y4TMnvnzW_BcFid2DWSL0",
   },
+  openGraph: {
+    title: "Elevate Home Spaces",
+    description:
+      "Discover curated selections for your living room, dining, and bedroom",
+    url: "https://shiny-waffle-funiro.vercel.app",
+    type: "website",
+    images: [
+      {
+        url: "https://res.cloudinary.com/dx6jhjxpt/image/upload/v1711320948/shiny-waffle-funiro/81Vk8a6p5jL._AC_SL1500__lyssku.jpg",
+        width: 800,
+        height: 600,
+        alt: "Elevate Home Spaces",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Elevate Home Spaces",
+    description:
+      "Discover curated selections for your living room, dining, and bedroom",
+  },
 };
 
 type Props = {
@@ -44,8 +65,28 @@ export default async function RootLayout({ children }: Props) {
   const locale = await getLocale();
   const session = await getServerSession(authOptions);
 
+  const schemaOrgData = {
+    "@context": "http://schema.org",
+    "@type": "WebSite",
+    url: "https://shiny-waffle-funiro.vercel.app",
+    name: "Elevate Home Spaces",
+    description:
+      "Discover curated selections for your living room, dining, and bedroom",
+    publisher: {
+      "@type": "Organization",
+      name: "Sall99",
+    },
+  };
+
   return (
     <html lang={locale}>
+      <head>
+        <link rel="canonical" href="https://shiny-waffle-funiro.vercel.app" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaOrgData) }}
+        />
+      </head>
       <body className={`${poppins.className} ${montserrat.className}`}>
         <SessionWrapper>
           <StoreProvider>
