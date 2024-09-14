@@ -1,5 +1,6 @@
 "use client";
-import React, { useState } from "react";
+
+import React, { useState, useCallback } from "react";
 import { signIn } from "next-auth/react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -14,11 +15,13 @@ import { createAccountSchema } from "@/constants/validation";
 import { Button, Input, SocialLoginButton } from "@/components";
 import { createAccountFormValues } from "@/types/auth";
 import { resisterAction } from "@/actions/auth.action";
+import { AxiosError } from "axios";
 
-export default function Login() {
+const Login: React.FC = () => {
   const t = useTranslations("createAccount");
   const [isLoading, setIsLoading] = useState(false);
   const router = useRouter();
+
   const {
     handleSubmit,
     register,
@@ -27,32 +30,40 @@ export default function Login() {
     resolver: yupResolver(createAccountSchema),
   });
 
-  const onSubmit: SubmitHandler<createAccountFormValues> = (values) => {
-    setIsLoading(true);
-    resisterAction(values)
-      .then((result) => {
+  const onSubmit: SubmitHandler<createAccountFormValues> = useCallback(
+    async (values) => {
+      setIsLoading(true);
+      try {
+        await resisterAction(values);
         toast.success(t("accountCreated"));
-        setIsLoading(false);
         router.push("/auth/login");
-      })
-      .catch((error) => {
-        toast.error("error");
-      })
-      .finally(() => {
+      } catch (error) {
+        if (error instanceof AxiosError && error.response) {
+          toast.error(error.response.data?.error || "An error occurred");
+        } else {
+          toast.error("An unknown error occurred");
+        }
+      } finally {
         setIsLoading(false);
-      });
-  };
+      }
+    },
+    [router, t],
+  );
+
+  const handleSocialLogin = useCallback(
+    (provider: string) => () => {
+      signIn(provider, { redirect: false, callbackUrl: "/" });
+    },
+    [],
+  );
 
   return (
     <section className="mb-56 mt-20 flex flex-col items-center justify-center px-6 font-poppins sm:mt-9">
       <h2 className="mb-10 text-left font-bold uppercase">
         {t("createAccount")}
       </h2>
-      <div className="w-full sm:w-_500">
-        <form
-          onSubmit={handleSubmit(onSubmit)}
-          className="flex flex-col gap-8 sm:w-_500"
-        >
+      <div className="w-full sm:w-[500px]">
+        <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-8">
           <div className="flex justify-between gap-9">
             <Input
               name="fname"
@@ -99,40 +110,27 @@ export default function Login() {
           />
         </form>
 
-        <h1 className="my-9 text-center text-gray-400">- {t("OR")} -</h1>
+        <div className="my-9 text-center text-gray-400">- {t("OR")} -</div>
 
-        <div className="flex flex-col">
-          <div className="flex flex-col justify-between gap-4 md:flex-row md:gap-9">
-            <SocialLoginButton
-              icon={
-                <Image
-                  src="/svg/googleIcon.svg"
-                  priority
-                  width={20}
-                  height={20}
-                  alt=""
-                />
-              }
-              label={t("loginGoogle")}
-              onClick={() =>
-                signIn("google", {
-                  redirect: false,
-                  callbackUrl: "/",
-                })
-              }
-            />
-
-            <SocialLoginButton
-              icon={<FaGithub className="text-xl" />}
-              label={t("loginGithub")}
-              onClick={() =>
-                signIn("github", {
-                  redirect: false,
-                  callbackUrl: "/",
-                })
-              }
-            />
-          </div>
+        <div className="flex flex-col gap-4 md:flex-row md:gap-9">
+          <SocialLoginButton
+            icon={
+              <Image
+                src="/svg/googleIcon.svg"
+                priority
+                width={20}
+                height={20}
+                alt="Google login"
+              />
+            }
+            label={t("loginGoogle")}
+            onClick={handleSocialLogin("google")}
+          />
+          <SocialLoginButton
+            icon={<FaGithub className="text-xl" />}
+            label={t("loginGithub")}
+            onClick={handleSocialLogin("github")}
+          />
         </div>
         <p className="mt-4 text-xs">
           {t("haveAnAccount")}{" "}
@@ -143,4 +141,6 @@ export default function Login() {
       </div>
     </section>
   );
-}
+};
+
+export default Login;
