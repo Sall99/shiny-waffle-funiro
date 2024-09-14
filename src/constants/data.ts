@@ -1441,18 +1441,7 @@ export const allProducts = [
       },
     ],
   },
-  {
-    name: "",
-    title: "",
-    category: "",
-    description: "",
-    price: 0,
-    promoPrice: 0,
-    defaultImage: "",
-    imageUrl: [],
-    additionalInformation: [],
-    reviews: [],
-  },
+
   {
     name: "SAFAVIEH Madison Collection Area Rug",
     title: "Modern Area Rug with Vintage Distressed Design",
