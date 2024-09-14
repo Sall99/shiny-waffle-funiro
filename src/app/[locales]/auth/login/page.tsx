@@ -1,8 +1,8 @@
 "use client";
-import React, { useEffect, useState } from "react";
-import { getSession, signIn, useSession } from "next-auth/react";
+import React, { useEffect, useCallback } from "react";
+import { signIn, useSession } from "next-auth/react";
 import toast from "react-hot-toast";
-import { usePathname, useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { FaApple } from "react-icons/fa";
 import { useTranslations } from "next-intl";
 import { SubmitHandler, useForm } from "react-hook-form";
@@ -14,52 +14,54 @@ import Image from "next/image";
 import { loginSchema } from "@/constants/validation";
 import { Button, Input, SocialLoginButton } from "@/components";
 
-type loginFormValues = {
+type LoginFormValues = {
   email: string;
   password: string;
 };
 
 export default function Login() {
   const t = useTranslations("Login");
-  const [isLoading, setIsLoading] = useState(false);
   const router = useRouter();
-  const session = useSession();
+  const { data: session } = useSession();
 
-  console.log(session);
   const {
     handleSubmit,
     register,
-    formState: { errors },
-  } = useForm<loginFormValues>({
+    formState: { errors, isSubmitting },
+  } = useForm<LoginFormValues>({
     resolver: yupResolver(loginSchema),
   });
 
   useEffect(() => {
-    if (session.data?.user) {
+    if (session?.user) {
       router.push("/");
     }
   }, [session, router]);
 
-  const onSubmit: SubmitHandler<loginFormValues> = (values) => {
-    setIsLoading(true);
+  const onSubmit: SubmitHandler<LoginFormValues> = useCallback(
+    async (values) => {
+      try {
+        const result = await signIn("credentials", {
+          ...values,
+          redirect: false,
+        });
 
-    signIn("credentials", {
-      ...values,
-      redirect: false,
-    }).then((callback) => {
-      setIsLoading(false);
-
-      if (callback?.ok) {
-        toast.success(t("loggedIn"));
-        window.location.reload();
-        router.push("/");
+        if (result?.ok) {
+          toast.success(t("loggedIn"));
+          router.push("/");
+        } else if (result?.error) {
+          toast.error(result.error);
+        }
+      } catch (error) {
+        toast.error(t("loginError"));
       }
+    },
+    [t, router],
+  );
 
-      if (callback?.error) {
-        toast.error(callback.error);
-      }
-    });
-  };
+  const handleSocialLogin = useCallback((provider: string) => {
+    signIn(provider, { callbackUrl: "/" });
+  }, []);
 
   return (
     <div className="mb-56 mt-28 flex flex-col items-center justify-center px-6 font-poppins">
@@ -88,7 +90,7 @@ export default function Login() {
             label={t("Login")}
             className={clsx("h-10 w-40 text-left text-sm font-bold uppercase")}
             variant="black"
-            loading={isLoading}
+            loading={isSubmitting}
           />
         </form>
 
@@ -103,21 +105,17 @@ export default function Login() {
                   priority
                   width={20}
                   height={20}
-                  alt=""
+                  alt="Google Icon"
                 />
               }
               label={t("loginGoogle")}
-              onClick={() =>
-                signIn("google", { redirect: false, callbackUrl: "/" })
-              }
+              onClick={() => handleSocialLogin("google")}
             />
 
             <SocialLoginButton
               icon={<FaApple className="text-xl" />}
               label={t("loginGithub")}
-              onClick={() =>
-                signIn("github", { redirect: false, callbackUrl: "/" })
-              }
+              onClick={() => handleSocialLogin("github")}
             />
           </div>
         </div>
