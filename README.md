@@ -32,16 +32,32 @@ To get started with Elevate Home Spaces, follow these steps:
    Create a `.env` file in the root directory and add the following variables:
 
    ```
-   DATABASE_URL="your_mongodb_connection_string"
-   NEXTAUTH_SECRET="your_nextauth_secret"
-   NEXTAUTH_URL="http://localhost:3000"
+
    ```
 
+#### MONGO URI
+
+DATABASE_URL=
+
+NEXTAUTH_SECRET=
+
+#### STRIPE KEYS
+
+NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=
+STRIPE_SECRET_KEY=
+
+#### RESEND
+
+RESEND_API_KEY=
+RESEND_ON_BOARDING=<onboarding@resend.dev>
+
+````
+
 4. **Set Up the Database**
-   ```bash
-   npx prisma generate
-   npx prisma db push
-   ```
+```bash
+npx prisma generate
+npx prisma db push
+````
 
 ## Running the Application
 
