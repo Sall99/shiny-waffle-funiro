@@ -14,20 +14,32 @@ interface ProductsSectionProps {
 
 export function ProductsSection({ layout = "grid" }: ProductsSectionProps) {
   const [displayCount, setDisplayCount] = useState(9);
+  const [allProducts, setAllProducts] = useState<IProduct[]>([]);
+  const [loadingMore, setLoadingMore] = useState(false);
   const t = useTranslations("Products");
 
-  const { error, data, isLoading } = useSWR(
+  const { error, data } = useSWR(
     ["products", displayCount],
     () => getAllProducts(displayCount),
-    { revalidateOnFocus: false },
+    { revalidateOnFocus: false, revalidateIfStale: false },
   );
 
   useEffect(() => {
-    mutate(["products", displayCount]);
+    if (data) {
+      setAllProducts((prevProducts) => [...prevProducts, ...data.products]);
+    }
+  }, [data]);
+
+  useEffect(() => {
+    if (loadingMore) {
+      mutate(["products", displayCount]);
+    }
   }, [displayCount]);
 
   const handleLoadMore = () => {
+    setLoadingMore(true);
     setDisplayCount((prevCount) => prevCount + 10);
+    setLoadingMore(false);
   };
 
   const gridClass =
@@ -39,13 +51,13 @@ export function ProductsSection({ layout = "grid" }: ProductsSectionProps) {
         {t("ourProducts")}
       </h2>
 
-      {isLoading ? (
+      {allProducts.length === 0 && !data ? (
         <ProductSkeleton number={9} layout={layout} />
       ) : (
         <div
           className={clsx("grid grid-cols-1 content-center gap-8", gridClass)}
         >
-          {data?.products?.map(
+          {allProducts.map(
             ({
               id,
               name,
@@ -75,6 +87,7 @@ export function ProductsSection({ layout = "grid" }: ProductsSectionProps) {
           onClick={handleLoadMore}
           className="m-auto h-_48 w-_245 text-base font-bold uppercase hover:bg-white-100"
           variant="primary"
+          disabled={loadingMore}
         />
       </div>
     </section>

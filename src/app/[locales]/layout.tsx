@@ -9,7 +9,6 @@ import "./globals.css";
 import { Footer, GoogleAnalytics, Header } from "@/components";
 import { NextIntlClientProvider } from "next-intl";
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v13-appRouter";
-
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import StoreProvider from "@/store/provider";
@@ -27,32 +26,38 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
-  title: "Elevate Home Spaces",
+  title: "Elevate Home Spaces | Premium Furniture & Home Decor",
   description:
-    "Discover curated selections for your living room, dining, and bedroom",
+    "Transform your living spaces with Elevate Home Spaces. Discover our curated collections of premium furniture and stylish decor for your living room, dining area, and bedroom. Find the perfect pieces to create a cozy, elegant, and functional home that reflects your unique style. Shop now for free shipping on orders over $500!",
+  keywords:
+    "furniture, home decor, living room, dining room, bedroom, interior design, modern furniture, classic furniture, home improvement, home makeover",
   verification: {
     google: "wl3JxJ5o6Fls3aR5fEDCg3Y4TMnvnzW_BcFid2DWSL0",
   },
   openGraph: {
-    title: "Elevate Home Spaces",
+    title: "Elevate Home Spaces | Premium Furniture & Home Decor",
     description:
-      "Discover curated selections for your living room, dining, and bedroom",
+      "Transform your living spaces with Elevate Home Spaces. Discover our curated collections of premium furniture and stylish decor for your living room, dining area, and bedroom. Find the perfect pieces to create a cozy, elegant, and functional home that reflects your unique style.",
     url: "https://shiny-waffle-funiro.vercel.app",
     type: "website",
+    locale: "en_US",
+    siteName: "Elevate Home Spaces",
     images: [
       {
         url: "https://res.cloudinary.com/dx6jhjxpt/image/upload/v1711320948/shiny-waffle-funiro/81Vk8a6p5jL._AC_SL1500__lyssku.jpg",
         width: 800,
         height: 600,
-        alt: "Elevate Home Spaces",
+        alt: "Elevate Home Spaces - Premium Furniture Collection",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Elevate Home Spaces",
+    title: "Elevate Home Spaces | Premium Furniture & Home Decor",
     description:
-      "Discover curated selections for your living room, dining, and bedroom",
+      "Transform your living spaces with our curated collections of premium furniture and stylish decor. Create a cozy, elegant, and functional home that reflects your unique style.",
+    site: "@ElevateHomeSpaces",
+    creator: "@ElevateHomeSpaces",
   },
 };
 
@@ -71,10 +76,20 @@ export default async function RootLayout({ children }: Props) {
     url: "https://shiny-waffle-funiro.vercel.app",
     name: "Elevate Home Spaces",
     description:
-      "Discover curated selections for your living room, dining, and bedroom",
+      "Discover curated collections of premium furniture and stylish decor for your living room, dining area, and bedroom. Create a cozy, elegant, and functional home that reflects your unique style.",
     publisher: {
       "@type": "Organization",
-      name: "Sall99",
+      name: "Elevate Home Spaces",
+      logo: {
+        "@type": "ImageObject",
+        url: "https://shiny-waffle-funiro.vercel.app/logo.png",
+      },
+    },
+    potentialAction: {
+      "@type": "SearchAction",
+      target:
+        "https://shiny-waffle-funiro.vercel.app/search?q={search_term_string}",
+      "query-input": "required name=search_term_string",
     },
   };
 
@@ -93,7 +108,9 @@ export default async function RootLayout({ children }: Props) {
             <NextIntlClientProvider locale={locale} messages={messages}>
               <GoogleTagManager gtmId={`${process.env.GOOGLE_TAGMANAGER}`} />
               <Header session={session} />
-              <AppRouterCacheProvider>{children}</AppRouterCacheProvider>
+              <main>
+                <AppRouterCacheProvider>{children}</AppRouterCacheProvider>
+              </main>
               <Toaster />
               <Footer />
             </NextIntlClientProvider>
